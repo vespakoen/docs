@@ -93,7 +93,7 @@ When set to **true**, error messages will be detailed with a stack trace and sni
 <a name="error-logging"></a>
 #### Logging
 
-You may wish to log any errors that occur in your application. Laravel makes it a breeze. You can turn on logging by setting the log option to **true** in the **application/config/errors.php** file:
+You may wish to log any errors that occur in your application. Laravel makes it a breeze. You can turn on logging by setting the log option to **true** in the **application/config/error.php** file:
 
 	'log' => true;
 
