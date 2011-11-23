@@ -7,6 +7,7 @@
 - [Ordering Results](#ordering)
 - [Skip & Take](#limit)
 - [Aggregates](#aggregates)
+- [Expressions](#expressions)
 - [Inserting Records](#insert)
 - [Updating Records](#update)
 - [Deleting Records](#delete)
@@ -36,6 +37,10 @@ Instead of returning an array, the **first** method will return a single object:
 	$user = DB::table('users')->first();
 
 	echo $user->email;
+
+When you only need to retrieve the value of a single column, you may use the **only** method:
+
+	$email = DB::table('users')->where('id', '=', 1)->only('email');
 
 It's easy to limit the columns returned by your query. Simply pass an array of columns you want into the **get** or **first** method:
 
@@ -177,6 +182,23 @@ Need to get a **MIN**, **MAX**, **AVG**, **SUM**, or **COUNT** value? Just pass 
 Of course, you may wish to limit the query using a WHERE clause first:
 
 	$count = DB::table('users')->where('id', '>', 10)->count();
+
+<a name="expressions"></a>
+### Expressions
+
+Sometimes you may need to set the value of a column to a SQL function such as **NOW()**. It's a breeze using the **raw** method on the **DB** class. Here's what it looks like:
+
+	DB::table('users')->update(array('updated_at' => DB::raw('NOW()')));
+
+The **raw** method simply tells the query to inject the contents of the expression into the query as a string rather than a bound parameter. For example, you can also use expressions to increment column values:
+
+	DB::table('users')->update(array('votes' => DB::raw('votes + 1')));
+
+Of course, convenient methods are provided for **increment** and **decrement**:
+
+	DB::table('users')->increment('votes');
+
+	DB::table('users')->decrement('votes');
 
 <a name="insert"></a>
 ### Inserting Records

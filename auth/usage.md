@@ -11,7 +11,7 @@
 <a name="hash"></a>
 ### Salting & Hashing
 
-If you are using the Auth class, Laravel requires all passwords to be hashed and salted. Web development must be done responsibly. Salted, hashed passwords make a rainbow table attack against your user's passwords impractical.
+If you are using the Auth class, you are strongly encouraged to hash and salt all passwords. Web development must be done responsibly. Salted, hashed passwords make a rainbow table attack against your user's passwords impractical.
 
 Don't worry, salting and hashing passwords is easy using the **Hash** class. The Hash class provides a simple way to hash passwords using the **bcrypt** hashing algorithm. Check out this example:
 
@@ -26,19 +26,19 @@ You can compare an unhashed value against a hashed one using the **check** metho
 		return 'The password is valid!';
 	}
 
-> **Note:** Before using the Auth class, be sure to [create the "password" column](/docs/auth/config) on your user table.
-
 <a name="login"></a>
 ### Logging In
 
-Logging a user into your application is simple using the **login** method on the Auth class. Simply pass the username and password of the user to the method. The login method will return **true** if the credentials are valid. Otherwise, **false** will be returned:
+Logging a user into your application is simple using the **attempt** method on the Auth class. Simply pass the username and password of the user to the method. The login method will return **true** if the credentials are valid. Otherwise, **false** will be returned:
 
-	if (Auth::login('example@gmail.com', 'password'))
+	if (Auth::attempt('example@gmail.com', 'password'))
 	{
 	     return Redirect::to('user/profile');
 	}
 
 If the user's credentials are valid, the user ID will be stored in the session and the user will be considered "logged in" on subsequent requests to your application.
+
+> **Note:** To provide more flexiblity when working with third-party authentication providers, you are not required to pass a password into the **attempt** method.
 
 To determine if the user of your application is logged in, call the **check** method:
 
@@ -47,9 +47,11 @@ To determine if the user of your application is logged in, call the **check** me
 	     return "You're logged in!";
 	}
 
-Sometimes you may need to login a user without checking their credentials, such as after a user first registers to use your application. It's easy using the **remember** method. Just pass your user object:
+Sometimes you may need to login a user without checking their credentials, such as after a user first registers to use your application. It's easy using the **login** method. Just pass your user object or the user's ID:
 
-	Auth::remember($user);
+	Auth::login($user);
+
+	Auth::login(15);
 
 <a name="filter"></a>
 ### Protecting Routes

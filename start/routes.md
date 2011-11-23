@@ -4,7 +4,6 @@
 - [Wildcard URI Segments](/docs/start/routes#segments)
 - [Named Routes](/docs/start/routes#named)
 - [Route Filters](/docs/start/routes#filters)
-- [Route Dependencies](/docs/start/routes#dependencies)
 - [Organizing Routes](/docs/start/routes#organize)
 
 Unlike other PHP frameworks, Laravel places routes and their corresponding functions in one file: **application/routes.php**. This file contains the "definition", or public API, of your application. To add functionality to your application, you add to the array located in this file. It's a breeze.
@@ -90,9 +89,9 @@ Alright, ready to attach the filter to a route? Do it like this:
 
 Notice the route now has an array value with a **before** key. The **before** value contains the names of any filters that should be run before the method is executed.
 
-Why stop with one filter? You can define multiple filters for a single route by separating the filter names with commas:
+Why stop with one filter? You can define multiple filters for a single route by separating the filter names with pipes:
 
-	'POST /user' => array('before' => 'auth, csrf', function() {})
+	'POST /user' => array('before' => 'auth|csrf', function() {})
 
 Remember, if a "before" filter returns a value, that value will be considered the output of the request. For example, the built-in **auth** filter checks if the user has logged in to your application. If they haven't, a [Redirect](/docs/start/views#redirect) to the login page is sent to the browser. Isn't the simplicity refreshing?
 
@@ -104,29 +103,19 @@ Of course, adding filters to run after the request is just as easy:
 
 > **Note:** "After" filters receive the response returned by the route function that handled the request.
 
-<a name="dependencies"></a>
-## Route Dependencies
+### Filter Parameters
 
-Often, a route needs to use a package to do its job. For instance, perhaps it needs to use the [SwiftMailer](http://swiftmailer.org) package to send some e-mails. One option is to load the package within your route like this:
+To keep your code clean, you may wish to pass parameters to filters. For instance, you could create a **role** filter which accepted a role name. It's simple:
 
-	'GET /' => function()
-	{
-		Package::load('swift-mailer');
-	}
+	'role' => function($role) {}
 
-However, cluttering up your routes with package loading can get frusterating. Instead, tell Laravel what your route **needs**:
+Now, you can attach the filter to a route like this:
 
-	'GET /' => array('needs' => 'swift-mailer', function()
-	{
-		//
-	})
+	'GET /admin' => array('before' => 'role:admin', function() {})
 
-Now, the **swift-mailer** package will be loaded each time this route is called. Need to load more than one package? No problem:
+Notice that a colon is used to separate the filter name from the filter parameters. Of course, you are welcome to pass more than one parameter to the filter by separating them with commas:
 
-	'GET /' => array('needs' => 'swift-mailer, facebook', function()
-	{
-		//
-	})
+	'GET /admin' => array('before' => 'role:admin,editor', function() {})
 
 <a name="organize"></a>
 ## Organizing Routes

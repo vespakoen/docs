@@ -3,6 +3,7 @@
 - [The Basics](#basics)
 - [Validation Rules](#rules)
 - [Retrieving Error Messages](#errors)
+- [Error Messages & Views](#views)
 - [Specifying Custom Error Messages](#messages)
 - [Creating Custom Validation Rules](#custom)
 
@@ -271,6 +272,30 @@ The **all** method returns an array containing all error messages for all attrib
 
 	return $validator->errors->all('<p>:message</p>');
 
+<a name="views"></a>
+### Errors Messages & Views
+
+Once you have performed your validation, you need an easy way to get the errors back to the view. Laravel makes it amazingly simple. Let's walk through a typical scenario. We'll define two routes:
+
+	'GET /register' => function()
+	{
+		return View::make('user.register');
+	},
+
+	'POST /register' => function()
+	{
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator->invalid())
+		{
+			return Redirect::to('register')->with_errors($validator);
+		}
+	}
+
+Great! So, we have two simple registration routes. One to handle displaying the form, and one to handle the posting of the form. In the **POST** route, we run some validation over the input. If the validation fails, we redirect back to the registration form and [flash the validation errors to the session](/docs/start/views#with) so they will be available for us to display.
+
+But, notice we are not explicitly binding the errors to the view in our **GET** route. However, an **errors** variable will still be available in the view. Laravel intelligently determines if errors exist in the session, and if they do, binds them to the view for you. If no errors exist in the session, an empty message container will still be bound to the view. In your views, this allows you to always assume you have a message container available via the **errors** variable. We love making your life easier.
+
 <a name="messages"></a>
 ### Specifying Custom Error Messages
 
@@ -305,11 +330,11 @@ In the example above, the custom required message will be used for the **email**
 <a name="custom"></a>
 ### Creating Custom Validation Rules
 
-Need to create your own validation rules? You will love how easy it is! First, create a class that extends **System\Validator** and place it in your **application/libraries** directory:
+Need to create your own validation rules? You will love how easy it is! First, create a class that extends **Laravel\Validator** and place it in your **application/libraries** directory:
 
 	<?php
 
-	class Validator extends System\Validator {}
+	class Validator extends Laravel\Validator {}
 
 Next, remove the **Validator** alias from **application/config/aliases.php**.
 
@@ -317,7 +342,7 @@ Alright! You're ready to define your own validation rule. Create a function on y
 
 	<?php
 
-	class Validator extends System\Validator {
+	class Validator extends Laravel\Validator {
 		
 		public function validate_awesome($attribute, $parameters)
 		{
@@ -356,7 +381,7 @@ As mentioned above, you may even specify and receive a list of parameters in you
 
 	// In your custom validator...
 
-	class Validator extends System\Validator {
+	class Validator extends Laravel\Validator {
 		
 		public function validate_awesome($attribute, $parameters)
 		{

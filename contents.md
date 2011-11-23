@@ -9,6 +9,14 @@
 	- [Route Filters](/docs/start/routes#filters)
 	- [Route Dependencies](/docs/start/routes#dependencies)
 	- [Organizing Routes](/docs/start/routes#organize)
+- [Controllers](/docs/start/controllers)
+	- [Creating Controllers](/docs/start/controllers#define)
+	- [Adding Actions](/docs/start/controllers#actions)
+	- [RESTful Actions](/docs/start/controllers#restful)
+	- [Action Filters](/docs/start/controllers#filters)
+	- [Layouts](/docs/start/controllers#layouts)
+	- [Dependency Injection](/docs/start/controllers#di)
+	- [Routes To Controllers](/docs/start/controllers#routes)
 - [Views & Responses](/docs/start/views)
 	- [Creating Views](/docs/start/views#create)
 	- [Binding Data To Views](/docs/start/views#bind)
@@ -21,15 +29,17 @@
 	- [Building URLs](/docs/start/views#urls)
 	- [Building HTML](/docs/start/views#html)
 	- [Pagination](/docs/start/views#pagination)
+	- [Blade Templating](/docs/start/views#blade)
+	- [Sections](/docs/start/views#sections)
 	- [Errors](/docs/start/views#errors)
 - [Interaction](/docs/start/interaction)
 	- [Input](/docs/start/interaction#basics)
 	- [Old Input](/docs/start/interaction#old)
 	- [Cookies](/docs/start/interaction#cookies)
 	- [Building Forms](/docs/start/interaction#forms)
+- [Models & Libraries](/docs/start/libraries)
 - [Data Validation](/docs/start/validation)
-- [Models, Libraries, & Packages](/docs/start/libraries)
-- [Modules](/docs/start/modules)
+- [IoC Container](/docs/start/ioc)
 
 ## Database
 
@@ -37,6 +47,7 @@
 - [Usage](/docs/database/usage)
 - [Fluent Query Builder](/docs/database/query)
 - [Eloquent ORM](/docs/database/eloquent)
+- [Redis](/docs/database/redis)
 
 ## Caching
 

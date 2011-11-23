@@ -39,6 +39,6 @@ To get the singular form of a word, use the **singular** method:
 
 	echo Inflector::singular('friends');
 
-But, what if you are doing something like displaying the total number of comments on a blog post? You only want the plural form of "comment" if there is more than one. **Laravel** has you covered with the **plural_if** method. If the count passed to the method is greater than one, the plural form of the word will be returned. Otherwise, the word will be returned unchanged.
+But, what if you are doing something like displaying the total number of comments on a blog post? You only want the plural form of "comment" if there is more than one. Just pass the number of comments into the **plural** method. If the count passed to the method is greater than one, the plural form of the word will be returned. Otherwise, the word will be returned unchanged.
 
-	echo Inflector::plural_if('comment', $count);
+	echo Inflector::plural('comment', $count);

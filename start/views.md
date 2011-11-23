@@ -11,6 +11,8 @@
 - [Building URLs](/docs/start/views#urls)
 - [Building HTML](/docs/start/views#html)
 - [Pagination](/docs/start/views#pagination)
+- [Blade Templating](/docs/start/views#blade)
+- [Sections](/docs/start/views#sections)
 - [Errors](/docs/start/views#errors)
 
 <a name="create"></a>
@@ -35,7 +37,7 @@ When building a large application, you may want to organize your views into sub-
 
 	'GET /home' => function()
 	{
-	     return View::make('user/login');
+	     return View::make('user.login');
 	}
 
 It's that simple. Of course, you are not required to return a View. Strings are also welcome:
@@ -48,11 +50,11 @@ It's that simple. Of course, you are not required to return a View. Strings are 
 <a name="bind"></a>
 ## Binding Data To Views
 
-You can pass data to a view by "binding" the data to a variable. This is done using the **bind** method on the View:
+You can pass data to a view by "binding" the data to a variable. This is done using the **with** method on the View:
 
 	'GET /home' => function()
 	{
-	     return View::make('simple')->bind('email', 'example@gmail.com');
+	     return View::make('simple')->with('email', 'example@gmail.com');
 	}
 
 In the example above, the first parameter is the **name** of the view variable. The second parameter is the **value** that will be assigned to the variable.
@@ -68,21 +70,23 @@ Of course, we can bind as many variables as we wish:
 	'GET /home' => function()
 	{
 	     return View::make('simple')
-	                      ->bind('name', 'Taylor')
-	                      ->bind('email', 'example@gmail.com');
+	                      ->with('name', 'Taylor')
+	                      ->with('email', 'example@gmail.com');
 	}
 
 You may also bind view data by simply setting properties on a view instance:
 
 	'GET /home' => function()
 	{
-	     $view = View::make('user/login');
+	     $view = View::make('user.login');
 
-	     $view->name = 'Taylor';
+	     $view->name  = 'Taylor';
 	     $view->email = 'example@gmail.com';
 
 	     return $view;
 	}
+
+> **Note:** An **errors** variable is always bound to every view. Check out the [Validator documentation](/docs/start/validation#views) to learn why.
 
 <a name="nest"></a>
 ## Nesting Views Within Views
@@ -91,30 +95,30 @@ Want to nest views inside of views? There are two ways to do it, and they are bo
 
 	'GET /home' => function()
 	{
-	     $view = View::make('user/login');
+	     $view = View::make('user.login');
 
-	     $view->content = View::make('partials/content');
-	     $view->footer = View::make('partials/footer');
+	     $view->content = View::make('partials.content');
+	     $view->footer  = View::make('partials.footer');
 
 	     return $view;
 	}
 
-Nested calls to **View::make** can get a little ugly. For that reason, Laravel provides a simple **partial** method:
+Nested calls to **View::make** can get a little ugly. For that reason, Laravel provides a simple **nest** method:
 
-	View::make('layout/default')->partial('content', 'partials/home');
+	View::make('layout.default')->nest('content', 'partials.home');
 
-The **partial** method is very similar to the **bind** method; however, you simply pass a view name in the second parameter to the method. The view will created and bound to the variable for you.
+The **nest** method is very similar to the **with** method; however, you simply pass a view name in the second parameter to the method. The view will created and bound to the variable for you.
 
 Need to bind data to a partial? No problem. Pass the data in the third parameter to the method:
 
-	View::make('layout/default')
-					->partial('content', 'partials/home', array('name' => 'Taylor'));
+	View::make('layout.default')
+					->nest('content', 'partials.home', array('name' => 'Taylor'));
 
-In some situations, you may need to get the string content of a view from within another view. It's easy using the **get** method:
+In some situations, you may need to get the string content of a view from within another view. It's easy using the **render** method:
 
 	<html>
-		<?php echo View::make('content')->get(); ?>
-		<?php echo View::make('footer')->get(); ?>
+		<?php echo View::make('content')->render(); ?>
+		<?php echo View::make('footer')->render(); ?>
 	</html>
 
 <a name="named-views"></a>
@@ -137,16 +141,16 @@ Of course, you may pass bindings into the **of** method:
 
 Since the **of** method returns an instance of the **View** class, you may use any of the View class methods:
 
-	return View::of_home()->bind('email', $email);
+	return View::of_home()->with('email', $email);
 
 Using named views makes templating a breeze:
 
-	return View::of_layout()->bind('content', $content);
+	return View::of_layout()->with('content', $content);
 
 <a name="composers"></a>
 ## View Composers
 
-View composers will free you from repetitive, brittle code, and help keep your application beautiful and maintainable. All view composers are defined in the **application/composers.php** file. Each time a view is created, its composer will be called. The composer can bind data to the view, register its assets, or even gather common data needed for the view. When the composer is finished working with the view, it should return the view instance. Here's an example composer:
+View composers will free you from repetitive, brittle code, and help keep your application beautiful and maintainable. All view composers are defined in the **application/composers.php** file. Each time a view is created, its composer will be called. The composer can bind data to the view, register its assets, or even gather common data needed for the view. Here's an example composer:
 
 	return array(
 
@@ -155,10 +159,8 @@ View composers will free you from repetitive, brittle code, and help keep your a
 				Asset::add('jquery', 'js/jquery.js');
 				Asset::add('jquery-ui', 'js/jquery-ui.js', 'jquery');
 
-				$view->partial('header', 'partials/header');
-				$view->partial('footer', 'partials/footer');
-
-				return $view;
+				$view->nest('header', 'partials.header');
+				$view->nest('footer', 'partials.footer');
 			}
 
 	);
@@ -258,23 +260,39 @@ After a user creates an account or signs into your application, it is common to 
 
 	return Redirect::to('user/profile')->with('status', 'Welcome Back!');
 
+Now, let's say a user submitted a form and your validator found some problems. You probably want to redirect back to that form and repopulate it with the user's input. That means you need to flash the Input data to the session. Sound complicated? It's actually amazingly simple to do this using the **with_input** method on the **Redirect** class:
+
+	return Redirect::to('register')->with_input();
+
+Of course, flashing passwords or other sensitive information to the session is a bad idea. So, you can filter the data flashed to the session like this:
+
+	return Redirect::to('register')->with_input('only', array('username'));
+
+	return Redirect::to('register')->with_input('except', array('password'));
+
+Another common scenario is flashing validation errors to the session before redirect to a form. It's so easy. Just use the **with_errors** method on the **Redirect** class and pass in your [Validator](/docs/start/validation). The Validator's errors will automatically be flashed:
+
+	return Redirect::to('register')->with_errors($validator);
+
+To learn more about working with validation errors and views, check out the [Validator documentation](/docs/start/validation#views).
+
 > **Note:** For more information regarding Sessions and flash data, check out the [Session documentation](/docs/session/config).
 
 <a name="downloads"></a>
 ## Downloads
 
-Perhaps you just want to force the web browser to download a file? Check out the **download** method on the **File** class:
+Perhaps you just want to force the web browser to download a file? Check out the **download** method on the **Response** class:
 
 	'GET /file' => function()
 	{
-	     return File::download('path/to/your/file.jpg');
+	     return Response::download('path/to/your/file.jpg');
 	}
 
 In the example above, the image will be downloaded as "file.jpg", however, you can easily specify a different filename for the download in the second parameter to the method:
 
 	'GET /file' => function()
 	{
-	     return File::download('path/to/your/file.jpg', 'photo.jpg');
+	     return Response::download('path/to/your/file.jpg', 'photo.jpg');
 	}
 
 <a name="urls"></a>
@@ -535,7 +553,7 @@ The URLs created by the Pagination class look something like this:
 
 Sometimes, you may wish to add more items to the query string, such as the column you are sorting by. It's a breeze. Use the **append** method on your Paginator instance:
 
-	<?php echo $users->append(array('sort' => 'votes'))->links();
+	<?php echo $users->appends(array('sort' => 'votes'))->links();
 
 Great! Now the URLs will look like this:
 
@@ -544,7 +562,7 @@ Great! Now the URLs will look like this:
 Need to style your links? No problem. All pagination link elements can be style using CSS classes. Here is an example of the HTML elements generated by the **links** method:
 
 	<div class="pagination">
-		<a href="foo" class="prev_page">Previous</a>
+		<a href="foo" class="previous_page">Previous</a>
 
 		<a href="foo">1</a>
 		<a href="foo">2</a>
@@ -571,12 +589,75 @@ When you are on the first page of results, the "Previous" link will be disabled.
 
 	<span class="disabled prev_page">Previous</span>
 
+<a name="blade"></a>
+## Blade Templating
+
+Blade makes writing your views pure bliss. To create a blade view, simply name your view file with a ".blade.php" file extension. Blade allows you to use a beautiful, unobtrusive syntax for writing PHP control structures and echoing data. Here's an example:
+
+	<h1>Comments</h1>
+
+	@foreach ($comments as $comment)
+		The comment body is {{$comment->body}}.
+	@endforeach
+
+Isn't it amazing? Blade provides support for **foreach**, **for**, **while**, and **if** statements. Here is what each of these statements look like:
+
+	@if (count($comments) > 0)
+		I have comments!
+	@else
+		I don't have comments!
+	@endif
+
+	@for ($i = 0; $i < count($comments) - 1; $i++)
+		The comment body is {{$comments[$i]}}
+	@endfor
+
+	@while ($something)
+		I am still looping!
+	@endwhile
+
+As you have probably noticed, you can echo anything by enclosing it within double curly brances. You may even call functions:
+
+	{{View::make('partials.sidebar')}}
+
+<a name="sections"></a>
+## Sections
+
+View sections provide a simple way to inject content into layouts from nested views. For example, perhaps you want to inject a nested view's needed JavaScript into the header of your layout. With sections, it couldn't be easier. To start a section, simply call the **start** method on the **Section** class:
+
+	<?php Section::start('scripts'); ?>
+		<?php echo HTML::script('js/jquery.js');
+	<?php Section::stop(); ?>
+
+Great! Now we have a section named "scripts" which we can include in our layout:
+
+	<html>
+		<head>
+			<title>My Layout</title>
+
+			<?php echo Section::yield('scripts');
+		</head>
+		<body>
+			...
+		</body>
+	</html>
+
+The content of the "scripts" section will be returned by the **yield** method. It's a dream to use. You can even use Blade syntax to work with your sections:
+
+	@section('scripts')
+		{{HTML::script('js/jquery.js')}}
+	@endsection
+
+	<head>
+		@yield('scripts')
+	</head>
+
 <a name="errors"></a>
 ## Errors
 
 Sometimes you may need to return an error response, such as the **404** or **500** views. It can be done like this:
 
-	return Response::make(View::make('error/404'), 404);
+	return Response::make(View::make('error.404'), 404);
 
 But, that's a little cumbersome. Instead, use the **error** method on the **Response** class. Just mention the error you want to return:
 

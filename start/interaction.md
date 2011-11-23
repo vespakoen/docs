@@ -54,6 +54,22 @@ Have you ever tried to re-populate an input form after an invalid form submissio
 
 	$name = Input::old('name');
 
+Behind the scenes, this method is retrieving the previous request's input from the session. So, how does the input get in the session? It's simple. You can use the **flash** method on the **Input** class:
+
+	Input::flash();
+
+Of course, flashing passwords or other sensitive information to the session is a bad idea. So, you can filter the data flashed to the session like this:
+
+	Input::flash('only', array('username', 'email'));
+
+	Input::flash('except', array('password', 'credit_card'));
+
+Since you will typically want to flash input right before a redirect, there is a beautiful shortcut to **Input::flash** on the **Redirect** class. Just call **with\_input**
+
+	return Redirect::to('login')->with_input();
+
+	return Redirect::to('login')->with_input('except', array('password'));
+
 > **Note:** You must specifiy a session driver before using the **old** Input method.
 
 As you would expect, you may pass a default value in the second parameter to the method:
@@ -146,9 +162,9 @@ Laravel provides an easy method of protecting your application from [cross-site 
 
 Now, simply [attach the built-in CSRF filter](/docs/start/routes#filters) to the route the form is posting to. If the token submitted by the form does not match the token in the user's session, the **application/views/error/500.php** view will be displayed.
 
-Want to just get the CSRF token without generating a hidden input field? Use the **raw_token** method:
+Want to just get the CSRF token without generating a hidden input field? Use the **token** method on the **Session** class:
 
-	echo Form::raw_token();
+	echo Session::token();
 
 > **Note:** Don't forget to [specify a session driver](/docs/session/config) before using these methods.
 

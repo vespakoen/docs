@@ -20,6 +20,10 @@ When you need to get only one record from a table, use the **first** method. The
 
 	$user = DB::first('select * from users where id = 1');
 
+Soemtimes you may need to only retrieve a single column from the database. You can use the **only** method to only retrieve that column's value from the query instead of an entire object:
+
+	$email = DB::only('select email from users where id = 1');
+
 ### Connections
 
 Need to get the raw PDO object for a connection? It's easy. Just mention the connection name to the **connection** method on the DB class:

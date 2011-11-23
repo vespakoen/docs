@@ -73,6 +73,7 @@ After setting up HTTP rewriting, you should set the **index** configuration opti
 - [404 Errors](#error-404)
 - [Error Detail](#error-detail)
 - [Logging](#error-logging)
+- [Ignoring Errors](#ignoring-errors)
 
 <a name="error-404"></a>
 #### 404 Errors
@@ -86,7 +87,7 @@ You can easily control the level of error detail via the **detail** option in th
 
 	'detail' => true;
 
-When set to **true**, error messages will be detailed with a stack trace and snippet of the relevant file. When set to **false**, the generic error page (**application/views/error/500.php**) will be displayed. Feel free to modify this view.
+When set to **true**, error messages will be detailed with a stack trace and file information. When set to **false**, the generic error page (**application/views/error/500.php**) will be displayed. Feel free to modify this view.
 
 > **Note:** In a production environment, it is strongly suggested that you turn off error details.
 
@@ -100,3 +101,8 @@ You may wish to log any errors that occur in your application. Laravel makes it 
 You have total control over how your errors are logged via the **logger** function defined in **application/config/error.php**. This function is called every time there is an unhandled error or exception in your application. 
 
 As you can see, the default logger implementation writes to the **application/storage/log.txt** file; however, you are free to modify this function however you wish.
+
+<a name="ignoring-errors"></a>
+#### Ignoring Errors
+
+Sometimes you may wish to ignore certain errors, such as errors regarding deprecation or warnings. All you need to do is set the error levels you wish to ignore on the **ignore** option defined in **application/config/error.php**. These errors will not be displayed by Laravel; however, they will still be logged if error logging is enabled.

@@ -20,17 +20,17 @@ Wonderful. You're ready to start encrypting.
 <a name="encrypt"></a>
 ### Encrypting A String
 
-Encrypting a string is a breeze. Just pass it to the **encrypt** method on a Crypter instance:
+Encrypting a string is a breeze. Just pass it to the **encrypt** method on the Crypter class:
 
-	Crypter::make()->encrypt($value);
+	Crypter::encrypt($value);
 
 Do you feel like James Bond yet?
 
 <a name="decrypt"></a>
 ### Decrypting A String
 
-So you're ready to decrypt a string? It's simple. Just use the **decrypt** method on a Crypter instance:
+So you're ready to decrypt a string? It's simple. Just use the **decrypt** method on the Crypter class:
 
-	Crypter::make()->decrypt($encrypted_value);
+	Crypter::decrypt($encrypted_value);
 
 > **Note:** The decrypt method will only decrypt strings that were encrypted using **your** application key.
