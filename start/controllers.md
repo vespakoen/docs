@@ -111,7 +111,7 @@ It couldn't be simpler. Unlike other frameworks, there is no need for a separate
 <a name="di"></a>
 ## Dependency Injection
 
-> **Note:** Before diving into controller dependency injection, you may wish to read the documentation on Laravel's beautiful [IoC container](/docs/ioc/config).
+> **Note:** Before diving into controller dependency injection, you may wish to read the documentation on Laravel's beautiful [IoC container](/docs/start/ioc).
 
 If you are focusing on writing testable code, you will probably want to inject dependencies into the constructor of your controller. No problem. Just register your controller in the [IoC container](/docs/start/ioc). When registering the controller with the container, prefix the key with **controllers.**. So, we could register our user controller like so:
 
