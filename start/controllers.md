@@ -21,7 +21,7 @@ All controllers should live in the **application/controllers** directory. Contro
 
 Notice that the controller extends the base **Controller** class. This class provides some core functionality used by every Laravel controller. Also, even though the class name is **User\_Controller**, the controller class should be stored in **application/controllers/user.php**.
 
-When creating nested controllers, the controller's name should reflect its location within the **controllers** directory. For example, a controller living at **application/controllers/user/profile.php** should have a class name of **User_Profile_Controller**. This controller will handle all requests beginning with **http://example.com/user/profile**. You are free to nest controllers as deep as you wish!
+When creating nested controllers, the controller's name should reflect its location within the **controllers** directory. So, a controller at **application/controllers/user/profile.php** should have a class name of **User_Profile_Controller**. This controller will handle all requests beginning with **http://example.com/user/profile**. You are free to nest controllers as deep as you wish!
 
 <a name="actions"></a>
 ## Adding Actions
