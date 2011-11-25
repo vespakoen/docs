@@ -1,4 +1,4 @@
-## Getting Started
+## Documentation
 
 - [Requirements & Installation](/docs/start/install)
 - [Basic Configuration](/docs/start/config)
@@ -41,33 +41,28 @@
 - [Data Validation](/docs/start/validation)
 - [IoC Container](/docs/start/ioc)
 
-## Database
+- **Database**
+	- [Configuration](/docs/database/config)
+	- [Usage](/docs/database/usage)
+	- [Fluent Query Builder](/docs/database/query)
+	- [Eloquent ORM](/docs/database/eloquent)
+	- [Redis](/docs/database/redis)
 
-- [Configuration](/docs/database/config)
-- [Usage](/docs/database/usage)
-- [Fluent Query Builder](/docs/database/query)
-- [Eloquent ORM](/docs/database/eloquent)
-- [Redis](/docs/database/redis)
+- **Caching**
+	- [Configuration](/docs/cache/config)
+	- [Usage](/docs/cache/usage)
 
-## Caching
+- **Sessions**
+	- [Configuration](/docs/session/config)
+	- [Usage](/docs/session/usage)
 
-- [Configuration](/docs/cache/config)
-- [Usage](/docs/cache/usage)
+- **Authentication**
+	- [Configuration](/docs/auth/config)
+	- [Usage](/docs/auth/usage)
 
-## Sessions
-
-- [Configuration](/docs/session/config)
-- [Usage](/docs/session/usage)
-
-## Authentication
-
-- [Configuration](/docs/auth/config)
-- [Usage](/docs/auth/usage)
-
-## Other Topics
-
-- [Working With Files](/docs/other/file)
-- [Working With Strings](/docs/other/text)
-- [Localization](/docs/other/lang)
-- [Encryption](/docs/other/crypt)
-- [Benchmarking Code](/docs/other/benchmark)
+- **Other Topics**
+	- [Working With Files](/docs/other/file)
+	- [Working With Strings](/docs/other/text)
+	- [Localization](/docs/other/lang)
+	- [Encryption](/docs/other/crypt)
+	- [Benchmarking Code](/docs/other/benchmark)
