@@ -41,26 +41,26 @@
 - [Data Validation](/docs/start/validation)
 - [IoC Container](/docs/start/ioc)
 
-- **Database**
+### Database
 	- [Configuration](/docs/database/config)
 	- [Usage](/docs/database/usage)
 	- [Fluent Query Builder](/docs/database/query)
 	- [Eloquent ORM](/docs/database/eloquent)
 	- [Redis](/docs/database/redis)
 
-- **Caching**
+### Caching
 	- [Configuration](/docs/cache/config)
 	- [Usage](/docs/cache/usage)
 
-- **Sessions**
+### Sessions
 	- [Configuration](/docs/session/config)
 	- [Usage](/docs/session/usage)
 
-- **Authentication**
+### Authentication
 	- [Configuration](/docs/auth/config)
 	- [Usage](/docs/auth/usage)
 
-- **Other Topics**
+### Other Topics
 	- [Working With Files](/docs/other/file)
 	- [Working With Strings](/docs/other/text)
 	- [Localization](/docs/other/lang)
