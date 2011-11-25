@@ -42,27 +42,32 @@
 - [IoC Container](/docs/start/ioc)
 
 ### Database
-	- [Configuration](/docs/database/config)
-	- [Usage](/docs/database/usage)
-	- [Fluent Query Builder](/docs/database/query)
-	- [Eloquent ORM](/docs/database/eloquent)
-	- [Redis](/docs/database/redis)
+
+- [Configuration](/docs/database/config)
+- [Usage](/docs/database/usage)
+- [Fluent Query Builder](/docs/database/query)
+- [Eloquent ORM](/docs/database/eloquent)
+- [Redis](/docs/database/redis)
 
 ### Caching
-	- [Configuration](/docs/cache/config)
-	- [Usage](/docs/cache/usage)
+
+- [Configuration](/docs/cache/config)
+- [Usage](/docs/cache/usage)
 
 ### Sessions
-	- [Configuration](/docs/session/config)
-	- [Usage](/docs/session/usage)
+
+- [Configuration](/docs/session/config)
+- [Usage](/docs/session/usage)
 
 ### Authentication
-	- [Configuration](/docs/auth/config)
-	- [Usage](/docs/auth/usage)
+
+- [Configuration](/docs/auth/config)
+- [Usage](/docs/auth/usage)
 
 ### Other Topics
-	- [Working With Files](/docs/other/file)
-	- [Working With Strings](/docs/other/text)
-	- [Localization](/docs/other/lang)
-	- [Encryption](/docs/other/crypt)
-	- [Benchmarking Code](/docs/other/benchmark)
+
+- [Working With Files](/docs/other/file)
+- [Working With Strings](/docs/other/text)
+- [Localization](/docs/other/lang)
+- [Encryption](/docs/other/crypt)
+- [Benchmarking Code](/docs/other/benchmark)
