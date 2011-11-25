@@ -11,7 +11,7 @@ Database configuration in Laravel is easy. The hardest part is deciding which da
 - PostgreSQL
 - SQLite
 
-All of the database configuration options live in the **application/config/database.php** file. Let's get started.
+All of the database configuration options live in the **application/config/database.php** file.
 
 <a name="quick"></a>
 ### Quick Start Using SQLite
