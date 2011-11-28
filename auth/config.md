@@ -6,12 +6,12 @@
 
 Most interactive applications have the ability for users to login and logout. Obvious, right? Laravel provides a simple class to help you validate user credentials and retrieve information about the current user of your application.
 
-To get started, let's look over the **application/config/auth.php** file. The authentication configuration contains three functions: **user**, **attempt**, and **logout**. Let's go over each one individually.
+To get started, let's look over the **application/config/auth.php** file. The authentication configuration contains three functions: **user**, **attempt**, and **logout**. Don't worry, they are all dead simple. Let's go over each one individually.
 
 <a name="user"></a>
 ### The "User" Function
 
-The **user** function is called anytime Laravel needs to retrieve the currently logged in user of your application. When a user logs into your application, Laravel stores the ID of that user in the [session](/docs/session/config). So, on subsequent requests, we can use the ID stored in the session to retrieve the user's information from storage. However, applications use various data stores. For this reason, you are given complete flexibility regarding how to retrieve the user.
+The **user** function is called when Laravel needs to retrieve the currently logged in user of your application. When a user logs into your application, Laravel stores the ID of that user in the [session](/docs/session/config). So, on subsequent requests, we can use the ID stored in the session to retrieve the user's information from storage. However, applications use various data stores. For this reason, you are given complete flexibility regarding how to retrieve the user.
 
 Of course, a simple default configuration has been setup for you. Let's take a look:
 
@@ -28,7 +28,7 @@ As you probably noticed, the user's ID is passed to the function. The default co
 <a name="attempt"></a>
 ### The "Attempt" Function
 
-Anytime you need to validate the credentials of a user, the **attempt** function is called. When attempting to authenticate a user, you would typically retrieve the user out of storage, and check the hashed password against the given password. However, since applications may use various methods of hashing or even third-party login providers, you are free to implement the authentication however you wish. Again, a sensible default has been provided:
+Anytime you need to validate the credentials of a user, the **attempt** function is called. When attempting to authenticate a user, you will typically retrieve the user out of storage, and check the hashed password against the given password. However, since applications may use various methods of hashing or even third-party login providers, you are free to implement the authentication however you wish. Again, a simple and sensible default has been provided:
 
 	'attempt' => function($username, $password, $config)
 	{
@@ -42,7 +42,7 @@ Anytime you need to validate the credentials of a user, the **attempt** function
 
 Like the previous example, an Eloquent User model is used to retrieve the user out of the database by the given username. If the user is found, the given password is hashed and compared against the hashed password stored on the table, and if the passwords match, the user model is returned. If the credentials are invalid or the user does not exist, **null** should be returned.
 
-Notice that the entire authentication configuration is passed to this function. This gives you convenient access to the **username** configuration option, which determines the database column that is considered the "username". Of course, the username column will typically be "username" or "email".
+Notice that the entire authentication configuration is passed to this function. This gives you convenient access to the **username** configuration option, which determines the database column that is considered the "username".
 
 > **Note:** Any object may be returned by this function as long as it has an **id** property.
 
