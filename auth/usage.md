@@ -36,7 +36,7 @@ Logging a user into your application is simple using the **attempt** method on t
 	     return Redirect::to('user/profile');
 	}
 
-If the user's credentials are valid, the user ID will be stored in the session and the user will be considered "logged in" on subsequent requests to your application.
+If the user's credentials are valid, the user ID will be stored in the session and the user will be considered "logged in" on subsequent requests to your application. You probably noticed this method name corresponds to the **attempt** function you [configured earlier](/docs/auth/config#attempt). Each time you call the **attempt** method on the **Auth** class, the **attempt** function in the configuration file will be called to check the user's credentials. It all makes sense now, right?
 
 > **Note:** To provide more flexiblity when working with third-party authentication providers, you are not required to pass a password into the **attempt** method.
 
@@ -70,6 +70,8 @@ To protect a route, simply attach the **auth** filter:
 Once a user has logged in to your application, you may easily access the user model via the **user** method on the Auth class:
 
 	return Auth::user()->email;
+
+This method simply calls the [**user** function](/docs/auth/config#user) in the configuration file. Also, you don't need to worry about performance when using this method. The user is only retrieved from storage the first time you use the method.
 
 > **Note:** If the user is not logged in, the **user** method will return NULL.
 
