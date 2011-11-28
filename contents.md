@@ -39,6 +39,11 @@
 	- [Building Forms](/docs/start/interaction#forms)
 - [Models & Libraries](/docs/start/libraries)
 - [Data Validation](/docs/start/validation)
+- [Working With Files](/docs/other/file)
+- [Working With Strings](/docs/other/text)
+- [Localization](/docs/other/lang)
+- [Encryption](/docs/other/crypt)
+- [Benchmarking Code](/docs/other/benchmark)
 - [IoC Container](/docs/start/ioc)
 
 ### Database
@@ -63,11 +68,3 @@
 
 - [Configuration](/docs/auth/config)
 - [Usage](/docs/auth/usage)
-
-### Other Topics
-
-- [Working With Files](/docs/other/file)
-- [Working With Strings](/docs/other/text)
-- [Localization](/docs/other/lang)
-- [Encryption](/docs/other/crypt)
-- [Benchmarking Code](/docs/other/benchmark)
