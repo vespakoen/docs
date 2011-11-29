@@ -435,7 +435,7 @@ Any other attributes that should be applied to the link may be passed in the thi
 <a name="html-route-links"></a>
 ### Links To Named Routes
 
-If you are using [named routes](#routes-named), you use intuitive, expressive syntax to create links to those routes via dynamic methods:
+If you are using [named routes](/docs/start/routes#named), you use intuitive, expressive syntax to create links to those routes via dynamic methods:
 
 	echo HTML::link_to_login('Login');
 
