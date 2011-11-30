@@ -344,14 +344,14 @@ Alright! You're ready to define your own validation rule. Create a function on y
 
 	class Validator extends Laravel\Validator {
 		
-		public function validate_awesome($attribute, $parameters)
+		public function validate_awesome($attribute, $value, $parameters)
 		{
-			return $attribute == 'awesome';
+			return $value == 'awesome';
 		}
 
 	}
 
-Let's dig into this example. The **validate_awesome** function receives two arguments. The first is the value of the attribute being validated, the second is an array of parameters that were specified for the rule, such as a size or list of accepted values (more on that in a second).
+Let's dig into this example. The **validate_awesome** function receives three arguments. The first is the name of the attribute being validated, the second is the value of the attribute being validated, and the third is an array of parameters that were specified for the rule, such as a size or list of accepted values (more on that in a second).
 
 Now, how do you use your new validator? It's refreshingly simple:
 
@@ -383,9 +383,9 @@ As mentioned above, you may even specify and receive a list of parameters in you
 
 	class Validator extends Laravel\Validator {
 		
-		public function validate_awesome($attribute, $parameters)
+		public function validate_awesome($attribute, $value, $parameters)
 		{
-			return $attribute == $parameters[0];
+			return $value == $parameters[0];
 		}
 
 	}
