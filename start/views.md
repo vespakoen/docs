@@ -435,7 +435,7 @@ Any other attributes that should be applied to the link may be passed in the thi
 <a name="html-route-links"></a>
 ### Links To Named Routes
 
-If you are using [named routes](#routes-named), you use intuitive, expressive syntax to create links to those routes via dynamic methods:
+If you are using [named routes](/docs/start/routes#named), you use intuitive, expressive syntax to create links to those routes via dynamic methods:
 
 	echo HTML::link_to_login('Login');
 
@@ -553,7 +553,7 @@ The URLs created by the Pagination class look something like this:
 
 Sometimes, you may wish to add more items to the query string, such as the column you are sorting by. It's a breeze. Use the **append** method on your Paginator instance:
 
-	<?php echo $users->appends(array('sort' => 'votes'))->links();
+	<?php echo $users->appends(array('sort' => 'votes'))->links(); ?>
 
 Great! Now the URLs will look like this:
 
@@ -626,7 +626,7 @@ As you have probably noticed, you can echo anything by enclosing it within doubl
 View sections provide a simple way to inject content into layouts from nested views. For example, perhaps you want to inject a nested view's needed JavaScript into the header of your layout. With sections, it couldn't be easier. To start a section, simply call the **start** method on the **Section** class:
 
 	<?php Section::start('scripts'); ?>
-		<?php echo HTML::script('js/jquery.js');
+		<?php echo HTML::script('js/jquery.js'); ?>
 	<?php Section::stop(); ?>
 
 Great! Now we have a section named "scripts" which we can include in our layout:
@@ -635,7 +635,7 @@ Great! Now we have a section named "scripts" which we can include in our layout:
 		<head>
 			<title>My Layout</title>
 
-			<?php echo Section::yield('scripts');
+			<?php echo Section::yield('scripts'); ?>
 		</head>
 		<body>
 			...
