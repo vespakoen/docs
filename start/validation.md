@@ -336,14 +336,14 @@ Need to create your own validation rules? You will love how easy it is! First, c
 
 	class Validator extends Laravel\Validator {}
 
-Next, remove the **Validator** alias from **application/config/aliases.php**.
+Next, remove the **Validator** alias from **application/config/application.php**.
 
 Alright! You're ready to define your own validation rule. Create a function on your new validator using a **validate_rule** naming convention. Validator methods simply need to return **true** or **false**. It couldn't be any easier, right?
 
 	<?php
 
 	class Validator extends Laravel\Validator {
-		
+
 		public function validate_awesome($attribute, $value, $parameters)
 		{
 			return $value == 'awesome';
@@ -382,7 +382,7 @@ As mentioned above, you may even specify and receive a list of parameters in you
 	// In your custom validator...
 
 	class Validator extends Laravel\Validator {
-		
+
 		public function validate_awesome($attribute, $value, $parameters)
 		{
 			return $value == $parameters[0];
