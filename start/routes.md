@@ -41,7 +41,7 @@ Laravel will automatically pass the value of the wildcard segment into your rout
 
 > **Note:** The **(:any)** place-holder matches letters, number, dashes, and underscores.
 
-Want to make an URI segment optional? No problem. Just put a **?** in the place-holder:
+Want to make a URI segment optional? No problem. Just put a **?** in the place-holder:
 
 	'GET /download/(:any?)' => function($branch = 'master') {}
 
