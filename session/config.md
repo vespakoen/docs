@@ -73,7 +73,7 @@ If you would like to use a different table name, simply change the **table** opt
 
 Great! All you need to do now is set the driver in the **application/config/session.php** file:
 
-	'driver' => 'db'
+	'driver' => 'database'
 
 <a name="memcached"></a>
 ### Memcached Sessions
