@@ -134,3 +134,7 @@ Notice the **user@edit** pointer. This tells Laravel to call the **action_edit**
 	'GET /user/(:num)/edit' => 'user.profile@edit'
 
 This would call the **action_edit** method on the **User_Profile_Controller**. The route wildcards will automatically be passed to the controller action as parameters. Isn't it simple?
+
+Sometimes you may want to create a named route that points to a controller. You can use the **uses** key to specify the controller:
+
+	'GET /user' => array('name' => 'profile', 'uses' => 'user@profile');
