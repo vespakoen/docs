@@ -7,7 +7,6 @@
 	- [Wildcard URI Segments](/docs/start/routes#segments)
 	- [Named Routes](/docs/start/routes#named)
 	- [Route Filters](/docs/start/routes#filters)
-	- [Organizing Routes](/docs/start/routes#organize)
 - [Controllers](/docs/start/controllers)
 	- [Creating Controllers](/docs/start/controllers#define)
 	- [Adding Actions](/docs/start/controllers#actions)
