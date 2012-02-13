@@ -9,7 +9,6 @@
 
 1. [Download Laravel](http://laravel.com/download)
 2. Extract the Laravel archive and upload the contents to your web server.
-4. Set the URL of your application in the **application/config/application.php** file.
 5. Navigate to your application in a web browser.
 
 If all is well, you should see a pretty Laravel splash page. Get ready, there is lots more to learn!
@@ -18,7 +17,7 @@ If all is well, you should see a pretty Laravel splash page. Get ready, there is
 
 Installing the following goodies will help you take full advantage of Laravel, but they are not required:
 
-- SQLite, MySQL, or PostgreSQL PDO drivers.
+- SQLite, MySQL, SQL Server, or PostgreSQL PDO drivers.
 - [Memcached](http://memcached.org) or APC.
 
 ### Problems?

@@ -10,7 +10,7 @@
 
 When starting a new project, you shouldn't be bombarded with loads of confusing configuration decisions. For that reason, Laravel is intelligently configured out of the box. The **application/config/application.php** file contains the basic configuration options for your application.
 
-There is only one option that **must** be set when starting a new application. Laravel needs to know the URL you will use to access your application. Simply set the url in the **application/config/application.php** file:
+Actually, getting started with Laravel requires zero configuration. However, you may wish to tell Laravel the URL you will use to access your application. This will speed up the request lifecycle since the framework won't have to guess. Simply set the url in the **application/config/application.php** file:
 
 	'url' => 'http://localhost';
 
@@ -70,15 +70,9 @@ After setting up HTTP rewriting, you should set the **index** configuration opti
 <a name="errors"></a>
 ### Errors & Logging
 
-- [404 Errors](#error-404)
 - [Error Detail](#error-detail)
 - [Logging](#error-logging)
 - [Ignoring Errors](#ignoring-errors)
-
-<a name="error-404"></a>
-#### 404 Errors
-
-When a request is made to your application that cannot be matched to a route, the 404 error view will be sent to the browser. This view lives in **application/views/error/404.php** and you are free to modify it however you wish.
 
 <a name="error-detail"></a>
 #### Error Detail
