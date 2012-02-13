@@ -4,27 +4,29 @@
 - [Wildcard URI Segments](/docs/start/routes#segments)
 - [Named Routes](/docs/start/routes#named)
 - [Route Filters](/docs/start/routes#filters)
-- [Organizing Routes](/docs/start/routes#organize)
 
-Unlike other PHP frameworks, Laravel places routes and their corresponding functions in one file: **application/routes.php**. This file contains the "definition", or public API, of your application. To add functionality to your application, you add to the array located in this file. It's a breeze.
+Unlike other PHP frameworks, Laravel places routes and their corresponding functions in one file: **application/routes.php**. This file contains the "definition", or public API, of your application. To add functionality to your application, you just add to this file. It's a breeze.
 
 <a name="define"></a>
 ## Defining Routes
 
 All you need to do is tell Laravel the request methods and URIs it should respond to. You define the behavior of the route using an anonymous method:
 
-	'GET /home' => function()
+	Route::get('home', function()
 	{
-		// Handles GET requests to http://example.com/index.php/home
-	},
-
+		// Handles GET requests to http://example.com/index.php/home	
+	});
 
 You can easily define a route to handle requests to more than one URI. Just use commas:
 
-	'POST /, POST /home' => function()
+	Route::post('/, home', function()
 	{
 		// Handles POST requests to http://example.com and http://example.com/home
-	}
+	});
+
+You may also define routes that respond to any request method:
+
+	Route::any('/', function() {});
 
 > **Note:** The routes.php file replaces the "controllers" found in most frameworks. Have a fat model and keep this file light and clean. Thank us later.
 
@@ -33,9 +35,9 @@ You can easily define a route to handle requests to more than one URI. Just use 
 
 Laravel makes matching wildcard URI segments a breeze using the **(:num)** and **(:any)** place-holders. Check out these routes:
 
-	'PUT /user/(:num)' => function($id) {}
+	Route::put('user/(:num)', function($id) {});
 
-	'DELETE /user/(:any)' => function($username) {}
+	Route::delete('user/(:any)', function($username) {});
 
 Laravel will automatically pass the value of the wildcard segment into your route function.
 
@@ -43,20 +45,16 @@ Laravel will automatically pass the value of the wildcard segment into your rout
 
 Want to make a URI segment optional? No problem. Just put a **?** in the place-holder:
 
-	'GET /download/(:any?)' => function($branch = 'master') {}
-
-If you need more power and precision (or just want to be extra nerdy), you can even use regular expressions:
-
-	'GET /product/([0-9]+)' => function($id) {}
+	Route::get('download/(:any?)', function($branch = 'master') {});
 
 <a name="named"></a>
 ## Named Routes
 
 Once you start using named routes, you won't be able to live without them. They are that great. Here's how to do it:
 
-	'GET /user/login' => array('name' => 'login', function() {})
+	Route::get('user/login', array('as' => 'login', function() {}));
 
-Notice the route now has an array value with a **name** key. As you have probably guessed, the **name** value is the name of the route.
+Notice the route now has an array value with a **as** key. As you have probably guessed, the **as** value is the name of the route.
 
 Now that you have named the route, you can [generate URLs](/docs/start/views#urls) and [perform redirects](/docs/start/views#redirect) using the route name instead of the route URI. This means that you can change the route URI as much as you want and the links to that route on your views will always be correct. It's beautiful, isn't it?
 
@@ -71,35 +69,33 @@ All other filters must be attached to individual routes. Don't worry, you'll lea
 
 ### Defining Filters
 
-To define your own filter, simply add it to the array in the **application/filters.php** file:
+To define your own filter, simply register it with the **Filter** class:
 
-	'my_filter' => function()
+	Filter::register('my_filter', function()
 	{
 		return 'Filtered!';
-	}
+	});
 
 ### Attaching Filters To Routes
 
 Alright, ready to attach the filter to a route? Do it like this:
 
-	'GET /user' => array('before' => 'my_filter', function() 
+	Route::get('user', array('before' => 'my_filter', function()
 	{
-		//	
-	})
+		//
+	}));
 
 Notice the route now has an array value with a **before** key. The **before** value contains the names of any filters that should be run before the method is executed.
 
 Why stop with one filter? You can define multiple filters for a single route by separating the filter names with pipes:
 
-	'POST /user' => array('before' => 'auth|csrf', function() {})
+	Route::post('user', array('before' => 'auth|csrf', function() {}));
 
 Remember, if a "before" filter returns a value, that value will be considered the output of the request. For example, the built-in **auth** filter checks if the user has logged in to your application. If they haven't, a [Redirect](/docs/start/views#redirect) to the login page is sent to the browser. Isn't the simplicity refreshing?
 
 Of course, adding filters to run after the request is just as easy:
 
-	'my_filter' => function($response) {}
-
-	'GET /user' => array('after' => 'my_filter', function() {})
+	Route::get('user', array('after' => 'my_filter', function() {}));
 
 > **Note:** "After" filters receive the response returned by the route function that handled the request.
 
@@ -107,34 +103,12 @@ Of course, adding filters to run after the request is just as easy:
 
 To keep your code clean, you may wish to pass parameters to filters. For instance, you could create a **role** filter which accepted a role name. It's simple:
 
-	'role' => function($role) {}
+	Filter::register('role', function($role) {});
 
 Now, you can attach the filter to a route like this:
 
-	'GET /admin' => array('before' => 'role:admin', function() {})
+	Route::get('admin', array('before' => 'role:admin', function() {}));
 
 Notice that a colon is used to separate the filter name from the filter parameters. Of course, you are welcome to pass more than one parameter to the filter by separating them with commas:
 
-	'GET /admin' => array('before' => 'role:admin,editor', function() {})
-
-<a name="organize"></a>
-## Organizing Routes
-
-So, you're building the next monolithic web application and your **application/routes.php** file is getting a little cramped? Don't worry, we have you covered.
-
-Here's what to do. First, create an **application/routes** directory. Great! You're almost there. Now, just add route files to **application/routes** corresponding to the base URIs of your application. So, a **photo.php** file within **application/routes** would handle all requests to URIs beginning with **/photo**. Similarly, a **user.php** file handles all requests to URIs beginning with **/user**. For example, check out this **user.php** file:
-
-	<?php
-
-	return array(
-
-		'GET /user/profile/(:num)' => function($id)
-		{
-			return View::make('user/profile');
-		}
-
-	);
-
-The **application/routes.php** file will continue to be loaded on every request, so any "catch-all" routes can still be placed in that file. The **application/routes.php** file should also still contain the route for the root of your application.
-
-Need even more organization? You are free to create sub-directories in the **application/routes** directory. For example, an **application/routes/user/admin.php** file would handle all requests to URIs beginning with **user/admin**.
+	Route::get('admin', array('before' => 'role:admin,editor', function() {}));
