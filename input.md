@@ -17,6 +17,14 @@ The **Input** class handles input that comes into your application via GET, POST
 
 	$email = Input::get('email');
 
+**Retrieve all input from the input array:**
+
+	$input = Input::get();
+
+**Retrieve all input including the $_FILES array:**
+
+	$input = Input::all();
+
 By default, *null* will be returned if the input item does not exist. However, you may pass a different default value as a second parameter to the method:
 > **Note:** The "get" method is used for all request types, not just GET requests.
 
