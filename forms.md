@@ -120,7 +120,7 @@ Laravel provides an easy method of protecting your application from cross-site r
 
 	echo Form::select('size', array('L' => 'Large', 'S' => 'Small'));
 
-**Generating a drop-down lists with an item selected by default:**
+**Generating a drop-down list with an item selected by default:**
 
 	echo Form::select('size', array('L' => 'Large', 'S' => 'Small'), 'S');
 
