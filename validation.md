@@ -5,7 +5,8 @@
 - [The Basics](#the-basics)
 - [Validation Rules](#validation-rules)
 - [Retrieving Error Message](#retrieving-error-messages)
-- [Error Messages And Views](#error-messages-and-views)
+- [Validation Walkthrough](#validation-walkthrough)
+- [Custom Error Messages](#custom-error-messages)
 - [Custom Validation Rules](#custom-validation-rules)
 
 <a name="the-basics"></a>
@@ -47,6 +48,7 @@ Now you are familiar with the basic usage of the Validator class. You're ready t
 - [Inclusion & Exclusion](#rule-in)
 - [Confirmation](#rule-confirmation)
 - [Acceptance](#rule-acceptance)
+- [Same & Different](#same-and-different)
 - [Uniqueness & Existence](#rule-unique)
 - [E-Mail Addresses](#rule-email)
 - [URLs](#rule-url)
@@ -107,7 +109,7 @@ Now you are familiar with the basic usage of the Validator class. You're ready t
 	'payment' => 'integer'
 
 <a name="rule-in"></a>
-### Inclusion And Exclusion
+### Inclusion & Exclusion
 
 **Validate that an attribute is contained in a list of values:**
 
@@ -137,8 +139,19 @@ The *accepted* rule validates that an attribute is equal to *yes* or *1*. This r
 
 	'terms' => 'accepted'
 
+<a name="same-and-different"></a>
+## Same & Different
+
+**Validate that an attribute matches another attribute:**
+
+	'token1' => 'same:token2'
+
+**Validate that two attributes have different values:**
+
+	'password' => 'different:old_password',
+
 <a name="rule-unique"></a>
-### Uniqueness And Existence
+### Uniqueness & Existence
 
 **Validate that an attribute is unique on a given database table:**
 
@@ -204,3 +217,180 @@ The *mimes* rule validates that an uploaded file has a given MIME type. This rul
 **Validate that a file is less than a given size in kilobytes:**
 
 	'picture' => 'image|max:100'
+
+<a name="retrieving-error-message"></a>
+## Retrieving Error Messages
+
+Laravel makes working with your error messages a cinch using a simple error collector class. After calling the *passes* or *fails* method on a Validator instance, you may access the errors via the *errors* property. The error collector has several simple functions for retrieving your messages:
+
+**Determine if an attribute has an error message:**
+
+	if ($validation->errors->has('email'))
+	{
+		// The e-mail attribute has errors...
+	}
+
+**Retrieve the first error message for an attribute:**
+
+	echo $validation->errors->first('email');
+
+Sometimes you may need to format the error message by wrapping it in HTML. No problem. Along with the :message place-holder, pass the format as the second parameter to the method.
+
+**Format an error message:**
+
+	echo $validation->errors->first('email', '<p>:message</p>');
+
+**Get all of the error messages for a given attribute:**
+
+	$messages = $validation->errors->get('email');
+
+**Format all of the error messages for an attribute:**
+
+	$messages = $validation->errors->get('email', '<p>:message</p>');
+
+**Get all of the error messages for all attributes:**
+
+	$messages = $validation->errors->all();
+
+**Format all of the error messages for all attributes:**
+
+	$messages = $validation->errors->all('<p>:message</p>');
+
+<a name="validation-walkthrough"></a>
+## Validation Walkthrough
+
+Once you have performed your validation, you need an easy way to get the errors back to the view. Laravel makes it amazingly simple. Let's walk through a typical scenario. We'll define two routes:
+
+	Route::get('register', function()
+	{
+		return View::make('user.register');
+	});
+
+	Route::post('register', function()
+	{
+		$rules = array(...);
+
+		$validation = Validator::make(Input::all(), $rules);
+
+		if ($validation->fails())
+		{
+			return Redirect::to('register')->with_errors($validation);
+		}
+	});
+
+Great! So, we have two simple registration routes. One to handle displaying the form, and one to handle the posting of the form. In the POST route, we run some validation over the input. If the validation fails, we redirect back to the registration form and flash the validation errors to the session so they will be available for us to display.
+
+**But, notice we are not explicitly binding the errors to the view in our GET route**. However, an errors variable will still be available in the view. Laravel intelligently determines if errors exist in the session, and if they do, binds them to the view for you. If no errors exist in the session, an empty message container will still be bound to the view. In your views, this allows you to always assume you have a message container available via the errors variable. We love making your life easier.
+
+<a name="custom-error-messages"></a>
+## Custom Error Messages
+
+Want to use an error message other than the default? Maybe you even want to use a custom error message for a given attribute and rule. Either way, the Validator class makes it easy.
+
+**Create an array of custom messages for the Validator:**
+
+	$messages = array(
+		'required' => 'The :attribute field is required.',
+	);
+
+	$validation = Validator::make(Input::get(), $rules, $messages);
+
+Great! Now our custom message will be used anytime a required validation check fails. But, what is this **:attribute** stuff in our message? To make your life easier, the Validator class will replace the **:attribute** place-holder with the actual name of the attribute! It will even remove underscores from the attribute name.
+
+You may also use the **:other**, **:size**, **:min**, **:max**, and **:values** place-holders when constructing your error messages:
+
+**Other validation message place-holders:**
+
+	$messages = array(
+		'same'    => 'The :attribute and :other must match.',
+		'size'    => 'The :attribute must be exactly :size.',
+		'between' => 'The :attribute must be between :min - :max.',
+		'in'      => 'The :attribute must be one of the following types: :values',
+	);
+
+So, what if you need to specify a custom required message, but only for the email attribute? No problem. Just specify the message using an **attribute_rule** naming convention:
+
+**Specifying a custom error message for a given attribute:**
+
+	$messages = array(
+		'email_required' => 'We need to know your e-mail address!',
+	);
+
+In the example above, the custom required message will be used for the email attribute, while the default message will be used for all other attributes.
+
+However, if you are using many custom error messages, specifying inline may become cumbersome and messy. For that reason, you can specify your custom messages in the **custom** array within the validation language file:
+
+**Adding custom error messages to the validation langauge file:**
+
+	'custom' => array(
+		'email_required' => 'We need to know your e-mail address!',
+	)
+
+<a name="custom-validation-rules"></a>
+## Custom Validation Rules
+
+Need to create your own validation rules? You will love how easy it is! First, create a class that extends **Laravel\Validator** and place it in your **application/libraries** directory:
+
+**Defining a custom validator class:**
+
+	<?php
+
+	class Validator extends Laravel\Validator {}
+
+Next, remove the Validator alias from **config/application.php**.
+
+Alright! You're ready to define your own validation rule. Create a function on your new validator using a **validate_rule** naming convention. Validator methods simply need to return true or false. It couldn't be any easier, right?
+
+**Adding a custom validation rule:**
+
+	<?php
+
+	class Validator extends Laravel\Validator {
+
+	    public function validate_awesome($attribute, $value, $parameters)
+	    {
+	        return $value == 'awesome';
+	    }
+
+	}
+
+Let's dig into this example. The **validate_awesome** function receives three arguments. The first is the name of the attribute being validated, the second is the value of the attribute being validated, and the third is an array of parameters that were specified for the rule, such as a size or list of accepted values (more on that in a second).
+
+Now, how do you use your new validator? It's refreshingly simple:
+
+	$rules = array(
+    	'username' => 'required|awesome',
+	);
+
+Of course, you will need to define an error message for your new rule. You can do this either in an ad-hoc messages array:
+
+	$messages = array(
+    	'awesome' => 'The attribute value must be awesome!',
+	);
+
+	$validator = Validator::make(Input::get(), $rules, $messages);
+
+Or by adding an entry for your rule in the **language/en/validation.php** file:
+
+	'awesome' => 'The attribute value must be awesome!',
+
+As mentioned above, you may even specify and receive a list of parameters in your custom validator:
+
+	// When building your rules array...
+
+	$rules = array(
+	    'username' => 'required|awesome:yes',
+	);
+
+	// In your custom validator...
+
+	class Validator extends Laravel\Validator {
+
+	    public function validate_awesome($attribute, $value, $parameters)
+	    {
+	        return $value == $parameters[0];
+	    }
+
+	}
+
+In this case, the parameters argument of your validation rule would receive an array containing one element: "yes".
