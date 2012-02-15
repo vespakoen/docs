@@ -54,6 +54,8 @@
 - [Configuration](/docs/database/config)
 - [Raw Queries](/docs/database/raw)
 - [Fluent Query Builder](/docs/database/fluent)
+- [Schema Builder](/docs/database/schema)
+- [Migrations](/docs/database/migrations)
 - [Redis](/docs/database/redis)
 
 ### Caching
@@ -70,3 +72,7 @@
 
 - [Configuration](/docs/auth/config)
 - [Usage](/docs/auth/usage)
+
+### Artisan CLI
+
+- [Tasks](/docs/cli/tasks)
