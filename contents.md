@@ -75,4 +75,4 @@
 
 ### Artisan CLI
 
-- [Tasks](/docs/cli/tasks)
+- [Tasks](/docs/artisan/tasks)
