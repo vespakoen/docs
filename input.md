@@ -5,7 +5,7 @@
 - [Input](#input)
 - [Files](#files)
 - [Old Input](#old-input)
-- [Redirecting With Old Input](#redirecting-with-old-input)
+- [Remembering Old Input](#remembering-old-input)
 - [Cookies](#cookies)
 
 <a name="input"></a>
@@ -79,7 +79,7 @@ Have you ever tried to re-populate an input form after an invalid form submissio
 - *[Sessions](/docs/sessions)*
 
 <a name="redirecting-with-old-input"></a>
-## Redirecting With Old Input
+## Remembering Old Input
 
 Since you will typically want to flash input right before a redirect, there is a beautiful shortcut for you to use:
 

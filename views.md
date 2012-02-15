@@ -6,7 +6,7 @@
 - [Binding Data To Views](#binding-data-to-views)
 - [Nesting Views](#nesting-views)
 - [Named Views](#named-views)
-- [View Composers](#view-composer)
+- [View Composers](#view-composers)
 - [Redirects](#redirects)
 - [Redirecting With Flash Data](#redirecting-with-flash-data)
 - [Downloads](#downloads)

@@ -3,7 +3,6 @@
 ## Contents
 
 - [The Basics](#the-basics)
-- [Controller Classes](#controller-classes)
 - [Controller Routing](#controller-routing)
 - [Action Filters](#action-filters)
 - [Nested Controllers](#nested-controllers)
@@ -14,9 +13,6 @@
 ## The Basics
 
 Controllers are responsible for handling incoming requests to your application. Typically, they will ask a model for data, and then return a view that presents that data to the user.
-
-<a name="controller-classes"></a>
-## Controller Classes
 
 Controller classes should be stored in **application/controllers** and should extend the Base\_Controller class. A Home\_Controller class is included with Laravel.
 
