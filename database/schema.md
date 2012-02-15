@@ -133,13 +133,11 @@ The Schema builder supports several types of indexes and they are dead simple to
 <a name="dropping-indexes"></a>
 ## Dropping Indexes
 
-Dropping indexes is just as easy as adding them. Let's take a look:
+Dropping indexes is just as easy as adding them. However, you must specify the name of the index when dropping them. Don't worry, Laravel assigns a reasonable name to all indexes. Simple concatenate the names of the columns in the index and append the type of the index. Let's take a look at some examples:
 
 **Dropping a primary key from the table:**
 
-	$table->drop_primary('users_primary');
-
-> **Note:** The name of the index must be passed to the method.
+	$table->drop_primary('id_primary');
 
 **Dropping a unique index from the table:**
 
