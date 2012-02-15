@@ -5,7 +5,9 @@
 - [The Basics](#the-basics)
 - [Creating & Dropping Tables](#creating-tables)
 - [Adding Columns](#adding-columns)
+- [Dropping Columns](#dropping-columns)
 - [Adding Indexes](#adding-indexes)
+- [Dropping Indexes](#dropping-indexe)
 - [Dropping Tables](#dropping-tables)
 
 <a name="the-basics"></a>
@@ -95,3 +97,4 @@ Often you may want to specify **created\_at** and **updated\_at** columns on the
 
 <a name="adding-indexes"></a>
 ## Adding Indexes
+
