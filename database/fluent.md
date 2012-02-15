@@ -29,34 +29,29 @@ You now have a fluent query builder for the "users" table. Using this query buil
 <a name="get"></a>
 ## Retrieving Records
 
-There are two methods available for retrieving records using a fluent query: **get** and **first**. The **get** method will return an array of records from your database. Each record will be an object with properties corresponding to the columns of the table:
+**Retrieving an array of records from the database:**
 
 	$users = DB::table('users')->get();
 
-	foreach ($users as $user)
-	{
-	     echo $user->email;
-	}
+> **Note:** The **get** method returns an array of objects with properties corresponding to the column on the table.
 
-Instead of returning an array, the **first** method will return a single object:
+**Retrieving a single record from the database:**
 
 	$user = DB::table('users')->first();
 
-	echo $user->email;
+> **Note:** If no results are found, the **first** method will return NULL. The **get** method will return an empty array.
 
-When you only need to retrieve the value of a single column, you may use the **only** method:
+**Retrieving the value of a single column from the database:**
 
 	$email = DB::table('users')->where('id', '=', 1)->only('email');
 
-It's easy to limit the columns returned by your query. Simply pass an array of columns you want into the **get** or **first** method:
+**Only selecting certain columns from the database:**
 
 	$user = DB::table('users')->get(array('id', 'email as user_email'));
 
-Need to get distinct records from the database? It's easy. Call the **distinct** method before retrieving your records:
+**Selecting distinct results from the database:**
 
 	$user = DB::table('users')->distinct()->get();
-
-> **Note:** If no results are found, the **first** method will return NULL. The **get** method will return an empty array.
 
 <a name="where"></a>
 ## Building Where Clauses
