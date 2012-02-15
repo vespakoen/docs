@@ -7,8 +7,7 @@
 - [Adding Columns](#adding-columns)
 - [Dropping Columns](#dropping-columns)
 - [Adding Indexes](#adding-indexes)
-- [Dropping Indexes](#dropping-indexe)
-- [Dropping Tables](#dropping-tables)
+- [Dropping Indexes](#dropping-indexes)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -95,6 +94,61 @@ Often you may want to specify **created\_at** and **updated\_at** columns on the
 
 	$table->blob('data');
 
+<a name="dropping-columns"></a>
+## Dropping Columns
+
+**Dropping a column from a database table:**
+
+	$table->drop_column('name');
+
+**Dropping several columns from a database table:**
+
+	$table->drop_column(array('name', 'email'));
+
 <a name="adding-indexes"></a>
 ## Adding Indexes
 
+The Schema builder supports several types of indexes and they are dead simple to add to your table. Let's walk through each one.
+
+**Adding a primary key to the table:**
+
+	$table->primary('id');
+
+**Adding composite keys to the table:**
+
+	$table->primary(array('firstname', 'lastname'));
+
+**Adding a unique index to the table:**
+
+	$table->unique('email');
+
+**Adding a full-text index to the table:**
+
+	$table->fulltext('description');
+
+**Adding a basic index to the table:**
+
+	$table->index('state');
+
+<a name="dropping-indexes"></a>
+## Dropping Indexes
+
+Dropping indexes is just as easy as adding them. Let's take a look:
+
+**Dropping a primary key from the table:**
+
+	$table->drop_primary('users_primary');
+
+> **Note:** The name of the index must be passed to the method.
+
+**Dropping a unique index from the table:**
+
+	$table->drop_unique('email_unique');
+
+**Dropping a full-text index from the table:**
+
+	$table->drop_fulltext('description_fulltext');
+
+**Dropping a basic index from the table:**
+
+	$table->drop_index('state_index');
