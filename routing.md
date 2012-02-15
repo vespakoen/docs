@@ -90,7 +90,7 @@ Route filters may be run before or after a route is executed. If a "before" filt
 
 **Attaching an "after" filter to a route:**
 
-	Route::get('download' array('after' => 'log', function()
+	Route::get('download', array('after' => 'log', function()
 	{
 		//
 	}));
