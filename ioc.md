@@ -1,4 +1,4 @@
-## IoC Container
+# IoC Container
 
 - [Definition](/docs/start/ioc#definition)
 - [Registering Objects](/docs/start/ioc#register)
