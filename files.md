@@ -1,5 +1,7 @@
 # Working With Files
 
+## Contents
+
 - [Reading Files](#get)
 - [Writing Files](#put)
 - [File Uploads](#upload)
