@@ -8,6 +8,7 @@
 - [Action Filters](#action-filters)
 - [Nested Controllers](#nested-controllers)
 - [RESTful Controllers](#restful-controllers)
+- [Dependency Injection](#dependency-injection)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -136,3 +137,17 @@ Instead of prefixing controller actions with "action_", you may prefix them with
 		}
 
 	}
+
+<a name="dependency-injection"></a>
+## Dependency Injection
+
+If you are focusing on writing testable code, you will probably want to inject dependencies into the constructor of your controller. No problem. Just register your controller in the [IoC container](/docs/ioc). When registering the controller with the container, prefix the key with **controller**. So, in our **application/start.php** file, we could register our user controller like so:
+
+	IoC::register('controller: user', function()
+	{
+		return new User_Controller;
+	});
+
+When a request to a controller enters your application, Laravel will automatically determine if the controller is registered in the container, and if it is, will use the container to resolve an instance of the controller.
+
+> **Note:** Before diving into controller dependency injection, you may wish to read the documentation on Laravel's beautiful [IoC container](/docs/start/ioc).
