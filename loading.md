@@ -1,4 +1,4 @@
-## Class Auto Loading
+# Class Auto Loading
 
 ## Contents
 

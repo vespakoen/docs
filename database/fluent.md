@@ -61,16 +61,16 @@ You now have a fluent query builder for the "users" table. Using this query buil
 Building WHERE clauses in Laravel is painless. There are a variety of methods to assist you. The most basic of these methods are the **where** and **or_where** methods. Here is how to use them:
 
 	return DB::table('users')
-	      				->where('id', '=', 1)
-	      				->or_where('email', '=', 'example@gmail.com')
-	      				->first();
+	                    ->where('id', '=', 1)
+	                    ->or_where('email', '=', 'example@gmail.com')
+	                    ->first();
 
 Of course, you are not limited to simply checking equality. You may also use **greater-than**, **less-than**, **not-equal**, and **like**:
 
 	return DB::table('users')
-	      				->where('id', '>', 1)
-	      				->or_where('name', 'LIKE', '%Taylor%')
-	      				->first();
+	                    ->where('id', '>', 1)
+	                    ->or_where('name', 'LIKE', '%Taylor%')
+	                    ->first();
 
 You may have assumed that the **where** method will add to the query using an AND condition, while the **or_where** method will use an OR condition. You assumed correctly.
 
