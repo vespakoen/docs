@@ -7,6 +7,7 @@
 - [Starting Bundles](#starting-bundles)
 - [Routing To Bundles](#routing-to-bundles)
 - [Using Bundles](#using-bundles)
+- [Bundle Assets](#bundle-assets)
 - [Installing Bundles](#installing-bundles)
 - [Upgrading Bundles](#upgrading-bundles)
 
@@ -106,6 +107,19 @@ As mentioned previously, bundles can have views, configuration, language files a
 **Loading a bundle language line:**
 
 	return Lang::line('bundle::file.line');
+
+<a name="bundle-assets"></a>
+## Bundle Assets
+
+If your bundle contains views, it is likely you have assets such as JavaScript and images that need to be available in the **public** directory of the application. No problem. Just create **public** folder within your bundle and place all of your assets in this folder.
+
+Great! But, how do they get into the application's **public** folder. The Laravel "Artisan" command-line provides a simple command to copy all of your bundle's assets to the public directory. Here it is:
+
+**Publish bundle assets into the public directory:**
+
+	php artisan bundle:publish
+
+For more information on conveniently getting the path to your bundle assets once they are in the public directory, refer to the documentation on [asset management](/docs/assets).
 
 <a name="installing-bundles"></a>
 ## Installing Bundles

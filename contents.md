@@ -13,6 +13,7 @@
 	- [Starting Bundles](/docs/bundles#starting-bundles)
 	- [Routing To Bundles](/docs/bundles#routing-to-bundles)
 	- [Using Bundles](/docs/bundles#using-bundles)
+	- [Bundle Assets](/docs/bundles#bundle-assets)
 	- [Installing Bundles](/docs/bundles#installing-bundles)
 	- [Upgrading Bundles](/docs/bundles#upgrading-bundles)
 - [Routing](/docs/routing)
