@@ -119,6 +119,8 @@ Great! But, how do they get into the application's **public** folder. The Larave
 
 	php artisan bundle:publish
 
+This command will create a folder for the bundle's assets within the application's **public/bundles** directory. For example, if your bundle is named "admin", a **public/bundles/admin** folder will be created, which will contain all of the files in your bundle's public folder.
+
 For more information on conveniently getting the path to your bundle assets once they are in the public directory, refer to the documentation on [asset management](/docs/assets).
 
 <a name="installing-bundles"></a>
