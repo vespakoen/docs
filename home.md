@@ -19,5 +19,5 @@ Laravel is for all PHP programmers, even beginners. In fact, Laravel's documenta
 <a name="laravel-license"></a>
 ## Laravel's License
 
-Laravel is open-sourced software license under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
+Laravel is open-sourced software licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
 
