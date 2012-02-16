@@ -61,16 +61,16 @@ You now have a fluent query builder for the "users" table. Using this query buil
 Building WHERE clauses in Laravel is painless. There are a variety of methods to assist you. The most basic of these methods are the **where** and **or_where** methods. Here is how to use them:
 
 	return DB::table('users')
-	                    ->where('id', '=', 1)
-	                    ->or_where('email', '=', 'example@gmail.com')
-	                    ->first();
+		->where('id', '=', 1)
+		->or_where('email', '=', 'example@gmail.com')
+		->first();
 
 Of course, you are not limited to simply checking equality. You may also use **greater-than**, **less-than**, **not-equal**, and **like**:
 
 	return DB::table('users')
-	                    ->where('id', '>', 1)
-	                    ->or_where('name', 'LIKE', '%Taylor%')
-	                    ->first();
+		->where('id', '>', 1)
+		->or_where('name', 'LIKE', '%Taylor%')
+		->first();
 
 You may have assumed that the **where** method will add to the query using an AND condition, while the **or_where** method will use an OR condition. You assumed correctly.
 
@@ -83,14 +83,14 @@ The suite of **where_in** methods allows you to easily construct queries that se
 	DB::table('users')->where_not_in('id', array(1, 2, 3))->get();
 
 	DB::table('users')
-	     ->where('email', '=', 'example@gmail.com')
-	     ->or_where_in('id', array(1, 2, 3))
-	     ->get();
+		->where('email', '=', 'example@gmail.com')
+		->or_where_in('id', array(1, 2, 3))
+		->get();
 
 	DB::table('users')
-	     ->where('email', '=', 'example@gmail.com')
-	     ->or_where_not_in('id', array(1, 2, 3))
-	     ->get();
+		->where('email', '=', 'example@gmail.com')
+		->or_where_not_in('id', array(1, 2, 3))
+		->get();
 
 ### where\_null, where\_not\_null, or\_where\_null, and or\_where\_not\_null
 
@@ -101,14 +101,14 @@ The suite of **where_null** methods makes checking for NULL values a piece of ca
 	return DB::table('users')->where_not_null('updated_at')->get();
 
 	return DB::table('users')
-	     			->where('email', '=', 'example@gmail.com')
-	     			->or_where_null('updated_at')
-	     			->get();
+		->where('email', '=', 'example@gmail.com')
+		->or_where_null('updated_at')
+		->get();
 
 	return DB::table('users')
-	     			->where('email', '=', 'example@gmail.com')
-	     			->or_where_not_null('updated_at')
-	     			->get();
+		->where('email', '=', 'example@gmail.com')
+		->or_where_not_null('updated_at')
+		->get();
 
 <a name="nested-where"></a>
 ## Nested Where Clauses
@@ -116,13 +116,13 @@ The suite of **where_null** methods makes checking for NULL values a piece of ca
 Laravel makes it a breeze to group portions of a WHERE clause within parentheses. Just pass a Closure as parameter to the **where** or **or_where** methods:
 
 	$users = DB::table('users')
-	               ->where('id', '=', 1)
-	               ->or_where(function($query)
-					{
-						$query->where('age', '>', 25);
-						$query->where('votes' '>', 100);
-					})
-					->get();
+		->where('id', '=', 1)
+		->or_where(function($query)
+		{
+			$query->where('age', '>', 25);
+			$query->where('votes' '>', 100);
+		})
+		->get();
 
 The example above would generate a query that looks like:
 
@@ -147,26 +147,26 @@ Aren't they a breathe of fresh air?
 Need to join to another table? Try the **join** and **left\_join** methods:
 
 	DB::table('users')
-				->join('phone', 'users.id', '=', 'phone.user_id')
-				->get(array('users.email', 'phone.number'));
+		->join('phone', 'users.id', '=', 'phone.user_id')
+		->get(array('users.email', 'phone.number'));
 
 The **table** you wish to join is passed as the first parameter. The remaining three parameters are used to construct the **ON** clause of the join.
 
 Once you know how to use the join method, you know how to **left_join**. The method signatures are the same:
 
 	DB::table('users')
-				->left_join('phone', 'users.id', '=', 'phone.user_id')
-				->get(array('users.email', 'phone.number'));
+		->left_join('phone', 'users.id', '=', 'phone.user_id')
+		->get(array('users.email', 'phone.number'));
 
 You may also specify multiple conditions for an **ON** clause by passing a Closure as the second parameter of the join:
 
 	DB::table('users')
-	           ->join('phone', function($join)
-	           {
-	                $join->on('users.id', '=', 'phone.user_id');
-	                $join->or_on('users.id', '=', 'phone.contact_id');
-	           })
-	           ->get(array('users.email', 'phone.numer'));
+		->join('phone', function($join)
+		{
+			$join->on('users.id', '=', 'phone.user_id');
+			$join->or_on('users.id', '=', 'phone.contact_id');
+		})
+		->get(array('users.email', 'phone.numer'));
 
 <a name="ordering"></a>
 ## Ordering Results
@@ -178,9 +178,9 @@ You can easily order the results of your query using the **order_by** method. Si
 Of course, you may sort on as many columns as you wish:
 
 	return DB::table('users')
-	     				->order_by('email', 'desc')
-	     				->order_by('name', 'asc')
-	     				->get();
+		->order_by('email', 'desc')
+		->order_by('name', 'asc')
+		->get();
 
 <a name="limit"></a>
 ## Skip & Take
@@ -252,8 +252,8 @@ Updating records is just as simple as inserting them. Simply pass an array of va
 Of course, when you only want to update a few records, you should add a WHERE clause before calling the update method:
 
 	$affected = DB::table('users')
-						->where('id', '=', 1)
-						->update(array('email' => 'new_email@gmail.com'));
+		->where('id', '=', 1)
+		->update(array('email' => 'new_email@gmail.com'));
 
 <a name="delete"></a>
 ## Deleting Records
