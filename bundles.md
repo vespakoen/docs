@@ -86,6 +86,12 @@ Each time a bundle is started, it fires an event. You can easily listen for the 
 		// The "admin" bundle has started...
 	});
 
+It is also possible to "disable" a bundle so that it will never be started.
+
+**Disabling a bundle so it can't be started:**
+
+	Bundle::disable('admin');
+
 <a name="routing-to-bundles"></a>
 ## Routing To Bundles
 
@@ -107,6 +113,24 @@ As mentioned previously, bundles can have views, configuration, language files a
 **Loading a bundle language line:**
 
 	return Lang::line('bundle::file.line');
+
+Sometimes you may need to gather more "meta" information about a bundle, such as whether it exists, its location, or perhaps its entire configuration array. Here's how:
+
+**Determine whether a bundle exists:**
+
+	Bundle::exists('admin');
+
+**Retrieving the installation location of a bundle:**
+
+	$location = Bundle::location('admin');
+
+**Retrieving the configuration array for a bundle:**
+
+	$config = Bundle::get('admin');
+
+**Retrieving the names of all installed bundles:**
+
+	$names = Bundle::names();
 
 <a name="bundle-assets"></a>
 ## Bundle Assets
