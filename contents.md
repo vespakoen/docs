@@ -60,6 +60,7 @@
 - [Localization](/docs/localization)
 - [Encryption](/docs/encryption)
 - [IoC Container](/docs/ioc)
+- [Unit Testing](/docs/testing)
 
 ### Database
 
