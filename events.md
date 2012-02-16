@@ -57,3 +57,7 @@ There are several events that are fired by the Laravel core. Here they are:
 **Event fired when a database query is executed:**
 
 	Event::listen('laravel.query', function($sql, $bindings, $time) {});
+
+**Event fired right before response is sent to browser:**
+
+	Event::listen('laravel.done', function($response) {});
