@@ -149,7 +149,7 @@ Constantly generating URLs or redirects using a route's URI leads to brittle cod
 
 	return Redirect::to_route('home');
 
-Once you have named a route, you may easily check if the route handlign the current request has a given name.
+Once you have named a route, you may easily check if the route handling the current request has a given name.
 
 **Determine if the route handling the request has a given name:**
 
