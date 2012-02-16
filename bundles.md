@@ -130,6 +130,8 @@ Of course, you may always install bundles manually; however, the "Artisan" CLI p
 
 	php artisan bundle:install eloquent
 
+> **Note:** After installing the bundle, you may need to [publish its assets](#bundle-assets).
+
 Need a list of available bundles? Check out the Laravel [bundle directory](http://bundles.laravel.com)
 
 <a name="upgrading-bundles"></a>
@@ -140,6 +142,8 @@ When you upgrade a bundle, Laravel will automatically remove the old bundle and 
 **Upgrading a bundle via Artisan:**
 
 	php artisan bundle:upgrade eloquent
+
+> **Note:** After upgrading the bundle, you may need to [re-publish its assets](#bundle-assets).
 
 Since the bundle is totally removed on an upgrade, you must be aware of any changes you have made to the bundle code before upgrading. You may need to change some configuration options in a bundle. Instead of modifying the bundle code directly, use the bundle start events to set them. Place something like this in your **application/start.php** file.
 
