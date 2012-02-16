@@ -64,3 +64,7 @@ Now, let's work on our welcome message. "Welcome to our website!" is a pretty ge
 **Retrieving a language line with replacements:**
 
 	echo Lang::line('marketing.welcome', array('name' => 'Taylor'))->get();
+
+**Retrieving a language line with replacements using "__":**
+
+	echo __('marketing.welcome', array('name' => 'Taylor'));
