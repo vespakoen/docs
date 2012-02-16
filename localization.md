@@ -40,6 +40,10 @@ Nice! Now you know how to get started setting up your language files and directo
 
 	echo Lang::line('marketing.welcome')->get();
 
+**Retrieving a language line using the "__" helper:**
+
+	echo __('marketing.welcome');
+
 Notice how a dot was used to separate "marketing" and "welcome"? The text before the dot corresponds to the language file, while the text after the dot corresponds to a specific string within that file.
 
 Need to retrieve the line in a language other than your default? Not a problem. Just mention the language to the **get** method:
