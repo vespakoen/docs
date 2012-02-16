@@ -59,4 +59,8 @@ You probably want a convenient way to call your controllers from your tests. It'
 
 	$response = Controller::call('home@index', $parameters);
 
+**Resolving an instance of a controller from a test:**
+
+	$controller = Controller::resolve('application', 'home@index');
+
 > **Note:** The controller's action filters will still run when using Controller::call to execute controller actions.
