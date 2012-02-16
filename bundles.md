@@ -66,6 +66,16 @@ This tells Laravel to run the **start.php** file for the bundle, which will regi
 
 > **Note:** The bundle will only be started once. Subsequent calls to the start method will be ignored.
 
+If you use a bundle throughout your application, you may want it to start on every request. If this is the case, you can configure the bundle to auto-start in your **application/bundles.php** file:
+
+**Configuration a bundle to auto-start:**
+
+	return array(
+
+		'admin' => array('auto' => true),
+
+	);
+
 Each time a bundle is started, it fires an event. You can easily listen for the starting of bundles like so:
 
 **Listen for a bundle's start event:**
