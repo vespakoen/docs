@@ -4,6 +4,7 @@
 
 - [The Basics](#the-basics)
 - [Creating & Running Tasks](#creating-tasks)
+- [Bundle Tasks](#bundle-tasks)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -59,3 +60,29 @@ Now we can easily call our "urgent" method:
 **Calling a specific method on a task:**
 
 	php artisan notify:urgent
+
+<a name="bundle-tasks"></a>
+## Bundle Tasks
+
+Creating a task for your bundle is simple. Just prefix the bundle name to the clas name of your task. So, if your bundle was named "admin", a task might look like this:
+
+**Creating a task class that belongs to a bundle:**
+
+	class Admin_Generate_Task {
+
+		public function run($arguments)
+		{
+			// Generate the admin!
+		}
+
+	}
+
+Calling your task is just as easy. Just use the usual Laravel double-colon syntax to indicate the bundle:
+
+**Running a task belonging to a bundle:**
+
+	php artisan admin::generate
+
+**Running a specific method on a task belonging to a bundle:**
+
+	php artisan admin::generate:list
