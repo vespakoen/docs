@@ -108,7 +108,13 @@ Often you may want to specify **created\_at** and **updated\_at** columns on the
 <a name="adding-indexes"></a>
 ## Adding Indexes
 
-The Schema builder supports several types of indexes and they are dead simple to add to your table. Let's walk through each one.
+The Schema builder supports several types of indexes and they are dead simple to add to your table. There are two ways to add the indexes. Each type of index has its method; however, you can also fluently define an index on the same line as a column addition. Let's take a look:
+
+**Fluently creating a string column with an index:**
+
+	$table->string('email')->unique();
+
+Pretty nice, huh? However, if defining the indexes on a separate line is more your style, here are example of using each of the index methods:
 
 **Adding a primary key to the table:**
 
