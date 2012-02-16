@@ -39,6 +39,10 @@ You may also create migrations for a bundle. It's easy.
 
 	php artisan migrate:make bundle::create_users_table
 
+*Further Reading:*
+
+- [Schema Builder](/docs/database/schema)
+
 <a name="running-migrations"></a>
 ## Running Migrations
 

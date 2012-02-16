@@ -37,7 +37,7 @@ The **statement** method returns the boolean result of the PDO operation, and ma
 
 	DB::statement('insert into users values (?, ?)', $bindings);
 
-The **statement** method may also be used for ALTER and CREATE statements.
+> **Note:** The **statement** method may also be used for ALTER and CREATE statements.
 
 <a name="updates-and-deletes"></a>
 ## Updates & Deletes
