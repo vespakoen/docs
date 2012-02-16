@@ -54,6 +54,7 @@
 	- [Building Forms](/docs/forms)
 - [Models & Libraries](/docs/start/libraries)
 - [Errors & Logging](/docs/logging)
+- [Examining Requests](/docs/requests)
 - [Generating URLs](/docs/urls)
 - [Events](/docs/events)
 - [Validation](/docs/validation)
