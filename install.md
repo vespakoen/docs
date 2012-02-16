@@ -45,7 +45,7 @@ When starting a new project, you shouldn't be bombarded with loads of confusing 
 > **Note:** If you are using mod_rewrite, you should set the index option to an empty string.
 
 <a name="environments"></a>
-### Environments
+## Environments
 
 Most likely, the configuration options you need for local development are not the same as the options you need on your production server. Laravel provides a convenient way to manage these differences using the **LARAVEL_ENV** environment variable. To get started, set the environment variable in your **httpd.conf** file:
 
@@ -68,7 +68,7 @@ If you do not have access to your server's configuration files, you may manually
 	$_SERVER['LARAVEL_ENV'] = 'local';
 
 <a name="cleaner-urls"></a>
-### Cleaner URLs
+## Cleaner URLs
 
 Most likely, you do not want your application URLs to contain "index.php". You can remove it using HTTP rewrite rules. If you are using Apache to serve your application, make sure to enable mod_rewrite and create a **.htaccess** file like this one in your **public** directory:
 
