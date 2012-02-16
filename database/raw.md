@@ -3,10 +3,8 @@
 ## Contents
 
 - [Selects](#queries)
-- [Inserts](#inserts)
+- [Inserts & Statements](#inserts-and-statements)
 - [Updates & Deletes](#updates-and-deletes)
-- [Deletes](#deletes)
-- [Statements](#statements)
 - [PDO Connections](#pdo-connections)
 
 <a name="selects"></a>
@@ -30,12 +28,16 @@ The **query** method is used for retrieving an array of database results. Each r
 
 	$email = DB::only('select email from users where id = 1');
 
-<a name="inserts"></a>
-## Inserts
+<a name="inserts-and-statements"></a>
+## Inserts & Statements
 
 The **statement** method returns the boolean result of the PDO operation, and may be used to insert records into the database:
 
+**Inserting a record into the database**
+
 	DB::statement('insert into users values (?, ?)', $bindings);
+
+The **statement** method may also be used for ALTER and CREATE statements.
 
 <a name="updates-and-deletes"></a>
 ## Updates & Deletes
