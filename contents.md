@@ -47,6 +47,7 @@
 	- [Redirecting With Data](/docs/views#redirecting-with-flash-data)
 	- [Downloads](/docs/views#downloads)
 	- [Errors](/docs/views#errors)
+	- [Managing Assets](/docs/assets)
 	- [Templating](/docs/templating)
 	- [Pagination](/docs/pagination)
 	- [Building HTML](/docs/html)
