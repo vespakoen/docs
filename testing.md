@@ -3,6 +3,7 @@
 - [The Basics](#the-basics)
 - [Creating Test Classes](#creating-test-classes)
 - [Running Tests](#running-tests)
+- [Calling Controllers From Tests](#calling-controllers-from-tests)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -48,3 +49,14 @@ To run your tests, you can use Laravel's wonderful Artisan command-line. It's si
 **Running the unit tests for a bundle:**
 
 	php artisan test bundle-name
+
+<a name="#calling-controllers-from-tests"></a>
+## Calling Controllers From Tests
+
+You probably want a convenient way to call your controllers from your tests. It's actually very simple. Here's how:
+
+**Calling a controller from a test:**
+
+	$response = Controller::call('home@index', $parameters);
+
+> **Note:** The controller's action filters will still run when using Controller::call to execute controller actions.
