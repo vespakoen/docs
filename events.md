@@ -52,8 +52,8 @@ There are several events that are fired by the Laravel core. Here they are:
 
 **Event fired when a bundle is started:**
 
-	Event::listen('started: bundle', function() {});
+	Event::listen('laravel.started: bundle', function() {});
 
 **Event fired when a database query is executed:**
 
-	Event::listen('query', function($sql, $bindings, $time) {});
+	Event::listen('laravel.query', function($sql, $bindings, $time) {});

@@ -17,6 +17,8 @@ The **Input** class handles input that comes into your application via GET, POST
 
 	$email = Input::get('email');
 
+> **Note:** The "get" method is used for all request types, not just GET requests.
+
 **Retrieve all input from the input array:**
 
 	$input = Input::get();
@@ -26,7 +28,6 @@ The **Input** class handles input that comes into your application via GET, POST
 	$input = Input::all();
 
 By default, *null* will be returned if the input item does not exist. However, you may pass a different default value as a second parameter to the method:
-> **Note:** The "get" method is used for all request types, not just GET requests.
 
 **Returning a default value if the requested input item doesn't exist:**
 
@@ -76,7 +77,7 @@ Have you ever tried to re-populate an input form after an invalid form submissio
 
 *Further Reading:*
 
-- *[Sessions](/docs/sessions)*
+- *[Sessions](/docs/session/config)*
 
 <a name="redirecting-with-old-input"></a>
 ## Remembering Old Input

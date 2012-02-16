@@ -81,7 +81,7 @@ Each time a bundle is started, it fires an event. You can easily listen for the 
 
 **Listen for a bundle's start event:**
 
-	Event::listen('started: admin', function()
+	Event::listen('laravel.started: admin', function()
 	{
 		// The "admin" bundle has started...
 	});
@@ -175,7 +175,7 @@ Since the bundle is totally removed on an upgrade, you must be aware of any chan
 
 **Listening for a bundle's start event:**
 
-	Event::listen('started: admin', function()
+	Event::listen('laravel.started: admin', function()
 	{
 		Config::set('admin::file.option', true);
 	});

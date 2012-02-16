@@ -53,7 +53,7 @@
 	- [Pagination](/docs/pagination)
 	- [Building HTML](/docs/html)
 	- [Building Forms](/docs/forms)
-- [Models & Libraries](/docs/start/libraries)
+- [Models & Libraries](/docs/models)
 - [Errors & Logging](/docs/logging)
 - [Examining Requests](/docs/requests)
 - [Generating URLs](/docs/urls)

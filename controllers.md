@@ -64,7 +64,7 @@ This routing convention may not be desirable for every situation, so you may als
 <a name="bundle-controllers"></a>
 ## Bundle Controllers
 
-Creating controllers that belong to bundles is just as simple as creating your application controllers. Just prefix the controller calss name with the name of the bundle, so if your bundle is named "admin", your controller classes would look like this:
+Creating controllers that belong to bundles is just as simple as creating your application controllers. Just prefix the controller class name with the name of the bundle, so if your bundle is named "admin", your controller classes would look like this:
 
 **Creating a bundle controller class:**
 
@@ -104,7 +104,7 @@ You may assign "before" and "after" filters to controller actions within the con
 
 *Further Reading:*
 
-- *[Route Filters](/docs/routes#filters)*
+- *[Route Filters](/docs/routing#filters)*
 
 <a name="nested-controllers"></a>
 ## Nested Controllers

@@ -67,8 +67,9 @@ Typically, a route or controller will request data from a model that the view ne
 
 **Chaining the binding of data to a view:**
 
-	View::make('home')->with('name', 'James')
-	                  ->with('votes', 25);
+	View::make('home')
+		->with('name', 'James')
+		->with('votes', 25);
 
 **Passing an array of data to bind data:**
 
@@ -174,7 +175,7 @@ After a user creates an account or signs into your application, it is common to 
 
 *Further Reading:*
 
-- *[Sessions](/docs/sessions)*
+- *[Sessions](/docs/session/config)*
 
 <a name="downloads"></a>
 ## Downloads
