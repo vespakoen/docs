@@ -3,6 +3,7 @@
 ## Contents
 
 - [The Basics](#the-basics)
+- [Prepping Your Database](#prepping-your-database)
 - [Creating Migrations](#creating-migrations)
 - [Running Migrations](#running-migrations)
 - [Rolling Back](#rolling-back)
@@ -11,6 +12,15 @@
 ## The Basics
 
 Think of migrations as a type of version control for your database. Let's say your working on a team, and you all have local databases for development. Good ole' Eric makes a change to the database and checks in his code that uses the new column. You pull in the code, and your application breaks because you don't have the new column. What do you do? Migrations are the answer. Let's dig in deeper to find out how to use them!
+
+<a name="prepping-your-database"></a>
+## Prepping Your Database
+
+Before you can run migrations, we need to do some work on your database. Laravel uses a special table to keep track of which migrations have already run. To create this table, just use the Artisan command-line:
+
+**Creating the Laravel migrations table:**
+
+	php artisan migrate:install
 
 <a name="creating-migrations"></a>
 ## Creating Migrations
