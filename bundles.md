@@ -78,16 +78,6 @@ Each time a bundle is started, it fires an event. You can easily listen for the 
 <a name="routing-to-bundles"></a>
 ## Routing To Bundles
 
-You can easily setup bundles to handle requests to your application. Let's go back to the **application/bundles.php** file and add something:
-
-	return array(
-
-		'admin' => array('handles' => 'admin'),
-
-	);
-
-Notice the new **handles** option in our array? This tells Laravel to load the Admin bundle on any requests where the URI begins with "admin". It's a snap to route to your bundles.
-
 Refer to the documentation on [bundle routing](/docs/routing#bundle-routes) and [bundle controllers](/docs/controllers#controller-routing) for more information on routing and bundles.
 
 <a name="using-bundles"></a>

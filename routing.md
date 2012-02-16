@@ -8,6 +8,7 @@
 - [Route Groups](#route-groups)
 - [Named Routes](#named-routes)
 - [HTTPS Routes](#https-routes)
+- [Bundle Routes](#bundle-routes)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -164,4 +165,39 @@ When defining routes, you may use the "https" attribute to indicate that the HTT
 	Route::secure('GET', 'login', function()
 	{
 		return View::make('login');
+	});
+
+<a name="bundle-routes"></a>
+## Bundle Routes
+
+You can easily setup bundles to handle requests to your application. Let's go back to the **application/bundles.php** file and add something:
+
+**Registering a bundle to handle routes:**
+
+	return array(
+
+		'admin' => array('handles' => 'admin'),
+
+	);
+
+Notice the new **handles** option in our array? This tells Laravel to load the Admin bundle on any requests where the URI begins with "admin". 
+
+Now you're ready to register some routes for your bundle, so create a **routes.php** file within the root directory of your bundle, and add the following:
+
+**Registering a root route for a bundle:**
+
+	Route::get('(:bundle)', function()
+	{
+		return 'Welcome to the Admin bundle!';
+	});
+
+Let's explore this example. Notice the **(:bundle)** place-holder? That will be replaced with the value of the **handles** clause that you used to register your bundle. This keeps your code [D.R.Y.](http://en.wikipedia.org/wiki/Don't_repeat_yourself) and allows those who use your bundle to change it's root URI without breaking your routes! Nice, right?
+
+Of course, you can use the **(:bundle)** place-holder for all of your routes, not just your root route.
+
+**Registering bundle routes:**
+
+	Route::get('(:bundle)/panel', function()
+	{
+		return "I handle requests to admin/panel!";
 	});
