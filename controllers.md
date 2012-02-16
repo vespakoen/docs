@@ -4,6 +4,7 @@
 
 - [The Basics](#the-basics)
 - [Controller Routing](#controller-routing)
+- [Bundle Controllers](#bundle-controllers)
 - [Action Filters](#action-filters)
 - [Nested Controllers](#nested-controllers)
 - [RESTful Controllers](#restful-controllers)
@@ -15,6 +16,8 @@
 Controllers are responsible for handling incoming requests to your application. Typically, they will ask a model for data, and then return a view that presents that data to the user.
 
 Controller classes should be stored in **application/controllers** and should extend the Base\_Controller class. A Home\_Controller class is included with Laravel.
+
+**Creating a simple controller:**
 
 	class Admin_Controller extends Base_Controller {
 
@@ -57,6 +60,30 @@ This routing convention may not be desirable for every situation, so you may als
 **Registering a filtered route that points to a controller action:**
 
 	Route::get('welcome', array('after' => 'log', 'uses' => 'home@index'));
+
+<a name="bundle-controllers"></a>
+## Bundle Controllers
+
+Creating controllers that belong to bundles is just as simple as creating your application controllers. Just prefix the controller calss name with the name of the bundle, so if your bundle is named "admin", your controller classes would look like this:
+
+**Creating a bundle controller class:**
+
+	class Admin_Home_Controller extends Base_Controller {
+
+		public function action_index()
+		{
+			return "Hello Admin!";
+		}
+
+	}
+
+But, how do you register a bundle controller with the router? It's simple. Here's what it looks like:
+
+**Registering a bundle's controller with the router:**
+
+	Route::controller('admin::home');
+
+Great! Now we can access our "admin" bundle's home controller from the web!
 
 <a name="action-filters"></a>
 ## Action Filters

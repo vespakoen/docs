@@ -78,7 +78,7 @@ Each time a bundle is started, it fires an event. You can easily listen for the 
 <a name="routing-to-bundles"></a>
 ## Routing To Bundles
 
-Refer to the documentation on [bundle routing](/docs/routing#bundle-routes) and [bundle controllers](/docs/controllers#controller-routing) for more information on routing and bundles.
+Refer to the documentation on [bundle routing](/docs/routing#bundle-routes) and [bundle controllers](/docs/controllers#bundle-controllers) for more information on routing and bundles.
 
 <a name="using-bundles"></a>
 ## Using Bundles
