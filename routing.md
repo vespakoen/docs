@@ -9,6 +9,7 @@
 - [Named Routes](#named-routes)
 - [HTTPS Routes](#https-routes)
 - [Bundle Routes](#bundle-routes)
+- [CLI Route Testing](#cli-route-testing)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -210,3 +211,12 @@ Of course, you can use the **(:bundle)** place-holder for all of your routes, no
 	{
 		return "I handle requests to admin/panel!";
 	});
+
+<a name="cli-route-testing"></a>
+## CLI Route Testing
+
+You may test your routes using Laravel's wonderful "Artisan" CLI. Simple specify the request method and URI you want to use. The route response will be var_dump'd back to the CLI.
+
+**Calling a route via the Artisan CLI:**
+
+	php artisan route get api/user/1
