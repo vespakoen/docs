@@ -22,9 +22,11 @@
 	- [Route Groups](/docs/routing#groups)
 	- [Named Routes](/docs/routing#named-routes)
 	- [HTTPS Routes](/docs/routing#https-routes)
+	- [Bundle Routing](/docs/routing#bundle-routing)
 - [Controllers](/docs/controllers)
 	- [The Basics](/docs/controllers#the-basics)
 	- [Controller Routing](/docs/controllers#controller-routing)
+	- [Bundle Controllers](/docs/controllers#bundle-controllers)
 	- [Action Filters](/docs/controllers#action-filters)
 	- [Nested Controllers](/docs/controllers#nested-controllers)
 	- [RESTful Controllers](/docs/controllers#restful-controllers)
@@ -49,13 +51,15 @@
 	- [Building HTML](/docs/html)
 	- [Building Forms](/docs/forms)
 - [Models & Libraries](/docs/start/libraries)
-- [IoC Container](/docs/ioc)
+- [Errors & Logging](/docs/logging)
 - [Generating URLs](/docs/urls)
+- [Events](/docs/events)
 - [Validation](/docs/validation)
 - [Working With Files](/docs/files)
 - [Working With Strings](/docs/strings)
 - [Localization](/docs/localization)
 - [Encryption](/docs/encryption)
+- [IoC Container](/docs/ioc)
 
 ### Database
 
