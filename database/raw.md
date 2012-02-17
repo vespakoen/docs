@@ -2,23 +2,39 @@
 
 ## Contents
 
-- [Selects](#queries)
-- [Inserts & Statements](#inserts-and-statements)
-- [Updates & Deletes](#updates-and-deletes)
+- [The Basics](#the-basics)
+- [Other Query Methods](#other-query-methods)
 - [PDO Connections](#pdo-connections)
 
-<a name="selects"></a>
-## Selects
+<a name="the-bascis"></a>
+## The Basics
 
-The **query** method is used for retrieving an array of database results. Each result is a PHP stdClass instance.
+The **query** method is used to execute arbitrary, raw SQL against your database connection. It's dead simple:
 
-**Running a SELECT query on the database:**
+**Selecting records from the database:**
 
 	$users = DB::query('select * from users');
 
-**Running a SELECT query with bindings:**
+**Selecting records from the database using bindings:**
 
 	$users = DB::query('select * from users where name = ?', array('test'));
+
+**Inserting a record into the database**
+
+	$success = DB::query('insert into users values (?, ?)', $bindings);
+
+**Updating table records and getting the number of affected rows:**
+
+	$affected = DB::query('update users set name = ?', $bindings);
+
+**Deleting from a table and getting the number of affected rows:**
+
+	$affected = DB::query('delete from users where id = ?', array(1));
+
+<a name="other-query-methods"></a>
+## Other Query Methods
+
+Laravel provides a few other methods to make querying your database simple and convenient. Here's an overview:
 
 **Running a SELECT query and returning the first result:**
 
@@ -27,28 +43,6 @@ The **query** method is used for retrieving an array of database results. Each r
 **Running a SELECT query and getting the value of a single column:**
 
 	$email = DB::only('select email from users where id = 1');
-
-<a name="inserts-and-statements"></a>
-## Inserts & Statements
-
-The **statement** method returns the boolean result of the PDO operation, and may be used to insert records into the database:
-
-**Inserting a record into the database**
-
-	DB::statement('insert into users values (?, ?)', $bindings);
-
-> **Note:** The **statement** method may also be used for ALTER and CREATE statements.
-
-<a name="updates-and-deletes"></a>
-## Updates & Deletes
-
-**Updating table records and getting the number of affected rows:**
-
-	DB::update('update users set name = ?', $bindings);
-
-**Deleting from a table and getting the number of affected rows:**
-
-	DB::delete('delete from users where id = ?', array(1));
 
 <a name="pdo-connections"></a>
 ## PDO Connections
