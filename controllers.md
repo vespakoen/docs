@@ -104,7 +104,7 @@ You may assign "before" and "after" filters to controller actions within the con
 
 You may also limit a filter to run only on certain HTTP request methods:
 
-**Attaching a filter to run on the POST:**
+**Attaching a filter to run on POST:**
 
 	$this->filter('before', 'csrf')->on('post');
 
