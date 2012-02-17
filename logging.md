@@ -29,7 +29,7 @@ By default, logs are stored in the **storage/logs** direcetory, and a new log fi
 <a name="the-logger-class"></a>
 ## The Logger Class
 
-Sometimes you may wish to use Laravel's **Logger** class for debugging, or just to log informational messages. Here's how to use it:
+Sometimes you may wish to use Laravel's **Log** class for debugging, or just to log informational messages. Here's how to use it:
 
 **Writing a message to the logs:**
 
