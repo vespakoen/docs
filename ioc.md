@@ -1,8 +1,8 @@
 # IoC Container
 
-- [Definition](/docs/start/ioc#definition)
-- [Registering Objects](/docs/start/ioc#register)
-- [Resolving Objects](/docs/start/ioc#resolve)
+- [Definition](/docs/ioc#definition)
+- [Registering Objects](/docs/ioc#register)
+- [Resolving Objects](/docs/ioc#resolve)
 
 <a name="definition"></a>
 ## Definition
@@ -46,4 +46,4 @@ Now that we have SwiftMailer registered in the container, we can resolve it usin
 
 	$mailer = IoC::resolve('mailer');
 
-> **Note:** You may also [register controllers in the container](/docs/start/controllers#di).
+> **Note:** You may also [register controllers in the container](/docs/controllers#dependency-injection).

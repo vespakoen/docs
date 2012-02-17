@@ -60,7 +60,7 @@ Sometimes you may need to login a user without checking their credentials, such 
 <a name="filter"></a>
 ## Protecting Routes
 
-It is common to limit access to certain routes only to logged in users. It's a breeze in Laravel using the built-in [auth filter](/docs/start/routes#filters). If the user is logged in, the request will proceed as normal; however, if the user is not logged in, they will be redirected to the "login" [named route](/docs/start/routes#named).
+It is common to limit access to certain routes only to logged in users. It's a breeze in Laravel using the built-in [auth filter](/docs/routing#filters). If the user is logged in, the request will proceed as normal; however, if the user is not logged in, they will be redirected to the "login" [named route](/docs/routes#named-routes).
 
 To protect a route, simply attach the **auth** filter:
 
