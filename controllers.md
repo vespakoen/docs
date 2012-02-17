@@ -43,7 +43,7 @@ All routes in Laravel must be explicitly defined, including routes to controller
 
 **Registering several controllers with the router:**
 
-	Route::controller(array('admin', 'dashboard.panel'));
+	Route::controller(array('dashboard.panel', 'admin'));
 
 Once a controller is registered, you may access its methods using a simple URI convention:
 
@@ -125,6 +125,8 @@ Define the controller class and store it in **controllers/admin/panel.php**.
 **Register the nested controller with the router using "dot" syntax:**
 
 	Route::controller('admin.panel');
+
+> **Note:** When using nested controllers, always register your controllers from most nested to least nested in order to avoid shadowing controller routes.
 
 **Access the "index" action of the controller:**
 

@@ -47,6 +47,8 @@ Laravel uses the latest features of PHP 5.3 to make routing simple and expressiv
 		//
 	});
 
+> **Note:** Routes are evaluated in the order that they are registered, so register any "catch-all" routes at the bottom of your **routes.php** file.
+
 <a name="wildcards"></a>
 ## Wildcards
 
