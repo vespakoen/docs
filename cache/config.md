@@ -28,7 +28,7 @@ By default, Laravel is configured to use the **file** system cache driver. It's 
 <a name="database"></a>
 ## Database
 
-The database cache driver uses a given database table as a simply key-value store. To get started, first set the name of the database table in **application/config/cache.php**:
+The database cache driver uses a given database table as a simple key-value store. To get started, first set the name of the database table in **application/config/cache.php**:
 
 	'database' => array('table' => 'laravel_cache'),
 
