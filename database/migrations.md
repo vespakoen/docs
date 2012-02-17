@@ -66,3 +66,7 @@ When you roll back a migration, Laravel rolls back the entire migration "operati
 **Rolling back the last migration operation:**
 
 	php artisan migrate:rollback
+
+**Roll back all migrations that have ever run:**
+
+	php artisan migrate:reset
