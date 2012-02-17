@@ -194,7 +194,7 @@ You can easily setup bundles to handle requests to your application. Let's go ba
 
 Notice the new **handles** option in our array? This tells Laravel to load the Admin bundle on any requests where the URI begins with "admin". 
 
-Now you're ready to register some routes for your bundle, so create a **routes.php** file within the root directory of your bundle, and add the following:
+Now you're ready to register some routes for your bundle, so create a **routes.php** file within the root directory of your bundle and add the following:
 
 **Registering a root route for a bundle:**
 
