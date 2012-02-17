@@ -37,7 +37,7 @@ If you are having problems installing, try the following:
 - Make sure the **public** directory is the document root of your web server.
 - If you are using mod_rewrite, set the **index** option in **application/config/application.php** to an empty string.
 
-<a name="config"></a>
+<a name="basic-configuration"></a>
 ## Basic Configuration
 
 When starting a new project, you shouldn't be bombarded with loads of confusing configuration decisions. For that reason, Laravel is intelligently configured out of the box. The **application/config/application.php** file contains the basic configuration options for your application.

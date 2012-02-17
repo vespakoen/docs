@@ -186,7 +186,7 @@ After a user creates an account or signs into your application, it is common to 
 
 **Sending a file download and assigning a file name:**
 
-	return Respone::download('file/path.jpg', 'photo.jpg');
+	return Response::download('file/path.jpg', 'photo.jpg');
 
 <a name="errors"></a>
 ## Errors

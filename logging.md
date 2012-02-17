@@ -11,11 +11,11 @@
 
 All of the configuration options regarding errors and logging live in the **application/config/errors.php** file. Let's jump right in.
 
-- Ignored Errors
+### Ignored Errors
 
 The **ignore** option contains an array of error levels that should be ignored by Laravel. By "ignored", we mean that we won't stop execution of the script on these errors. However, they will be logged when logging is enabled.
 
-- Error Detail
+### Error Detail
 
 The **detail** option indicates if the framework should display the error message and stack trace when an error occurs. For development, you will want this to be **true**. However, in a production environment, set this to **false**. When disabled, the view located in **application/views/error/500.php** will be displayed, which contains a generic error message.
 
@@ -29,7 +29,7 @@ By default, logs are stored in the **storage/logs** direcetory, and a new log fi
 <a name="the-logger-class"></a>
 ## The Logger Class
 
-Sometimes you may wish to use Laravel's **Logger** class for debugging, or just to log informational messages. Here's how to use it:
+Sometimes you may wish to use Laravel's **Log** class for debugging, or just to log informational messages. Here's how to use it:
 
 **Writing a message to the logs:**
 
