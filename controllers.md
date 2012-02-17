@@ -102,6 +102,12 @@ You may assign "before" and "after" filters to controller actions within the con
 
 	$this->filter('before', 'auth')->except(array('add', 'posts'));
 
+You may also limit a filter to run only on certain HTTP request methods:
+
+**Attaching a filter to run on the POST:**
+
+	$this->filter('before', 'csrf')->on('post');
+
 *Further Reading:*
 
 - *[Route Filters](/docs/routing#filters)*
