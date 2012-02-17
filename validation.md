@@ -93,7 +93,7 @@ Now you are familiar with the basic usage of the Validator class. You're ready t
 
 	'payment' => 'min:10'
 
-**Validate that an attribute is less than a given size:**
+**Validate that an attribute is no greater than a given size:**
 
 	'payment' => 'max:50'
 
@@ -214,7 +214,7 @@ The *mimes* rule validates that an uploaded file has a given MIME type. This rul
 
 	'picture' => 'image'
 
-**Validate that a file is less than a given size in kilobytes:**
+**Validate that a file is no more than a given size in kilobytes:**
 
 	'picture' => 'image|max:100'
 
