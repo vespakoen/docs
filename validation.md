@@ -218,7 +218,7 @@ The *mimes* rule validates that an uploaded file has a given MIME type. This rul
 
 	'picture' => 'image|max:100'
 
-<a name="retrieving-error-message"></a>
+<a name="retrieving-error-messages"></a>
 ## Retrieving Error Messages
 
 Laravel makes working with your error messages a cinch using a simple error collector class. After calling the *passes* or *fails* method on a Validator instance, you may access the errors via the *errors* property. The error collector has several simple functions for retrieving your messages:
