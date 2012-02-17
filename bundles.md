@@ -4,6 +4,7 @@
 
 - [The Basics](#the-basics)
 - [Creating Bundles](#creating-bundles)
+- [Registering Bundles](#registering-bundles)
 - [Starting Bundles](#starting-bundles)
 - [Routing To Bundles](#routing-to-bundles)
 - [Using Bundles](#using-bundles)
@@ -155,6 +156,8 @@ Of course, you may always install bundles manually; however, the "Artisan" CLI p
 **Installing a bundle via Artisan:**
 
 	php artisan bundle:install eloquent
+
+Great! Now that you're bundle is installed, you're ready to [register it](#registering-bundles).
 
 > **Note:** After installing the bundle, you may need to [publish its assets](#bundle-assets).
 

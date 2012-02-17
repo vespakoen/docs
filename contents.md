@@ -10,6 +10,7 @@
 - [Bundles](/docs/bundles)
 	- [The Basics](/docs/bundles#the-basics)
 	- [Creating Bundles](/docs/bundles#creating-bundles)
+	- [Registering Bundles](/docs/bundles#registering-bundles)
 	- [Starting Bundles](/docs/bundles#starting-bundles)
 	- [Routing To Bundles](/docs/bundles#routing-to-bundles)
 	- [Using Bundles](/docs/bundles#using-bundles)
