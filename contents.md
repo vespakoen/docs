@@ -94,3 +94,4 @@
 ### Artisan CLI
 
 - [Tasks](/docs/artisan/tasks)
+- [Commands](/docs/artisan/commands)
