@@ -157,7 +157,7 @@ Of course, you may always install bundles manually; however, the "Artisan" CLI p
 
 	php artisan bundle:install eloquent
 
-Great! Now that you're bundle is installed, you're ready to [register it](#bundle-registration) and [publish its assets](#bundle-assets).
+Great! Now that you're bundle is installed, you're ready to [register it](#registering-bundles) and [publish its assets](#bundle-assets).
 
 Need a list of available bundles? Check out the Laravel [bundle directory](http://bundles.laravel.com)
 
