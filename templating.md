@@ -50,7 +50,7 @@ Blade makes writing your views pure bliss. To create a blade view, simply name y
 	@if (count($comments) > 0)
 		I have comments!
 	@else
-		I don't have comments!
+		I have no comments!
 	@endif
 
 	@for ($i =0; $i < count($comments) - 1; $i++)
@@ -85,5 +85,5 @@ View sections provide a simple way to inject content into layouts from nested vi
 	@endsection
 
 	<head>
-		@yield('scripts')		
+		@yield('scripts')
 	</head>
