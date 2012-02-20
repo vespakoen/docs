@@ -5,6 +5,7 @@
 - [The Basics](#the-basics)
 - [Creating & Running Tasks](#creating-tasks)
 - [Bundle Tasks](#bundle-tasks)
+- [CLI Options](#cli-options)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -86,3 +87,14 @@ Calling your task is just as easy. Just use the usual Laravel double-colon synta
 **Running a specific method on a task belonging to a bundle:**
 
 	php artisan admin::generate:list
+
+<a name="cli-options"></a>
+## CLI Options
+
+**Setting the Laravel environment:**
+
+	php artisan foo --env=local
+
+**Setting the default database connection:**
+
+	php artisan foo --database=sqlite

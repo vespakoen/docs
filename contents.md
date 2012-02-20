@@ -94,4 +94,8 @@
 ### Artisan CLI
 
 - [Tasks](/docs/artisan/tasks)
+	- [The Basics](#the-basics)
+	- [Creating & Running Tasks](#creating-tasks)
+	- [Bundle Tasks](#bundle-tasks)
+	- [CLI Options](#cli-options)
 - [Commands](/docs/artisan/commands)
