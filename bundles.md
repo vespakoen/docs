@@ -5,7 +5,9 @@
 - [The Basics](#the-basics)
 - [Creating Bundles](#creating-bundles)
 - [Registering Bundles](#registering-bundles)
+- [Bundles & Class Loading](#bundles-and-class-loading)
 - [Starting Bundles](#starting-bundles)
+- [Lazy Starting](#lazy-starting)
 - [Routing To Bundles](#routing-to-bundles)
 - [Using Bundles](#using-bundles)
 - [Bundle Assets](#bundle-assets)
@@ -55,6 +57,33 @@ Great! By convention, Laravel will assume that the Admin bundle is located at th
 
 Now Laravel will look for our bundle in **bundles/userscape/admin**.
 
+<a name="bundles-and-class-loading"></a>
+## Bundles & Class Loading
+
+Typically, a bundle's **start.php** file only contains auto-loader registrations. So, you may want to just skip **start.php** and declare your bundle's mappings right in its registration array. Here's how:
+
+**Defining auto-loader mappings in a bundle registration:**
+
+	return array(
+
+		'admin' => array(
+			'map' => array(
+				'Admin' => '(:bundle)/admin.php',
+			),
+			'namespaces' => array(
+				'Admin' => '(:bundle)/lib',
+			),
+			'directories' => array(
+				'(:bundle)/models',
+			),
+		),
+
+	);
+
+Notice that each of these options corresponds to a function on the Laravel [auto-loader](/docs/loading). In fact, the value of the option will automatically be passed to the corresponding function on the auto-loader.
+
+You may have also noticed the **(:bundle)** place-holder. For convenience, this will automatically be replaced with the path to the bundle. It's a piece of cake.
+
 <a name="starting-bundles"></a>
 ## Starting Bundles
 
@@ -78,6 +107,8 @@ If you use a bundle throughout your application, you may want it to start on eve
 
 	);
 
+You do not always need to explicitly start a bundle. In fact, you can usually code as if the bundle was auto-started and Laravel will take care of the rest. For example, if you attempt to use a bundle views, configurations, languages, routes or filters, the bundle will automatically be started!
+
 Each time a bundle is started, it fires an event. You can easily listen for the starting of bundles like so:
 
 **Listen for a bundle's start event:**
@@ -92,6 +123,11 @@ It is also possible to "disable" a bundle so that it will never be started.
 **Disabling a bundle so it can't be started:**
 
 	Bundle::disable('admin');
+
+<a name="lazy-starting"></a>
+## Lazy Starting
+
+
 
 <a name="routing-to-bundles"></a>
 ## Routing To Bundles
