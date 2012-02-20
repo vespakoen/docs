@@ -138,6 +138,8 @@ Route filters may be run before or after a route is executed. If a "before" filt
 
 Laravel has two "global" filters that run **before** and **after** every request to your application. You can find them both in the **application/routes.php** file. These filters make great places to start common bundles or add global assets.
 
+> **Note:** The **after** filter receives the **Response** object for the current request.
+
 <a name="route-groups"></a>
 ## Route Groups
 
