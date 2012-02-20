@@ -67,14 +67,16 @@ Typically, a bundle's **start.php** file only contains auto-loader registrations
 	return array(
 
 		'admin' => array(
-			'map' => array(
-				'Admin' => '(:bundle)/admin.php',
-			),
-			'namespaces' => array(
-				'Admin' => '(:bundle)/lib',
-			),
-			'directories' => array(
-				'(:bundle)/models',
+			'autoloads' => array(
+				'map' => array(
+					'Admin' => '(:bundle)/admin.php',
+				),
+				'namespaces' => array(
+					'Admin' => '(:bundle)/lib',
+				),
+				'directories' => array(
+					'(:bundle)/models',
+				),
 			),
 		),
 
