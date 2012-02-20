@@ -4,7 +4,9 @@
 
 - [The Basics](#the-basics)
 - [Wildcards](#wildcards)
+- [The 404 Events](#the-404-event)
 - [Filters](#filters)
+- [Global Filters](#global-filters)
 - [Route Groups](#route-groups)
 - [Named Routes](#named-routes)
 - [HTTPS Routes](#https-routes)
@@ -73,6 +75,24 @@ Laravel uses the latest features of PHP 5.3 to make routing simple and expressiv
 		//
 	});
 
+<a name="the-404-event"></a>
+## The 404 Event
+
+If a request enters your application but does not match any existing route, the 404 event will be raised. You can find the default event handler in your **application/routes.php** file.
+
+**The default 404 event handler:**
+
+	Event::listen('404', function()
+	{
+		return Response::error('404');
+	});
+
+You are free to change this to fit the needs of your application!
+
+*Futher Reading:*
+
+- *[Events](/docs/events)*
+
 <a name="filters"></a>
 ## Filters
 
@@ -112,6 +132,11 @@ Route filters may be run before or after a route is executed. If a "before" filt
 	{
 		//
 	}));
+
+<a name="global-filters"></a>
+## Global Filters
+
+Laravel has two "global" filters that run **before** and **after** every request to your application. You can find them both in the **application/routes.php** file. These filters make great places to start common bundles or add global assets.
 
 <a name="route-groups"></a>
 ## Route Groups
