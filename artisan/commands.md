@@ -8,6 +8,7 @@
 - [Tasks](#tasks)
 - [Unit Tests](#unit-tests)
 - [Routing](#routing)
+- [CLI Options](#cli-options)
 
 <a name="sessions"></a>
 ## Database Sessions <small>[(More Information)](/docs/session/config#database)</small>
@@ -37,7 +38,9 @@ Description  | Command
 ------------- | -------------
 Install a bundle  |  `php artisan bundle:install eloquent`
 Upgrade a bundle  |  `php artisan bundle:upgrade eloquent`
-Publish a bundles assets  |  `php artisan bundle:publish`
+Upgrade all bundles | php artisan bundle:upgrade
+Publish a bundle assets | php artisan bundle:publish bundle_name
+Publish all bundles assets | php artisan bundle:publish
 
 <br>
 > **Note:** After installing you need to [register the bundle](../bundles/#registering-bundles)
@@ -69,5 +72,12 @@ Description  | Command
 Calling a route  |  `php artisan route get api/user/1`
 
 <br>
-
 > **Note:** You can replace get with post, put, delete, etc.
+
+<a name="cli-options"></a>
+## CLI Options
+
+Description  | Command
+------------- | -------------
+Setting the Laravel environment  |  `php artisan foo --env=local`
+Setting the default database connection  |  `php artisan foo --database=sqlitename`
