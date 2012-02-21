@@ -31,7 +31,7 @@ What if we just totally scrapped the "models" directory? Let's name it something
 
 Great! Next, let's break our classes into "entities", "services", and "repositories". So, we'll create each of those three directories within our  "trackler" folder. Let's explore each one:
 
-- **Entities**
+### Entities
 
 Think of entities as the data containers of your application. They primarily just contain properties. So, in our application, we may have a "Location" entity which has "latitude" and "longitude" properties. It could look something like this:
 
@@ -52,7 +52,7 @@ Think of entities as the data containers of your application. They primarily jus
 
 Looking good. Now that we have an entity, let's explore our other two folders.
 
-- **Services**
+### Services
 
 Services contain the *processes* of your application. So, let's keep using our Trackler example. Our application might have a form on which a user may enter their GPS location. However, we need to validate that the coordinates are correctly formatted. We need to *validate* the *location entity*. So, within our "services" directory, we could create a "validators" folder with the following class:
 
@@ -71,7 +71,7 @@ Services contain the *processes* of your application. So, let's keep using our T
 
 Great! Now we have a great way to test our validation in isolation from our controllers and routes! So, we've validated the location and we're ready to store it. What do we do now?
 
-- **Repositories**
+### Repositories
 
 Repositories are the data access layer of your application. They are responsible for storing and retrieving the *entities* of your application. So, let's continue using our *location* entity in this example. We need a location repository that can store them. We could store them using any mechanism we want, whether that is a relational database, Redis, or the next storage hotness. Let's look at an example:
 
