@@ -17,7 +17,7 @@
 <a name="installation"></a>
 ## Installation
 
-1. [Download Laravel](https://github.com/laravel/laravel/zipball/master)
+1. [Download Laravel](http://laravel.com/download)
 2. Extract the Laravel archive and upload the contents to your web server.
 3. Navigate to your application in a web browser.
 
