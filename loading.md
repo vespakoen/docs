@@ -29,7 +29,7 @@ As noted above, the models and libraries directories are registered with the aut
 <a name="mappings"></a>
 ## Registering Mappings
 
-Sometimes you may map wish to manually map a class to its related file. This is the most performant way of loading classes:
+Sometimes you may wish to manually map a class to its related file. This is the most performant way of loading classes:
 
 **Registering a class to file mapping with the auto-loader:**
 
