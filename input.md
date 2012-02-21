@@ -79,7 +79,7 @@ Have you ever tried to re-populate an input form after an invalid form submissio
 
 - *[Sessions](/docs/session/config)*
 
-<a name="redirecting-with-old-input"></a>
+<a name="remembering-old-input"></a>
 ## Remembering Old Input
 
 Since you will typically want to flash input right before a redirect, there is a beautiful shortcut for you to use:

@@ -42,6 +42,7 @@
 	- [Files](/docs/input#files)
 	- [Old Input](/docs/input#old-input)
 	- [Remembering Old Input](/docs/input#remembering-old-input)
+	- [Cookies](/docs/input#cookies)
 - [Views & Responses](/docs/views)
 	- [The Basics](/docs/views#basics)
 	- [Binding Data To Views](/docs/views#binding-data-to-views)
