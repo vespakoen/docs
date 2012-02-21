@@ -197,7 +197,7 @@ When defining routes, you may use the "https" attribute to indicate that the HTT
 	Route::get('login', array('https' => true, function()
 	{
 		return View::make('login');
-	});
+	}));
 
 **Using the "secure" short-cut method:**
 
