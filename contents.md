@@ -59,6 +59,7 @@
 	- [Building Forms](/docs/views/forms)
 - [Models & Libraries](/docs/models)
 - [Errors & Logging](/docs/logging)
+- [Runtime Configuration](/docs/config)
 - [Examining Requests](/docs/requests)
 - [Generating URLs](/docs/urls)
 - [Events](/docs/events)
