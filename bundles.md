@@ -7,7 +7,6 @@
 - [Registering Bundles](#registering-bundles)
 - [Bundles & Class Loading](#bundles-and-class-loading)
 - [Starting Bundles](#starting-bundles)
-- [Lazy Starting](#lazy-starting)
 - [Routing To Bundles](#routing-to-bundles)
 - [Using Bundles](#using-bundles)
 - [Bundle Assets](#bundle-assets)
@@ -125,11 +124,6 @@ It is also possible to "disable" a bundle so that it will never be started.
 **Disabling a bundle so it can't be started:**
 
 	Bundle::disable('admin');
-
-<a name="lazy-starting"></a>
-## Lazy Starting
-
-
 
 <a name="routing-to-bundles"></a>
 ## Routing To Bundles
