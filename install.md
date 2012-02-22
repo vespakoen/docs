@@ -19,7 +19,8 @@
 
 1. [Download Laravel](http://laravel.com/download)
 2. Extract the Laravel archive and upload the contents to your web server.
-3. Navigate to your application in a web browser.
+3. Set the value of the **key** option in the **config/application.php** file to a random, 32 character string.
+4. Navigate to your application in a web browser.
 
 If all is well, you should see a pretty Laravel splash page. Get ready, there is lots more to learn!
 
@@ -41,6 +42,8 @@ If you are having problems installing, try the following:
 ## Basic Configuration
 
 When starting a new project, you shouldn't be bombarded with loads of confusing configuration decisions. For that reason, Laravel is intelligently configured out of the box. The **application/config/application.php** file contains the basic configuration options for your application.
+
+The only option you **definitely** change out of the box is your **application key**. This key is used throughout the framework for encryption, hashing, etc. It lives in the **config/application.php** file and should be set to a random, 32 character string.
 
 > **Note:** If you are using mod_rewrite, you should set the index option to an empty string.
 
