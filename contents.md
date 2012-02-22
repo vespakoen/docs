@@ -37,6 +37,7 @@
 	- [Nested Controllers](/docs/controllers#nested-controllers)
 	- [RESTful Controllers](/docs/controllers#restful-controllers)
 	- [Dependency Injection](/docs/controllers#dependency-injection)
+	- [Controller Factory](/docs/controllers#controller-factory)
 - [Input & Cookies](/docs/input)
 	- [Input](/docs/input#input)
 	- [Files](/docs/input#files)

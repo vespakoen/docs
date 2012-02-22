@@ -9,6 +9,7 @@
 - [Nested Controllers](#nested-controllers)
 - [RESTful Controllers](#restful-controllers)
 - [Dependency Injection](#dependency-injection)
+- [Controller Factory](#controller-factory)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -182,3 +183,17 @@ If you are focusing on writing testable code, you will probably want to inject d
 When a request to a controller enters your application, Laravel will automatically determine if the controller is registered in the container, and if it is, will use the container to resolve an instance of the controller.
 
 > **Note:** Before diving into controller dependency injection, you may wish to read the documentation on Laravel's beautiful [IoC container](/docs/ioc).
+
+<a name="controller-factory"></a>
+## Controller Factory
+
+If you want even more control over the instantiation of your controllers, such as using a third-party IoC container, you'll need to use the Laravel controller factory.
+
+**Register an event to handle controller instantiation:**
+
+	Event::listen(Controller::factory, function($controller)
+	{
+		return new $controller;
+	});
+
+The event will receive the class name of the controller that needs to be resolved. All you need to do is return an instance of the that controller.
