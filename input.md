@@ -92,6 +92,8 @@ Since you will typically want to flash input right before a redirect, there is a
 
 	return Redirect::to('login')->with_input('only', array('username'));
 
+	return Redirect::to('login')->with_input('except', array('password'));
+
 <a name="cookies"></a>
 ## Cookies
 
