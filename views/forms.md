@@ -4,7 +4,7 @@
 
 - [Opening A Form](#opening-a-form)
 - [CSRF Protection](#csrf-protection)
-- [Labels](#label)
+- [Labels](#labels)
 - [Text, Text Area, Password & Hidden Fields](#text)
 - [Checkboxes and Radio Buttons](#checkboxes-and-radio-buttons)
 - [Drop-Down Lists](#drop-down-lists)
@@ -111,7 +111,7 @@ Laravel provides an easy method of protecting your application from cross-site r
 
 	echo Form::checkbox('name', 'value', true);
 
-> **Note:** The *radio* method has the same signature as the *checkbox* method. Two for one!	
+> **Note:** The *radio* method has the same signature as the *checkbox* method. Two for one!
 
 <a name="drop-down-lists"></a>
 ## Drop-Down Lists
