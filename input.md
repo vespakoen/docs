@@ -46,6 +46,10 @@ By default, *null* will be returned if the input item does not exist. However, y
 <a name="files"></a>
 ## Files
 
+**Retrieving all items from the $_FILES array:**
+
+	$files = Input::files();
+
 **Retrieving an item from the $_FILES array:**
 
 	$picture = Input::file('picture');
