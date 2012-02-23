@@ -18,6 +18,8 @@
 
 Laravel uses the latest features of PHP 5.3 to make routing simple and expressive. It's a joy to build everything from simple JSON APIs to complex web applications. Routes are typically defined in **application/routes.php**.
 
+> **Note:** Routes are evaluated in the order that they are registered, so register any "catch-all" routes at the bottom of your **routes.php** file.
+
 **Registering a route that responds to "GET /":**
 
 	Route::get('/', function()
@@ -49,7 +51,9 @@ Laravel uses the latest features of PHP 5.3 to make routing simple and expressiv
 		//
 	});
 
-> **Note:** Routes are evaluated in the order that they are registered, so register any "catch-all" routes at the bottom of your **routes.php** file.
+**Registering a single URI for multiple HTTP verbs:**
+
+	Router::register(array('GET', 'POST'), $uri, $callback);
 
 <a name="wildcards"></a>
 ## Wildcards
