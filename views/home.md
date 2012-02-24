@@ -144,6 +144,10 @@ Now each time the "home" view is created, an instance of the View will be passed
 
 	return Redirect::to('user/profile', 301);
 
+**Redirecting to a secure URI:**
+
+	return Redirect::to_secure('user/profile');
+
 **Redirecting to the root of your application:**
 
 	return Redirect::home();
