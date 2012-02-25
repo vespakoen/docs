@@ -20,7 +20,22 @@ For instance, perhaps you are writing a satellite tracking application. You migh
 <a name="libraries"></a>
 ## Libraries
 
-Libraries are classes that perform tasks that aren't specific to your application. For instance, consider a PDF generation library that converts HTML. That task, although complicated, is not specific to your application, so it is considered a "library". Laravel makes it a breeze to drop in a library and start using it within your application. To learn how, check out the documentation on [auto loading](/docs/loading).
+Libraries are classes that perform tasks that aren't specific to your application. For instance, consider a PDF generation library that converts HTML. That task, although complicated, is not specific to your application, so it is considered a "library". 
+
+Creating a library is as easy as creating a file in the libraries folder with the functions you want. In the following example, we will create a simple library with a function to echo the text that is passed. We create a *printer.php* file in the libraries folder with the following code.
+
+	<?php
+
+	class Printer {
+
+		public static function write($text) {
+			echo $text;
+		}
+	}
+
+Once the library is loaded, you can call the write function from anywhere within your application with *Printer::write('text here');*.
+
+Laravel makes it a breeze to drop in a library and start using it within your application. To learn how, check out the documentation on [auto loading](/docs/loading).
 
 <a name="best-practices"></a>
 ## Best Practices
