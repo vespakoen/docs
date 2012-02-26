@@ -177,7 +177,7 @@ After a user creates an account or signs into your application, it is common to 
 
 	return Redirect::to('profile')->with('status', 'Welcome Back!');
 
-	You can access your message from the view with the Session get method:
+You can access your message from the view with the Session get method:
 
 	$status = Session::get('status');
 
