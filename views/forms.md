@@ -75,7 +75,7 @@ Laravel provides an easy method of protecting your application from cross-site r
 
 **Generating a label element:**
 
-	echo Form::label('email, 'E-Mail Address');
+	echo Form::label('email', 'E-Mail Address');
 
 **Specifying extra HTML attributes for a label:**
 
