@@ -14,6 +14,10 @@
 
 Laravel includes a beautiful method of creating and modifying your database tables. Using a fluent syntax, you can work with your tables without using any vendor specific SQL. You'll love using it.
 
+*Further Reading:*
+
+- [Migrations](/docs/database/migrations)
+
 <a name="creating-tables"></a>
 ## Creating Tables
 
