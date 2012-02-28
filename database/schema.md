@@ -23,7 +23,7 @@ Laravel includes a beautiful method of creating and modifying your database tabl
 
 The **Schema** class is used to create and modify tables. Let's jump right into an example:
 
-#### Creating a simple database table:**
+#### Creating a simple database table:
 
 	Schema::create('users', function($table)
 	{
