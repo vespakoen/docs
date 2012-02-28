@@ -3,7 +3,7 @@
 ## Contents
 
 - [The Basics](#the-basics)
-- [Creating & Dropping Tables](#creating-tables)
+- [Creating & Dropping Tables](#creating-dropping-tables)
 - [Adding Columns](#adding-columns)
 - [Dropping Columns](#dropping-columns)
 - [Adding Indexes](#adding-indexes)
@@ -18,8 +18,8 @@ Laravel includes a beautiful method of creating and modifying your database tabl
 
 - [Migrations](/docs/database/migrations)
 
-<a name="creating-tables"></a>
-## Creating Tables
+<a name="creating-dropping-tables"></a>
+## Creating & Dropping Tables
 
 The **Schema** class is used to create and modify tables. Let's jump right into an example:
 
