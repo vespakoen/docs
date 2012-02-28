@@ -11,7 +11,7 @@
 
 Your application probably uses a common layout across most of its pages. Manually creating this layout within every controller action can be a pain. Specifying a controller layout will make your develompent much more enjoyable. Here's how to get started:
 
-**Specify a "layout" property on your controller:**
+#### Specify a "layout" property on your controller:
 
 	class Base_Controller extends Controller {
 
@@ -19,7 +19,7 @@ Your application probably uses a common layout across most of its pages. Manuall
 
 	}
 
-**Access the layout from the controllers' action:**
+#### Access the layout from the controllers' action:
 
 	public function action_profile()
 	{
@@ -33,11 +33,11 @@ Your application probably uses a common layout across most of its pages. Manuall
 
 Blade makes writing your views pure bliss. To create a blade view, simply name your view file with a ".blade.php" extension. Blade allows you to use beautiful, unobtrusive syntax for writing PHP control structures and echoing data. Here's an example:
 
-**Echoing a variable using Blade:**
+#### Echoing a variable using Blade:
 
 	Hello, {{$name}}.
 
-**Creating loops using Blade:**
+#### Creating loops using Blade:
 
 	<h1>Comments</h1>
 
@@ -45,7 +45,7 @@ Blade makes writing your views pure bliss. To create a blade view, simply name y
 		The comment body is {{$comment->body}}.
 	@endforeach
 
-**Other Blade control structures:**
+#### Other Blade control structures:
 
 	@if (count($comments) > 0)
 		I have comments!
@@ -66,19 +66,19 @@ Blade makes writing your views pure bliss. To create a blade view, simply name y
 
 View sections provide a simple way to inject content into layouts from nested views. For example, perhaps you want to inject a nested view's needed JavaScript into the header of your layout. Let's dig in:
 
-**Creating a section within a view:**
+#### Creating a section within a view:
 
 	<?php Section::start('scripts'); ?>
 		<script src="jquery.js"></script>
 	<?php Section::stop(); ?>
 
-**Rendering the contents of a section:**
+#### Rendering the contents of a section:
 
 	<head>
 		<?php echo Section::yield('scripts'); ?>
 	</head>
 
-**Using Blade short-cuts to work with sections:**
+#### Using Blade short-cuts to work with sections:
 
 	@section('scripts')
 		<script src="jquery.js"></script>

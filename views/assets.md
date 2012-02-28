@@ -13,7 +13,7 @@
 
 The **Asset** class provides a simple, elegant way to manage the CSS and JavaScript used by your application. Registering an asset is simple. Just call the **add** method on the **Asset** class:
 
-**Registering an asset:**
+#### Registering an asset:
 
 	Asset::add('jquery', 'js/jquery.js');
 
@@ -24,7 +24,7 @@ Wonderful. The **add** method accepts three parameters. The first is the name of
 
 When you are ready to place the links to the registered assets on your view, you may use the **styles** or **scripts** methods:
 
-**Dumping assets into a view:**
+#### Dumping assets into a view:
 
 	<head>
 		<?php echo Asset::styles(); ?>
@@ -36,13 +36,13 @@ When you are ready to place the links to the registered assets on your view, you
 
 Sometimes you may need to specify that an asset has dependencies. This means that the asset requires other assets to be declared in your view before it can be declared. Managing asset dependencies couldn't be easier in Laravel. Remember the "names" you gave to your assets? You can pass them as the third parameter to the **add** method to declare dependencies:
 
-**Registering a bundle that has dependencies:**
+#### Registering a bundle that has dependencies:
 
 	Asset::add('jquery-ui', 'js/jquery-ui.js', 'jquery');
 
 Great! In this example, we are registering the **jquery-ui** asset, as well as specifying that it is dependent on the **jquery** asset. Now, when you place the asset links on your views, the jQuery asset will always be declared before the jQuery UI asset. Need to declare more than one dependency? No problem:
 
-**Registering an asset that has multiple dependencies:**
+#### Registering an asset that has multiple dependencies:
 
 	Asset::add('jquery-ui', 'js/jquery-ui.js', array('first', 'second'));
 
@@ -51,11 +51,11 @@ Great! In this example, we are registering the **jquery-ui** asset, as well as s
 
 To increase response time, it is common to place JavaScript at the bottom of HTML documents. But, what if you also need to place some assets in the head of your document? No problem. The asset class provides a simple way to manage asset **containers**. Simply call the **container** method on the Asset class and mention the container name. Once you have a container instance, you are free to add any assets you wish to the container using the same syntax you are used to:
 
-**Retrieving an instance of an asset container:**
+#### Retrieving an instance of an asset container:
 
 	Asset::container('footer')->add('example', 'js/example.js');
 
-**Dumping that assets from a given container:**
+#### Dumping that assets from a given container:
 
 	echo Asset::container('footer')->scripts();
 
@@ -66,7 +66,7 @@ Before learning how to conveniently add and dump bundle assets, you may wish to 
 
 When registering assets, the paths are typically relative to the **public** directory. However, this is inconvenient when dealing with bundle assets, since they live in the **public/bundles** directory. But, remember, Laravel is here to make your life easier. So, it is simple to specify the bundle which the Asset container is managing.
 
-**Specifying the bundle the asset container is managing:**
+#### Specifying the bundle the asset container is managing:
 
 	Asset::container('foo')->bundle('admin');
 

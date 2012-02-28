@@ -14,18 +14,18 @@
 
 Almost every interactive web application needs to validate data. For instance, a registration form probably requires the password to be confirmed. Maybe the e-mail address must be unique. Validating data can be a cumbersome process. Thankfully, it isn't in Laravel. The Validator class provides as awesome array of validation helpers to make validating your data a breeze. Let's walk through an example:
 
-**Get an array of data you want to validate:**
+#### Get an array of data you want to validate:
 
 	$input = Input::all();
 
-**Define the validation rules for your data:**
+#### Define the validation rules for your data:
 
 	$rules = array(
 		'name'  => 'required|max:50',
 		'email' => 'required|email|unique:users',
 	);
 
-**Create a Validator instance and validate the data:**
+#### Create a Validator instance and validate the data:
 
 	$validation = Validator::make($input, $rules);
 
@@ -57,65 +57,65 @@ Now you are familiar with the basic usage of the Validator class. You're ready t
 <a name="rule-required"></a>
 ### Required
 
-**Validate that an attribute is present and is not an empty string:**
+#### Validate that an attribute is present and is not an empty string:
 
 	'name' => 'required'
 
 <a name="rule-alpha"></a>
 ### Alpha, Alpha Numeric, & Alpha Dash
 
-**Validate that an attribute consists solely of letters:**
+#### Validate that an attribute consists solely of letters:
 
 	'name' => 'alpha'
 
-**Validate that an attribute consists of letters and numbers:**
+#### Validate that an attribute consists of letters and numbers:
 
 	'username' => 'alpha_num'
 
-**Validate that an attribute only contains letters, numbers, dashes, or underscores:**
+#### Validate that an attribute only contains letters, numbers, dashes, or underscores:
 
 	'username' => 'alpha_dash'
 
 <a name="rule-size"></a>
 ### Size
 
-**Validate that an attribute is a given length, or, if an attribute is numeric, is a given value:**
+#### Validate that an attribute is a given length, or, if an attribute is numeric, is a given value:
 
 	'name' => 'size:10'
 
-**Validate that an attribute size is within a given range:**
+#### Validate that an attribute size is within a given range:
 
 	'payment' => 'between:10,50'
 
 > **Note:** All minimum and maximum checks are inclusive.
 
-**Validate that an attribute is at least a given size:**
+#### Validate that an attribute is at least a given size:
 
 	'payment' => 'min:10'
 
-**Validate that an attribute is no greater than a given size:**
+#### Validate that an attribute is no greater than a given size:
 
 	'payment' => 'max:50'
 
 <a name="rule-numeric"></a>
 ### Numeric
 
-**Validate that an attribute is numeric:**
+#### Validate that an attribute is numeric:
 
 	'payment' => 'numeric'
 
-**Validate that an attribute is an integer:**
+#### Validate that an attribute is an integer:
 
 	'payment' => 'integer'
 
 <a name="rule-in"></a>
 ### Inclusion & Exclusion
 
-**Validate that an attribute is contained in a list of values:**
+#### Validate that an attribute is contained in a list of values:
 
 	'size' => 'in:small,medium,large'
 
-**Validate that an attribute is not contained in a list of values:**
+#### Validate that an attribute is not contained in a list of values:
 
 	'language' => 'not_in:cobol,assembler'
 
@@ -124,7 +124,7 @@ Now you are familiar with the basic usage of the Validator class. You're ready t
 
 The *confirmed* rule validates that, for a given attribute, a matching *attribute_confirmation* attribute exists.
 
-**Validate that an attribute is confirmed:**
+#### Validate that an attribute is confirmed:
 
 	'password' => 'confirmed'
 
@@ -135,52 +135,52 @@ Given this example, the Validator will make sure that the *password* attribute m
 
 The *accepted* rule validates that an attribute is equal to *yes* or *1*. This rule is helpful for validating checkbox form fields such as "terms of service".
 
-**Validate that an attribute is accepted:**
+#### Validate that an attribute is accepted:
 
 	'terms' => 'accepted'
 
 <a name="same-and-different"></a>
 ## Same & Different
 
-**Validate that an attribute matches another attribute:**
+#### Validate that an attribute matches another attribute:
 
 	'token1' => 'same:token2'
 
-**Validate that two attributes have different values:**
+#### Validate that two attributes have different values:
 
 	'password' => 'different:old_password',
 
 <a name="rule-unique"></a>
 ### Uniqueness & Existence
 
-**Validate that an attribute is unique on a given database table:**
+#### Validate that an attribute is unique on a given database table:
 
 	'email' => 'unique:users'
 
 In the example above, the *email* attribute will be checked for uniqueness on the *users* table. Need to verify uniqueness on a column name other than the attribute name? No problem:
 
-**Specify a custom column name for the unique rule:**
+#### Specify a custom column name for the unique rule:
 
 	'email' => 'unique:users,email_address'
 
 Many times, when updating a record, you want to use the unique rule, but exclude the row being updated. For example, when updating a user's profile, you may allow them to change their e-mail address. But, when the *unique* rule runs, you want it to skip the given user since they may not have changed their address, thus causing the *unique* rule to fail. It's easy:
 
-**Forcing the unique rule to ignore a given ID:**
+#### Forcing the unique rule to ignore a given ID:
 
 	'email' => 'unique:users,email_address,10'
 
-**Validate that an attribute exists on a given database table:**
+#### Validate that an attribute exists on a given database table:
 
 	'state' => 'exists:states'
 
-**Specify a custom column name for the exists rule:**
+#### Specify a custom column name for the exists rule:
 
 	'state' => 'exists:states,abbreviation'
 
 <a name="rule-email"></a>
 ### E-Mail Addresses
 
-**Validate that an attribute is an e-mail address:**
+#### Validate that an attribute is an e-mail address:
 
 	'address' => 'email'
 
@@ -189,11 +189,11 @@ Many times, when updating a record, you want to use the unique rule, but exclude
 <a name="rule-url"></a>
 ### URLs
 
-**Validate that an attribute is a URL:**
+#### Validate that an attribute is a URL:
 
 	'link' => 'url'
 
-**Validate that an attribute is an active URL:**
+#### Validate that an attribute is an active URL:
 
 	'link' => 'active_url'
 
@@ -204,17 +204,17 @@ Many times, when updating a record, you want to use the unique rule, but exclude
 
 The *mimes* rule validates that an uploaded file has a given MIME type. This rule uses the PHP Fileinfo extension to read the contents of the file and determine the actual MIME type. Any extension defined in the *config/mimes.php* file may be passed to this rule as a parameter:
 
-**Validate that a file is one of the given types:**
+#### Validate that a file is one of the given types:
 
 	'picture' => 'mimes:jpg,gif'
 
 > **Note:** When validating files, be sure to use Input::file() or Input::all() to gather the input.
 
-**Validate that a file is an image:**
+#### Validate that a file is an image:
 
 	'picture' => 'image'
 
-**Validate that a file is no more than a given size in kilobytes:**
+#### Validate that a file is no more than a given size in kilobytes:
 
 	'picture' => 'image|max:100'
 
@@ -223,36 +223,36 @@ The *mimes* rule validates that an uploaded file has a given MIME type. This rul
 
 Laravel makes working with your error messages a cinch using a simple error collector class. After calling the *passes* or *fails* method on a Validator instance, you may access the errors via the *errors* property. The error collector has several simple functions for retrieving your messages:
 
-**Determine if an attribute has an error message:**
+#### Determine if an attribute has an error message:
 
 	if ($validation->errors->has('email'))
 	{
 		// The e-mail attribute has errors...
 	}
 
-**Retrieve the first error message for an attribute:**
+#### Retrieve the first error message for an attribute:
 
 	echo $validation->errors->first('email');
 
 Sometimes you may need to format the error message by wrapping it in HTML. No problem. Along with the :message place-holder, pass the format as the second parameter to the method.
 
-**Format an error message:**
+#### Format an error message:
 
 	echo $validation->errors->first('email', '<p>:message</p>');
 
-**Get all of the error messages for a given attribute:**
+#### Get all of the error messages for a given attribute:
 
 	$messages = $validation->errors->get('email');
 
-**Format all of the error messages for an attribute:**
+#### Format all of the error messages for an attribute:
 
 	$messages = $validation->errors->get('email', '<p>:message</p>');
 
-**Get all of the error messages for all attributes:**
+#### Get all of the error messages for all attributes:
 
 	$messages = $validation->errors->all();
 
-**Format all of the error messages for all attributes:**
+#### Format all of the error messages for all attributes:
 
 	$messages = $validation->errors->all('<p>:message</p>');
 
@@ -287,7 +287,7 @@ Great! So, we have two simple registration routes. One to handle displaying the 
 
 Want to use an error message other than the default? Maybe you even want to use a custom error message for a given attribute and rule. Either way, the Validator class makes it easy.
 
-**Create an array of custom messages for the Validator:**
+#### Create an array of custom messages for the Validator:
 
 	$messages = array(
 		'required' => 'The :attribute field is required.',
@@ -299,7 +299,7 @@ Great! Now our custom message will be used anytime a required validation check f
 
 You may also use the **:other**, **:size**, **:min**, **:max**, and **:values** place-holders when constructing your error messages:
 
-**Other validation message place-holders:**
+#### Other validation message place-holders:
 
 	$messages = array(
 		'same'    => 'The :attribute and :other must match.',
@@ -310,7 +310,7 @@ You may also use the **:other**, **:size**, **:min**, **:max**, and **:values** 
 
 So, what if you need to specify a custom required message, but only for the email attribute? No problem. Just specify the message using an **attribute_rule** naming convention:
 
-**Specifying a custom error message for a given attribute:**
+#### Specifying a custom error message for a given attribute:
 
 	$messages = array(
 		'email_required' => 'We need to know your e-mail address!',
@@ -320,7 +320,7 @@ In the example above, the custom required message will be used for the email att
 
 However, if you are using many custom error messages, specifying inline may become cumbersome and messy. For that reason, you can specify your custom messages in the **custom** array within the validation language file:
 
-**Adding custom error messages to the validation langauge file:**
+#### Adding custom error messages to the validation langauge file:
 
 	'custom' => array(
 		'email_required' => 'We need to know your e-mail address!',
@@ -331,7 +331,7 @@ However, if you are using many custom error messages, specifying inline may beco
 
 Need to create your own validation rules? You will love how easy it is! First, create a class that extends **Laravel\Validator** and place it in your **application/libraries** directory:
 
-**Defining a custom validator class:**
+#### Defining a custom validator class:
 
 	<?php
 
@@ -341,7 +341,7 @@ Next, remove the Validator alias from **config/application.php**.
 
 Alright! You're ready to define your own validation rule. Create a function on your new validator using a **validate_rule** naming convention. Validator methods simply need to return true or false. It couldn't be any easier, right?
 
-**Adding a custom validation rule:**
+#### Adding a custom validation rule:
 
 	<?php
 

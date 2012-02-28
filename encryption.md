@@ -16,14 +16,14 @@ Need to do secure, two-way encryption? Laravel has you covered with the **Crypte
 <a name="encrypt"></a>
 ## Encrypting A String
 
-**Encrypting a given string:**
+#### Encrypting a given string:
 
 	$encrypted = Crypter::encrypt($value);
 
 <a name="decrypt"></a>
 ## Decrypting A String
 
-**Decrypting a string:**
+#### Decrypting a string:
 
 	$decrypted = Crypter::decrypt($encrypted);
 

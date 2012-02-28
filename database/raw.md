@@ -11,23 +11,23 @@
 
 The **query** method is used to execute arbitrary, raw SQL against your database connection. It's dead simple:
 
-**Selecting records from the database:**
+#### Selecting records from the database:
 
 	$users = DB::query('select * from users');
 
-**Selecting records from the database using bindings:**
+#### Selecting records from the database using bindings:
 
 	$users = DB::query('select * from users where name = ?', array('test'));
 
-**Inserting a record into the database**
+#### Inserting a record into the database
 
 	$success = DB::query('insert into users values (?, ?)', $bindings);
 
-**Updating table records and getting the number of affected rows:**
+#### Updating table records and getting the number of affected rows:
 
 	$affected = DB::query('update users set name = ?', $bindings);
 
-**Deleting from a table and getting the number of affected rows:**
+#### Deleting from a table and getting the number of affected rows:
 
 	$affected = DB::query('delete from users where id = ?', array(1));
 
@@ -36,11 +36,11 @@ The **query** method is used to execute arbitrary, raw SQL against your database
 
 Laravel provides a few other methods to make querying your database simple and convenient. Here's an overview:
 
-**Running a SELECT query and returning the first result:**
+#### Running a SELECT query and returning the first result:
 
 	$user = DB::first('select * from users where id = 1');
 
-**Running a SELECT query and getting the value of a single column:**
+#### Running a SELECT query and getting the value of a single column:
 
 	$email = DB::only('select email from users where id = 1');
 
@@ -49,7 +49,7 @@ Laravel provides a few other methods to make querying your database simple and c
 
 Sometimes you may wish to access the raw PDO connection behind the Laravel Connection object. It's simple:
 
-**Get the raw PDO connection for a database:**
+#### Get the raw PDO connection for a database:
 
 	$pdo = DB::connection('sqlite')->pdo;
 

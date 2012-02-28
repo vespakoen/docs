@@ -18,17 +18,17 @@ Just looking at pagination libraries probably makes you cringe. It doesn't have 
 
 The fluent query builder makes paginating database results easy as pie. Let's walk through a complete example:
 
-**Pull the paginated results from the query:**
+#### Pull the paginated results from the query:
 
 	$orders = DB::table('orders')->paginate($per_page);
 
-**Display the results in a view:**
+#### Display the results in a view:
 
 	<?php foreach ($orders->results as $order): ?>
 		<?php echo $order->id; ?>
 	<?php endforeach; ?>
 
-**Generate the pagination links:**
+#### Generate the pagination links:
 
 	<?php echo $orders->links(); ?>
 
@@ -40,7 +40,7 @@ Notice what was missing in this example? We never told the Paginator what page w
 
 It's also possible to generate simple "next" and "previous" links if you're feeling more modest:
 
-**Generating simple "previous" and "next" links:**
+#### Generating simple "previous" and "next" links:
 
 	<?php echo $orders->previous().' '.$orders->next(); ?>
 
@@ -53,7 +53,7 @@ It's also possible to generate simple "next" and "previous" links if you're feel
 
 You may need to add more items to the pagination links' query strings, such as the column your are sorting by. It's really simple:
 
-**Appending to the query string of pagination links:**
+#### Appending to the query string of pagination links:
 
 	<?php echo $orders->appends(array('sort' => 'votes'))->links();
 
@@ -66,7 +66,7 @@ This will generate URLs that look something like this:
 
 Sometimes you may need to create a Paginator instance manually, without using the query builder. Here's how:
 
-**Creating a Paginator instance manually:**
+#### Creating a Paginator instance manually:
 
 	$orders = Paginator::make($orders, $total, $per_page);
 

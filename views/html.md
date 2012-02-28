@@ -17,26 +17,26 @@ When displaying user input in your Views, it is important to convert all charact
 
 For example, the < symbol should be converted to its entity representation. Converting HTML characters to their entity representation helps protect your application from cross-site scripting:
 
-**Converting a string to its entity representation:**
+#### Converting a string to its entity representation:
 
 	echo HTML::entities('<script>alert('hi');</script>');
 
-**Using the "e" global helper:**
+#### Using the "e" global helper:
 
 	echo e('<script>alert('hi');</script>');
 
 <a name="scripts-and-style-sheets"></a>
 ## Scripts And Style Sheets
 
-**Generating a reference to a JavaScript file:**
+#### Generating a reference to a JavaScript file:
 
 	echo HTML::script('js/scrollTo.js');
 
-**Generating a reference to a CSS file:**
+#### Generating a reference to a CSS file:
 
 	echo HTML::style('css/common.css');
 
-**Generating a reference to a CSS file using a given media type:**
+#### Generating a reference to a CSS file using a given media type:
 
 	echo HTML::style('css/common.css', 'print');
 
@@ -47,26 +47,26 @@ For example, the < symbol should be converted to its entity representation. Conv
 <a name="links"></a>
 ## Links
 
-**Generating a link from a URI:**
+#### Generating a link from a URI:
 
 	echo HTML::link('user/profile', 'User Profile');
 
-**Generating a link that should use HTTPS:**
+#### Generating a link that should use HTTPS:
 
 	echo HTML::secure_link('user/profile', 'User Profile');
 
-**Generating a link and specifying extra HTML attributes:**
+#### Generating a link and specifying extra HTML attributes:
 
 	echo HTML::link('user/profile', 'User Profile', array('id' => 'profile_link'));
 
 <a name="links-to-named-routes"></a>
 ## Links To Named Routes
 
-**Generating a link to a named route:**
+#### Generating a link to a named route:
 
 	echo HTML::link_to_route('profile');
 
-**Generating a link to a named route with wildcard values:**
+#### Generating a link to a named route with wildcard values:
 
 	$url = HTML::link_to_route('profile', array($username));
 
@@ -79,29 +79,29 @@ For example, the < symbol should be converted to its entity representation. Conv
 
 The "mailto" method on the HTML class obfuscates the given e-mail address so it is not sniffed by bots.
 
-**Creating a mail-to link:**
+#### Creating a mail-to link:
 
 	echo HTML::mailto('example@gmail.com', 'E-Mail Me!');
 
-**Creating a mail-to link using the e-mail address as the link text:**
+#### Creating a mail-to link using the e-mail address as the link text:
 
 	echo HTML::mailto('example@gmail.com');
 
 <a name="images"></a>
 ## Images
 
-**Generating an HTML image tag:**
+#### Generating an HTML image tag:
 
 	echo HTML::image('img/smile.jpg', $alt_text);
 
-**Generating an HTML image tag with extra HTML attributes:**
+#### Generating an HTML image tag with extra HTML attributes:
 
 	echo HTML::image('img/smile.jpg', $alt_text, array('id' => 'smile'));
 
 <a name="lists"></a>
 ## Lists
 
-**Creating lists from an array of items:**
+#### Creating lists from an array of items:
 
 	echo HTML::ol(array('Get Peanut Butter', 'Get Chocolate', 'Feast'));
 

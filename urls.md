@@ -11,36 +11,36 @@
 <a name="the-basics"></a>
 ## The Basics
 
-**Retrieving the application's base URL:**
+#### Retrieving the application's base URL:
 
 	$url = URL::base();
 
-**Generating a URL relative to the base URL:**
+#### Generating a URL relative to the base URL:
 
 	$url = URL::to('user/profile');
 
-**Generating a HTTPS URL:**
+#### Generating a HTTPS URL:
 
 	$url = URL::to_secure('user/login');
 
-**Retrieving the current URL:**
+#### Retrieving the current URL:
 
 	$url = URL::current();
 
-**Retrieving the current URL including query string:**
+#### Retrieving the current URL including query string:
 
 	$url = URL::full();
 
 <a name="urls-to-routes"></a>
 ## URLs To Routes
 
-**Generating a URL to a named route:**
+#### Generating a URL to a named route:
 
 	$url = URL::to_route('profile');
 
 Sometimes you may need to generate a URL to a named route, but also need to specify the values that should be used instead of the route's URI wildcards. It's easy to replace the wildcards with proper values:
 
-**Generating a URL to a named route with wildcard values:**
+#### Generating a URL to a named route with wildcard values:
 
 	$url = URL::to_route('profile', array($username));
 
@@ -51,11 +51,11 @@ Sometimes you may need to generate a URL to a named route, but also need to spec
 <a name="urls-to-controller-actions"></a>
 ## URLs To Controller Actions
 
-**Generating a URL to a controller action:**
+#### Generating a URL to a controller action:
 
 	$url = URL::to_action('user@profile');
 
-**Generating a URL to an action with wildcard values:**
+#### Generating a URL to an action with wildcard values:
 
 	$url = URL::to_action('user@profile', array($username));
 
@@ -64,7 +64,7 @@ Sometimes you may need to generate a URL to a named route, but also need to spec
 
 URLs generated for assets will not contain the "application.index" configuration option.
 
-**Generating a URL to an asset:**
+#### Generating a URL to an asset:
 
 	$url = URL::to_asset('js/jquery.js');
 
@@ -73,26 +73,26 @@ URLs generated for assets will not contain the "application.index" configuration
 
 There are several global functions for generating URLs designed to make your life easier and your code cleaner:
 
-**Generating a URL relative to the base URL:**
+#### Generating a URL relative to the base URL:
 
 	$url = url('user/profile');
 
-**Generating a URL to an asset:**
+#### Generating a URL to an asset:
 
 	$url = asset('js/jquery.js');
 
-**Generating a URL to a named route:**
+#### Generating a URL to a named route:
 
 	$url = route('profile');
 
-**Generating a URL to a named route with wildcard values:**
+#### Generating a URL to a named route with wildcard values:
 
 	$url = route('profile', array($username));
 
-**Generating a URL to a controller action:**
+#### Generating a URL to a controller action:
 
 	$url = action('user@profile');
 
-**Generating a URL to an action with wildcard values:**
+#### Generating a URL to an action with wildcard values:
 
 	$url = action('user@profile', array($username));

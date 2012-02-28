@@ -14,25 +14,25 @@
 <a name="get"></a>
 ## Reading Files
 
-**Getting the contents of a file:**
+#### Getting the contents of a file:
 
 	$contents = File::get('path/to/file');
 
 <a name="put"></a>
 ## Writing Files
 
-**Writing to a file:**
+#### Writing to a file:
 
 	File::put('path/to/file', 'file contents');
 
-**Appending to a file:**
+#### Appending to a file:
 
 	File::append('path/to/file', 'appended file content');
 
 <a name="upload"></a>
 ## File Uploads
 
-**Moving a $_FILE to a permanent location:**
+#### Moving a $_FILE to a permanent location:
 
 	Input::upload('picture', 'path/to/pictures');
 
@@ -41,14 +41,14 @@
 <a name="ext"></a>
 ## File Extensions
 
-**Getting the extension from a filename:**
+#### Getting the extension from a filename:
 
 	File::extension('picture.png');
 
 <a name="is"></a>
 ## Checking File Types
 
-**Determining if a file is given type:**
+#### Determining if a file is given type:
 
 	if (File::is('jpg', 'path/to/file.jpg'))
 	{
@@ -62,7 +62,7 @@ The **is** method does not simply check the file extension. The Fileinfo PHP ext
 <a name="mime"></a>
 ## Getting MIME Types
 
-**Getting the MIME type associated with an extension:**
+#### Getting the MIME type associated with an extension:
 
 	echo File::mime('gif');
 
@@ -71,13 +71,13 @@ The **is** method does not simply check the file extension. The Fileinfo PHP ext
 <a name="cpdir"></a>
 ## Copying Directories
 
-**Recursively copy a directory to a given location:**
+#### Recursively copy a directory to a given location:
 
 	File::cpdir($directory, $destination);
 
 <a name="rmdir"></a>
 ## Removing Directories
 
-**Recursively delete a directory:**
+#### Recursively delete a directory:
 
 	File::rmdir($directory);

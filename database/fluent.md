@@ -29,27 +29,27 @@ You now have a fluent query builder for the "users" table. Using this query buil
 <a name="get"></a>
 ## Retrieving Records
 
-**Retrieving an array of records from the database:**
+#### Retrieving an array of records from the database:
 
 	$users = DB::table('users')->get();
 
 > **Note:** The **get** method returns an array of objects with properties corresponding to the column on the table.
 
-**Retrieving a single record from the database:**
+#### Retrieving a single record from the database:
 
 	$user = DB::table('users')->first();
 
 > **Note:** If no results are found, the **first** method will return NULL. The **get** method will return an empty array.
 
-**Retrieving the value of a single column from the database:**
+#### Retrieving the value of a single column from the database:
 
 	$email = DB::table('users')->where('id', '=', 1)->only('email');
 
-**Only selecting certain columns from the database:**
+#### Only selecting certain columns from the database:
 
 	$user = DB::table('users')->get(array('id', 'email as user_email'));
 
-**Selecting distinct results from the database:**
+#### Selecting distinct results from the database:
 
 	$user = DB::table('users')->distinct()->get();
 
