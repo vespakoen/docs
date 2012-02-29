@@ -17,7 +17,7 @@ Events provide a great away to build de-coupled applications, and allow plug-ins
 
 Firing an event couldn't be any easy, just tell the **Event** class the name of the event you want to fire:
 
-**Firing an event:**
+#### Firing an event:
 
 	$responses = Event::fire('loaded');
 
@@ -25,7 +25,7 @@ Notice that we assigned the result of the **fire** method to a variable. This me
 
 Sometimes you may want to fire an event, but just get the first response. Here's how:
 
-**Firing an event and retrieving the first response:**
+#### Firing an event and retrieving the first response:
 
 	$response = Event::first('loaded');
 
@@ -36,7 +36,7 @@ Sometimes you may want to fire an event, but just get the first response. Here's
 
 So, what good are events if nobody is listening? It's simple to register event handlers. Let's take a look:
 
-**Registering an event handler:**
+#### Registering an event handler:
 
 	Event::listen('loaded', function()
 	{
@@ -50,14 +50,14 @@ The Closure we provided to the method will be executed each time the "loaded" ev
 
 There are several events that are fired by the Laravel core. Here they are:
 
-**Event fired when a bundle is started:**
+#### Event fired when a bundle is started:
 
 	Event::listen('laravel.started: bundle', function() {});
 
-**Event fired when a database query is executed:**
+#### Event fired when a database query is executed:
 
 	Event::listen('laravel.query', function($sql, $bindings, $time) {});
 
-**Event fired right before response is sent to browser:**
+#### Event fired right before response is sent to browser:
 
 	Event::listen('laravel.done', function($response) {});

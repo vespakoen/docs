@@ -19,7 +19,7 @@ By default, the **models** and **libraries** directories are registered with the
 
 As noted above, the models and libraries directories are registered with the auto-loader by default; however, you may register any directories you like to use the same class to file name loading conventions:
 
-**Registering directories with the auto-loader:**
+#### Registering directories with the auto-loader:
 
 	Autoloader::directories(array(
 		path('app').'entities',
@@ -31,7 +31,7 @@ As noted above, the models and libraries directories are registered with the aut
 
 Sometimes you may wish to manually map a class to its related file. This is the most performant way of loading classes:
 
-**Registering a class to file mapping with the auto-loader:**
+#### Registering a class to file mapping with the auto-loader:
 
 	Autoloader::maps(array(
 		'User'    => path('app').'models/user.php',
@@ -43,7 +43,7 @@ Sometimes you may wish to manually map a class to its related file. This is the 
 
 Many third-party libraries use the PSR-0 standard for their structure. PSR-0 states that class names should match their file names, and directory structure is indicated by namespaces. If you are using a PSR-0 library, just register it's root namespace and directory with the auto-loader:
 
-**Registering a namespace with the auto-loader:**
+#### Registering a namespace with the auto-loader:
 
 	Autoloader::namespaces(array(
 		'Doctrine' => path('libraries').'Doctrine',
@@ -51,7 +51,7 @@ Many third-party libraries use the PSR-0 standard for their structure. PSR-0 sta
 
 Before namespaces were available in PHP, many projects used underscores to indicate directory structure. If you are using one of these legacy libraries, you can still easily register it with the auto-loader. For example, if you are using SwiftMailer, you may have noticed all classes begin with "Swift_". So, we'll register "Swift" with the auto-loader as the root of an underscored project.
 
-**Registering an "underscored" library with the auto-loader:**
+#### Registering an "underscored" library with the auto-loader:
 
 	Autoloader::underscored(array(
 		'Swift' => path('libraries').'SwiftMailer',

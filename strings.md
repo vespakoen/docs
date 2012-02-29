@@ -22,22 +22,22 @@ The **Str** class also provides three convenient methods for manipulating string
 <a name="limits"></a>
 ## Word & Character Limiting
 
-**Limiting the number of characters in a string:**
+#### Limiting the number of characters in a string:
 
 	echo Str::limit($string, 10);
 
-**Limiting the number of words in a string:**
+#### Limiting the number of words in a string:
 
 	echo Str::words($string, 10);
 
 <a name="random"></a>
 ## Generating Random Strings
 
-**Generating a random string of alpha-numeric characters:**
+#### Generating a random string of alpha-numeric characters:
 
 	echo Str::random(32);
 
-**Generating a random string of alphabetic characters:**
+#### Generating a random string of alphabetic characters:
 
 	echo Str::random(32, 'alpha');
 
@@ -46,7 +46,7 @@ The **Str** class also provides three convenient methods for manipulating string
 
 The String class is capable of transforming your strings from singular to plural, and vice versa. First, simply specify the strings you need to convert in the **application/config/strings.php** file:
 
-**Adding a string to the inflection configuration:**
+#### Adding a string to the inflection configuration:
 
 	'inflection' => array(
 
@@ -56,26 +56,26 @@ The String class is capable of transforming your strings from singular to plural
 
 	),
 
-**Getting the plural form of a word:**
+#### Getting the plural form of a word:
 
 	echo Str::plural('user');
 
-**Getting the singular form of a word:**
+#### Getting the singular form of a word:
 
 	echo Str::singular('users');
 
-**Getting the plural form if given value is greater than one:**
+#### Getting the plural form if given value is greater than one:
 
 	echo Str::plural('comment', count($comments));
 
 <a name="slugs"></a>
 ## Slugs
 
-**Generating a URL friendly slug:**
+#### Generating a URL friendly slug:
 
 	return Str::slug('My First Blog Post!');
 
-**Generating a URL friendly slug using a given separator:**
+#### Generating a URL friendly slug using a given separator:
 
 	return Str::slug('My First Blog Post!', '_');
 

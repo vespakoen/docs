@@ -28,7 +28,7 @@ All of your application's tests live in the **application/tests** directory. In 
 		 */
 		public function testSomethingIsTrue()
 		{
-			$this->assertTrue(true);	
+			$this->assertTrue(true);
 		}
 
 	}
@@ -44,11 +44,11 @@ For more information regarding creating test cases, check out the [PHPUnit docum
 
 To run your tests, you can use Laravel's wonderful Artisan command-line. It's simple:
 
-**Running the application's tests via the Artisan CLI:**
+#### Running the application's tests via the Artisan CLI:
 
 	php artisan test
 
-**Running the unit tests for a bundle:**
+#### Running the unit tests for a bundle:
 
 	php artisan test bundle-name
 
@@ -57,11 +57,11 @@ To run your tests, you can use Laravel's wonderful Artisan command-line. It's si
 
 You probably want a convenient way to call your controllers from your tests. It's actually very simple. Here's how:
 
-**Calling a controller from a test:**
+#### Calling a controller from a test:
 
 	$response = Controller::call('home@index', $parameters);
 
-**Resolving an instance of a controller from a test:**
+#### Resolving an instance of a controller from a test:
 
 	$controller = Controller::resolve('application', 'home@index');
 

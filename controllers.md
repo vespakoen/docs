@@ -18,7 +18,7 @@ Controllers are responsible for handling incoming requests to your application. 
 
 Controller classes should be stored in **application/controllers** and should extend the Base\_Controller class. A Home\_Controller class is included with Laravel.
 
-**Creating a simple controller:**
+#### Creating a simple controller:
 
 	class Admin_Controller extends Base_Controller {
 
@@ -38,11 +38,11 @@ The Base\_Controller class extends the main Laravel Controller class, and gives 
 
 All routes in Laravel must be explicitly defined, including routes to controllers. However, a helpful short-cut is provided to make routing to controllers a breeze.
 
-**Registering the "home" controller with the Router:**
+#### Registering the "home" controller with the Router:
 
 	Route::controller('home');
 
-**Registering several controllers with the router:**
+#### Registering several controllers with the router:
 
 	Route::controller(array('dashboard.panel', 'admin'));
 
@@ -54,11 +54,11 @@ This convention is similar to that employed by CodeIgniter and other popular fra
 
 This routing convention may not be desirable for every situation, so you may also explicitly route URIs to controller actions using a simple, intuitive syntax.
 
-**Registering a route that points to a controller action:**
+#### Registering a route that points to a controller action:
 
 	Route::get('welcome', 'home@index');
 
-**Registering a filtered route that points to a controller action:**
+#### Registering a filtered route that points to a controller action:
 
 	Route::get('welcome', array('after' => 'log', 'uses' => 'home@index'));
 
@@ -67,7 +67,7 @@ This routing convention may not be desirable for every situation, so you may als
 
 Creating controllers that belong to bundles is just as simple as creating your application controllers. Just prefix the controller class name with the name of the bundle, so if your bundle is named "admin", your controller classes would look like this:
 
-**Creating a bundle controller class:**
+#### Creating a bundle controller class:
 
 	class Admin_Home_Controller extends Base_Controller {
 
@@ -80,7 +80,7 @@ Creating controllers that belong to bundles is just as simple as creating your a
 
 But, how do you register a bundle controller with the router? It's simple. Here's what it looks like:
 
-**Registering a bundle's controller with the router:**
+#### Registering a bundle's controller with the router:
 
 	Route::controller('admin::home');
 
@@ -91,21 +91,21 @@ Great! Now we can access our "admin" bundle's home controller from the web!
 
 You may assign "before" and "after" filters to controller actions within the controller's constructor.
 
-**Attaching a filter to all actions:**
+#### Attaching a filter to all actions:
 
 	$this->filter('before', 'auth');
 
-**Attaching a filter to only some actions:**
+#### Attaching a filter to only some actions:
 
 	$this->filter('before', 'auth')->only(array('index', 'list'));
 
-**Attaching a filter to all except a few actions:**
+#### Attaching a filter to all except a few actions:
 
 	$this->filter('before', 'auth')->except(array('add', 'posts'));
 
 You may also limit a filter to run only on certain HTTP request methods:
 
-**Attaching a filter to run on POST:**
+#### Attaching a filter to run on POST:
 
 	$this->filter('before', 'csrf')->on('post');
 
@@ -129,13 +129,13 @@ Define the controller class and store it in **controllers/admin/panel.php**.
 
 	}
 
-**Register the nested controller with the router using "dot" syntax:**
+#### Register the nested controller with the router using "dot" syntax:
 
 	Route::controller('admin.panel');
 
 > **Note:** When using nested controllers, always register your controllers from most nested to least nested in order to avoid shadowing controller routes.
 
-**Access the "index" action of the controller:**
+#### Access the "index" action of the controller:
 
 	http://localhost/admin/panel
 
@@ -144,7 +144,7 @@ Define the controller class and store it in **controllers/admin/panel.php**.
 
 Instead of prefixing controller actions with "action_", you may prefix them with the HTTP verb they should respond to.
 
-**Adding the RESTful property to the controller:**
+#### Adding the RESTful property to the controller:
 
 	class Home_Controller extends Base_Controller {
 
@@ -152,7 +152,7 @@ Instead of prefixing controller actions with "action_", you may prefix them with
 
 	}
 
-**Building RESTful controller actions:**
+#### Building RESTful controller actions:
 
 	class Home_Controller extends Base_Controller {
 

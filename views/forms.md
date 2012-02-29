@@ -15,31 +15,31 @@
 <a name="opening-a-form"></a>
 ## Opening A Form
 
-**Opening a form to POST to the current URL:**
+#### Opening a form to POST to the current URL:
 
 	echo Form::open();
 
-**Opening a form using a given URI and request method:**
+#### Opening a form using a given URI and request method:
 
 	echo Form::open('user/profile', 'PUT');
 
-**Opening a Form that POSTS to a HTTPS URL:**
+#### Opening a Form that POSTS to a HTTPS URL:
 
 	echo Form::open_secure('user/profile');
 
-**Specifying extra HTML attributes on a form open tag:**
+#### Specifying extra HTML attributes on a form open tag:
 
 	echo Form::open('user/profile', 'POST', array('class' => 'awesome'));
 
-**Opening a form that accepts file uploads:**
+#### Opening a form that accepts file uploads:
 
 	echo Form::open_for_files('users/profile');
 
-**Opening a form that accepts file uploads and uses HTTPS:**
+#### Opening a form that accepts file uploads and uses HTTPS:
 
 	echo Form::open_secure_for_files('users/profile');
 
-**Closing a form:**
+#### Closing a form:
 
 	echo Form::close();
 
@@ -48,18 +48,18 @@
 
 Laravel provides an easy method of protecting your application from cross-site request forgeries. First, a random token is placed in your user's session. Don't sweat it, this is done automatically. Next, use the token method to generate a hidden form input field containing the random token on your form:
 
-**Generating a hidden field containing the session's CSRF token:**
+#### Generating a hidden field containing the session's CSRF token:
 
 	echo Form::token();
 
-**Attaching the CSRF filter to a route:**
+#### Attaching the CSRF filter to a route:
 
 	Route::post('profile', array('before' => 'csrf', function()
 	{
 		//
-	});
+	}));
 
-**Retrieving the CSRF token string:**
+#### Retrieving the CSRF token string:
 
 	$token = Session::token();
 
@@ -73,11 +73,11 @@ Laravel provides an easy method of protecting your application from cross-site r
 <a name="labels"></a>
 ## Labels
 
-**Generating a label element:**
+#### Generating a label element:
 
 	echo Form::label('email', 'E-Mail Address');
 
-**Specifying extra HTML attributes for a label:**
+#### Specifying extra HTML attributes for a label:
 
 	echo Form::label('email', 'E-Mail Address', array('class' => 'awesome'));
 
@@ -86,28 +86,28 @@ Laravel provides an easy method of protecting your application from cross-site r
 <a name="text"></a>
 ## Text, Text Area, Password & Hidden Fields
 
-**Generate a text input element:**
+#### Generate a text input element:
 
 	echo Form::text('username');
 
-**Specifying a default value for a text input element:**
+#### Specifying a default value for a text input element:
 
 	echo Form::text('email', 'example@gmail.com');
 
 > **Note:** The *hidden* and *textarea* methods have the same signature as the *text* method. You just learned three methods for the price of one!
 
-**Generating a password input element:**
+#### Generating a password input element:
 
 	echo Form::password('password');
 
 <a name="checkboxes-and-radio-buttons"></a>
 ## Checkboxes and Radio Buttons
 
-**Generating a checkbox input element:**
+#### Generating a checkbox input element:
 
 	echo Form::checkbox('name', 'value');
 
-**Generating a checkbox that is checked by default:**
+#### Generating a checkbox that is checked by default:
 
 	echo Form::checkbox('name', 'value', true);
 
@@ -116,18 +116,18 @@ Laravel provides an easy method of protecting your application from cross-site r
 <a name="drop-down-lists"></a>
 ## Drop-Down Lists
 
-**Generating a drop-down list from an array of items:**
+#### Generating a drop-down list from an array of items:
 
 	echo Form::select('size', array('L' => 'Large', 'S' => 'Small'));
 
-**Generating a drop-down list with an item selected by default:**
+#### Generating a drop-down list with an item selected by default:
 
 	echo Form::select('size', array('L' => 'Large', 'S' => 'Small'), 'S');
 
 <a name="buttons"></a>
 ## Buttons
 
-**Generating a submit button element:**
+#### Generating a submit button element:
 
 	echo Form::submit('Click Me!');
 

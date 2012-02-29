@@ -15,7 +15,7 @@ All of the language files for your application live under the **application/lang
 
 Each language directory may contain many different language files. Each language file is simply an array of string values in that language. In fact, language files are structured identically to configuration files. For example, within the **application/language/en** directory, you could create a **marketing.php** file that looks like this:
 
-**Creating a language file:**
+#### Creating a language file:
 
 	return array(
 
@@ -36,11 +36,11 @@ Nice! Now you know how to get started setting up your language files and directo
 <a name="basics"></a>
 ## Retrieving A Language Line
 
-**Retrieving a language line:**
+#### Retrieving a language line:
 
 	echo Lang::line('marketing.welcome')->get();
 
-**Retrieving a language line using the "__" helper:**
+#### Retrieving a language line using the "__" helper:
 
 	echo __('marketing.welcome');
 
@@ -48,7 +48,7 @@ Notice how a dot was used to separate "marketing" and "welcome"? The text before
 
 Need to retrieve the line in a language other than your default? Not a problem. Just mention the language to the **get** method:
 
-**Getting a language line in a given language:**
+#### Getting a language line in a given language:
 
 	echo Lang::line('marketing.welcome')->get('sp');
 
@@ -57,14 +57,14 @@ Need to retrieve the line in a language other than your default? Not a problem. 
 
 Now, let's work on our welcome message. "Welcome to our website!" is a pretty generic message. It would be helpful to be able to specify the name of the person we are welcoming. But, creating a language line for each user of our application would be time-consuming and ridiculous. Thankfully, you don't have to. You can specify "place-holders" within your language lines. Place-holders are preceeded by a colon:
 
-**Creating a language line with place-holders:**
+#### Creating a language line with place-holders:
 
 	'welcome' => 'Welcome to our website, :name!'
 
-**Retrieving a language line with replacements:**
+#### Retrieving a language line with replacements:
 
 	echo Lang::line('marketing.welcome', array('name' => 'Taylor'))->get();
 
-**Retrieving a language line with replacements using "__":**
+#### Retrieving a language line with replacements using "__":
 
 	echo __('marketing.welcome', array('name' => 'Taylor'));

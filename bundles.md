@@ -23,7 +23,7 @@ Bundles are the heart of Laravel 3.0. They are a simple way to group code into c
 
 Creating a bundle is a walk in the park. Just create a folder for the bundle within your **bundles** directory. For this example, let's create an "admin" bundle, which  could house the administrator back-end to our application. Great, so we have our folder. Remember the **start.php** file **application** folder? You can have one of those for your bundle. It is run everytime the bundle is loaded. Let's create one:
 
-**Creating a bundle start.php file:**
+#### Creating a bundle start.php file:
 
 	<?php
 
@@ -40,13 +40,13 @@ Next, we'll look at how to register this bundle with our application!
 
 OK, so we have our Admin bundle, but we need to register it with Laravel. Pop open your **application/bundles.php** file. This is where you register all bundles used by your application. Let's add ours:
 
-**Registering a simple bundle:**
+#### Registering a simple bundle:
 
 	return array('admin'),
 
 Great! By convention, Laravel will assume that the Admin bundle is located at the root level of the bundle directory, but we can specify another location if we wish:
 
-**Registering a bundle with a custom location:**
+#### Registering a bundle with a custom location:
 
 	return array(
 
@@ -61,7 +61,7 @@ Now Laravel will look for our bundle in **bundles/userscape/admin**.
 
 Typically, a bundle's **start.php** file only contains auto-loader registrations. So, you may want to just skip **start.php** and declare your bundle's mappings right in its registration array. Here's how:
 
-**Defining auto-loader mappings in a bundle registration:**
+#### Defining auto-loader mappings in a bundle registration:
 
 	return array(
 
@@ -90,7 +90,7 @@ You may have also noticed the **(:bundle)** place-holder. For convenience, this 
 
 So our bundle is created and registered, but how can we start using it? First, we need to start it. It's simple:
 
-**Starting a bundle:**
+#### Starting a bundle:
 
 	Bundle::start('admin');
 
@@ -100,7 +100,7 @@ This tells Laravel to run the **start.php** file for the bundle, which will regi
 
 If you use a bundle throughout your application, you may want it to start on every request. If this is the case, you can configure the bundle to auto-start in your **application/bundles.php** file:
 
-**Configuration a bundle to auto-start:**
+#### Configuration a bundle to auto-start:
 
 	return array(
 
@@ -112,7 +112,7 @@ You do not always need to explicitly start a bundle. In fact, you can usually co
 
 Each time a bundle is started, it fires an event. You can easily listen for the starting of bundles like so:
 
-**Listen for a bundle's start event:**
+#### Listen for a bundle's start event:
 
 	Event::listen('laravel.started: admin', function()
 	{
@@ -121,7 +121,7 @@ Each time a bundle is started, it fires an event. You can easily listen for the 
 
 It is also possible to "disable" a bundle so that it will never be started.
 
-**Disabling a bundle so it can't be started:**
+#### Disabling a bundle so it can't be started:
 
 	Bundle::disable('admin');
 
@@ -135,33 +135,33 @@ Refer to the documentation on [bundle routing](/docs/routing#bundle-routes) and 
 
 As mentioned previously, bundles can have views, configuration, language files and more. Laravel uses a double-colon syntax for loading these items. So, let's look at some examples:
 
-**Loading a bundle view:**
+#### Loading a bundle view:
 
 	return View::make('bundle::view');
 
-**Loading a bundle configuration item:**
+#### Loading a bundle configuration item:
 
-	return Config::item('bundle::file.option');
+	return Config::get('bundle::file.option');
 
-**Loading a bundle language line:**
+#### Loading a bundle language line:
 
 	return Lang::line('bundle::file.line');
 
 Sometimes you may need to gather more "meta" information about a bundle, such as whether it exists, its location, or perhaps its entire configuration array. Here's how:
 
-**Determine whether a bundle exists:**
+#### Determine whether a bundle exists:
 
 	Bundle::exists('admin');
 
-**Retrieving the installation location of a bundle:**
+#### Retrieving the installation location of a bundle:
 
 	$location = Bundle::location('admin');
 
-**Retrieving the configuration array for a bundle:**
+#### Retrieving the configuration array for a bundle:
 
 	$config = Bundle::get('admin');
 
-**Retrieving the names of all installed bundles:**
+#### Retrieving the names of all installed bundles:
 
 	$names = Bundle::names();
 
@@ -172,20 +172,20 @@ If your bundle contains views, it is likely you have assets such as JavaScript a
 
 Great! But, how do they get into the application's **public** folder. The Laravel "Artisan" command-line provides a simple command to copy all of your bundle's assets to the public directory. Here it is:
 
-**Publish bundle assets into the public directory:**
+#### Publish bundle assets into the public directory:
 
 	php artisan bundle:publish
 
 This command will create a folder for the bundle's assets within the application's **public/bundles** directory. For example, if your bundle is named "admin", a **public/bundles/admin** folder will be created, which will contain all of the files in your bundle's public folder.
 
-For more information on conveniently getting the path to your bundle assets once they are in the public directory, refer to the documentation on [asset management](/docs/assets).
+For more information on conveniently getting the path to your bundle assets once they are in the public directory, refer to the documentation on [asset management](/docs/views/assets#bundle-assets).
 
 <a name="installing-bundles"></a>
 ## Installing Bundles
 
 Of course, you may always install bundles manually; however, the "Artisan" CLI provides an awesome method of installing and upgrading your bundle. The framework uses simple Zip extraction to install the bundle. Here's how it works.
 
-**Installing a bundle via Artisan:**
+#### Installing a bundle via Artisan:
 
 	php artisan bundle:install eloquent
 
@@ -198,7 +198,7 @@ Need a list of available bundles? Check out the Laravel [bundle directory](http:
 
 When you upgrade a bundle, Laravel will automatically remove the old bundle and install a fresh copy.
 
-**Upgrading a bundle via Artisan:**
+#### Upgrading a bundle via Artisan:
 
 	php artisan bundle:upgrade eloquent
 
@@ -206,7 +206,7 @@ When you upgrade a bundle, Laravel will automatically remove the old bundle and 
 
 Since the bundle is totally removed on an upgrade, you must be aware of any changes you have made to the bundle code before upgrading. You may need to change some configuration options in a bundle. Instead of modifying the bundle code directly, use the bundle start events to set them. Place something like this in your **application/start.php** file.
 
-**Listening for a bundle's start event:**
+#### Listening for a bundle's start event:
 
 	Event::listen('laravel.started: admin', function()
 	{

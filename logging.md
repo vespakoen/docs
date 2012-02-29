@@ -31,10 +31,10 @@ By default, logs are stored in the **storage/logs** direcetory, and a new log fi
 
 Sometimes you may wish to use Laravel's **Log** class for debugging, or just to log informational messages. Here's how to use it:
 
-**Writing a message to the logs:**
+#### Writing a message to the logs:
 
 	Log::write('info', 'This is just an informational message!');
 
-**Using magic methods to specify the log message type:**
+#### Using magic methods to specify the log message type:
 
 	Log::info('This is just an informational message!');
