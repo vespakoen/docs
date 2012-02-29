@@ -14,21 +14,21 @@ Sometimes you may need to get and set configuration options at runtime. It's a b
 <a name="retrieving-options"></a>
 ##  Retrieving Options
 
-**Retrieve a configuration option:**
+#### Retrieve a configuration option:
 
 	$value = Config::get('application.url');
 
-**Return a default value if the option doesn't exist:**
+#### Return a default value if the option doesn't exist:
 
 	$value = Config::get('application.timezone', 'UTC');
 
-**Retrieve an entire configuration array:**
+#### Retrieve an entire configuration array:
 
 	$options = Config::get('database');
 
 <a name="setting-options"></a>
 ## Setting Options
 
-**Set a configuration option:**
+#### Set a configuration option:
 
 	Config::set('cache.driver', 'apc');

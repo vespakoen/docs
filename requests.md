@@ -8,32 +8,32 @@
 <a name="working-with-the-uri"></a>
 ## Working With The URI
 
-**Getting the current URI for the request:**
+#### Getting the current URI for the request:
 
 	echo URI::current();
 
-**Getting a specific segment from the URI:**
+#### Getting a specific segment from the URI:
 
 	echo URI::segment(1);
 
-**Returning a default value if the segment doesn't exist:**
+#### Returning a default value if the segment doesn't exist:
 
 	echo URI::segment(10, 'Foo');
 
-**Getting the full request URI, including query string:**
+#### Getting the full request URI, including query string:
 
 	echo URI::full();
 
 Sometimes you may need to determine if the current URI is a given string, or begins with a given string. It's simple:
 
-**Determine if the URI is "home":**
+#### Determine if the URI is "home":
 
 	if (URI::is('home'))
 	{
 		// The current URI is "home"!
 	}
 
-**Determine if the current URI begins with "docs/":**
+#### Determine if the current URI begins with "docs/":
 
 	if URI::is('docs/*'))
 	{
@@ -43,33 +43,33 @@ Sometimes you may need to determine if the current URI is a given string, or beg
 <a name="other-request-helpers"></a>
 ## Other Request Helpers
 
-**Getting the current request method:**
+#### Getting the current request method:
 
 	echo Request::method();
 
-**Accessing the $_SERVER global array:**
+#### Accessing the $_SERVER global array:
 
 	echo Request::server('http_referer');
 
-**Retrieving the requester's IP address:**
+#### Retrieving the requester's IP address:
 
 	echo Request::ip();
 
-**Determining if the current request is using HTTPS:**
+#### Determining if the current request is using HTTPS:
 
 	if (Request::secure())
 	{
 		// This request is over HTTPS!
 	}
 
-**Determing if the current request is an AJAX request:**
+#### Determing if the current request is an AJAX request:
 
 	if (Request::ajax())
 	{
 		// This request is using AJAX!
 	}
 
-**Determining if the current requst is via the Artisan CLI:**
+#### Determining if the current requst is via the Artisan CLI:
 
 	if (Request::cli())
 	{
