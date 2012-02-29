@@ -141,7 +141,7 @@ As mentioned previously, bundles can have views, configuration, language files a
 
 **Loading a bundle configuration item:**
 
-	return Config::item('bundle::file.option');
+	return Config::get('bundle::file.option');
 
 **Loading a bundle language line:**
 
