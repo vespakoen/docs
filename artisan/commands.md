@@ -8,6 +8,7 @@
 - [Tasks](#tasks)
 - [Unit Tests](#unit-tests)
 - [Routing](#routing)
+- [Application Keys](#keys)
 - [CLI Options](#cli-options)
 
 <a name="sessions"></a>
@@ -73,6 +74,16 @@ Calling a route  |  `php artisan route get api/user/1`
 
 <br>
 > **Note:** You can replace get with post, put, delete, etc.
+
+<a name="keys"></a>
+## Application Keys
+
+Description  | Command
+------------- | -------------
+Generate an application key  |  `php artisan key:generate`
+
+<br>
+> **Note:** You can specify an alternate key length by adding an extra argument to the command.
 
 <a name="cli-options"></a>
 ## CLI Options
