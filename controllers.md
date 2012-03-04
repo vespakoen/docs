@@ -142,27 +142,7 @@ Define the controller class and store it in **controllers/admin/panel.php**.
 <a name="controller-layouts"></a>
 ## Controller Layouts
 
-A layout can be defined for an entire controller, it can then be used each action to display views within a pre-defined template.
-
-First add the `$layout` property to the class, and assign it a view to use as a template:
-
-	public $layout = 'template.main';
-	
-Now within your action, assign a view directly to the layout:
-
-	public function action_dashboard()
-	{
-		// no need to return the view!
-		$this->layout->content = View::make('home.index');
-	}
-	
-Now in your layout view simply render the $content property of the layout:
-
-	// header html here
-	
-	<?php echo $content->render(); ?>
-	
-	// footer html here
+Full documentation on using Controllers with Layouts [can be found on the Templating page](http://laravel.com/docs/views/templating).
 
 <a name="restful-controllers"></a>
 ## RESTful Controllers
