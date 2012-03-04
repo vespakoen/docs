@@ -7,6 +7,7 @@
 - [Bundle Controllers](#bundle-controllers)
 - [Action Filters](#action-filters)
 - [Nested Controllers](#nested-controllers)
+- [Controller Layouts](#controller-layouts)
 - [RESTful Controllers](#restful-controllers)
 - [Dependency Injection](#dependency-injection)
 
@@ -137,6 +138,31 @@ Define the controller class and store it in **controllers/admin/panel.php**.
 #### Access the "index" action of the controller:
 
 	http://localhost/admin/panel
+
+<a name="controller-layouts"></a>
+## Controller Layouts
+
+A layout can be defined for an entire controller, it can then be used each action to display views within a pre-defined template.
+
+First add the `$layout` property to the class, and assign it a view to use as a template:
+
+	public $layout = 'template.main';
+	
+Now within your action, assign a view directly to the layout:
+
+	public function action_dashboard()
+	{
+		// no need to return the view!
+		$this->layout->content = View::make('home.index');
+	}
+	
+Now in your layout view simply render the $content property of the layout:
+
+	// header html here
+	
+	<?php echo $content->render(); ?>
+	
+	// footer html here
 
 <a name="restful-controllers"></a>
 ## RESTful Controllers
