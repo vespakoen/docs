@@ -28,7 +28,7 @@ Creating a bundle is a walk in the park. Just create a folder for the bundle wit
 	<?php
 
 	Autoloader::namespaces(array(
-		'Admin' => Bundle::location('admin').'models',
+		'Admin' => Bundle::path('admin').'models',
 	));
 
 Great! In this start file, we've told the auto-loader that classes that are namespaced to "Admin" should be loaded out of our bundle's models directory. You can do anything you want in your start file, but typically it is used for registering classes with the auto-loader. **In fact, you aren't required to create a start file for your bundle.**
@@ -155,7 +155,7 @@ Sometimes you may need to gather more "meta" information about a bundle, such as
 
 #### Retrieving the installation location of a bundle:
 
-	$location = Bundle::location('admin');
+	$location = Bundle::path('admin');
 
 #### Retrieving the configuration array for a bundle:
 
