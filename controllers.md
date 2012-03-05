@@ -7,6 +7,7 @@
 - [Bundle Controllers](#bundle-controllers)
 - [Action Filters](#action-filters)
 - [Nested Controllers](#nested-controllers)
+- [Controller Layouts](#controller-layouts)
 - [RESTful Controllers](#restful-controllers)
 - [Dependency Injection](#dependency-injection)
 - [Controller Factory](#controller-factory)
@@ -138,6 +139,11 @@ Define the controller class and store it in **controllers/admin/panel.php**.
 #### Access the "index" action of the controller:
 
 	http://localhost/admin/panel
+
+<a name="controller-layouts"></a>
+## Controller Layouts
+
+Full documentation on using Controllers with Layouts [can be found on the Templating page](http://laravel.com/docs/views/templating).
 
 <a name="restful-controllers"></a>
 ## RESTful Controllers
