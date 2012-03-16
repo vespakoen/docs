@@ -338,7 +338,7 @@ Need to create your own validation rules? You will love how easy it is!
 	    return $value == 'awesome';
 	});
 
-Let's dig into this example. The **validate_awesome** function receives three arguments. The first is the name of the attribute being validated, the second is the value of the attribute being validated, and the third is an array of parameters that were specified for the rule, such as a size or list of accepted values (more on that in a second).
+Let's dig into this example. The anonymous function receives three arguments. The first is the name of the attribute being validated, the second is the value of the attribute being validated, and the third is an array of parameters that were specified for the rule, such as a size or list of accepted values (more on that in a second).
 
 Now, how do you use your new validator? It's refreshingly simple:
 
@@ -358,7 +358,7 @@ Or by adding an entry for your rule in the **language/en/validation.php** file:
 
 	'awesome' => 'The attribute value must be awesome!',
 
-As mentioned above, you may even specify and receive a list of parameters in your custom validator:
+As mentioned above, you may even specify and receive a list of parameters in your custom rule:
 
 	// When building your rules array...
 
@@ -366,7 +366,7 @@ As mentioned above, you may even specify and receive a list of parameters in you
 	    'username' => 'required|awesome:yes',
 	);
 
-	// In your custom validator...
+	// In your custom rule...
 
 	Validator::register('awesome', function($attribute, $value, $parameters)
 	{
