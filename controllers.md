@@ -35,7 +35,7 @@ The Base\_Controller class extends the main Laravel Controller class, and gives 
 <a name="controller-routing"></a>
 ## Controller Routing
 
-All routes in Laravel must be explicitly defined, including routes to controllers. However, a helpful short-cut is provided to make routing to controllers a breeze.
+All routes in Laravel must be explicitly defined, including routes to controllers. However, a helpful short-cut is provided to make routing to controllers a breeze. Controller routes are typically defined in **application/routes.php**.
 
 #### Registering the "home" controller with the Router:
 
