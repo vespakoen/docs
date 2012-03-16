@@ -96,7 +96,7 @@ You are free to change this to fit the needs of your application!
 <a name="filters"></a>
 ## Filters
 
-Route filters may be run before or after a route is executed. If a "before" filter returns a value, that value is considered the response to the request and the route is not executed, making it a breeze to implement authentication filters, etc.
+Route filters may be run before or after a route is executed. If a "before" filter returns a value, that value is considered the response to the request and the route is not executed, making it a breeze to implement authentication filters, etc. Filters are typically defined in **application/routes.php**.
 
 #### Registering a filter:
 

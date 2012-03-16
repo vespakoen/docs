@@ -120,7 +120,7 @@ Named views make your code more expressive and beautiful. Using them is simple:
 <a name="view-composers"></a>
 ## View Composers
 
-Each time a view is created, its "composer" event will be fired. You can listen for this event and use it to bind assets and common data to the view each time it is created. Here's an example:
+Each time a view is created, its "composer" event will be fired. You can listen for this event and use it to bind assets and common data to the view each time it is created. Composers are typically defined in **application/routes.php**. Here's an example:
 
 #### Register a view composer for the "home" view:
 
