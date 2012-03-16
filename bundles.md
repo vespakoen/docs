@@ -155,7 +155,7 @@ Sometimes you may need to gather more "meta" information about a bundle, such as
 
 #### Retrieving the installation location of a bundle:
 
-	$location = Bundle::location('admin');
+	$location = Bundle::path('admin');
 
 #### Retrieving the configuration array for a bundle:
 
