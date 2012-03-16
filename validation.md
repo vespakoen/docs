@@ -329,30 +329,14 @@ However, if you are using many custom error messages, specifying inline may beco
 <a name="custom-validation-rules"></a>
 ## Custom Validation Rules
 
-Need to create your own validation rules? You will love how easy it is! First, create a class that extends **Laravel\Validator** and place it in your **application/libraries** directory:
+Need to create your own validation rules? You will love how easy it is!
 
-#### Defining a custom validator class:
+#### Registering a custom validation rule:
 
-	<?php
-
-	class Validator extends Laravel\Validator {}
-
-Next, remove the Validator alias from **config/application.php**.
-
-Alright! You're ready to define your own validation rule. Create a function on your new validator using a **validate_rule** naming convention. Validator methods simply need to return true or false. It couldn't be any easier, right?
-
-#### Adding a custom validation rule:
-
-	<?php
-
-	class Validator extends Laravel\Validator {
-
-	    public function validate_awesome($attribute, $value, $parameters)
-	    {
-	        return $value == 'awesome';
-	    }
-
-	}
+	Validator::register('awesome', function($attribute, $value, $parameters)
+	{
+	    return $value == 'awesome';
+	});
 
 Let's dig into this example. The **validate_awesome** function receives three arguments. The first is the name of the attribute being validated, the second is the value of the attribute being validated, and the third is an array of parameters that were specified for the rule, such as a size or list of accepted values (more on that in a second).
 
@@ -384,13 +368,9 @@ As mentioned above, you may even specify and receive a list of parameters in you
 
 	// In your custom validator...
 
-	class Validator extends Laravel\Validator {
-
-	    public function validate_awesome($attribute, $value, $parameters)
-	    {
-	        return $value == $parameters[0];
-	    }
-
+	Validator::register('awesome', function($attribute, $value, $parameters)
+	{
+	    return $value == $parameters[0];
 	}
 
 In this case, the parameters argument of your validation rule would receive an array containing one element: "yes".
