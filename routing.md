@@ -161,7 +161,7 @@ Route groups allow you to attach a set of attributes to a group of routes, allow
 <a name="named-routes"></a>
 ## Named Routes
 
-Constantly generating URLs or redirects using a route's URI leads to brittle code. Assining the route a name gives you a convenient way to refer to the route throughout your application.
+Constantly generating URLs or redirects using a route's URI leads to brittle code. Assigning the route a name gives you a convenient way to refer to the route throughout your application.
 
 #### Registering a named route:
 
