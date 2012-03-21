@@ -214,7 +214,7 @@ When defining routes, you may use the "https" attribute to indicate that the HTT
 <a name="bundle-routes"></a>
 ## Bundle Routes
 
-Bundles are Laravel's modular package system. Bundles can easily configured to handle requests to your application. We'll be going over [bundles in more detail](/docs/bundles) in another document. For now, read through this section and just be aware that not only can routes be used to expose functionality in bundles, but they can also be registered from within bundles.
+Bundles are Laravel's modular package system. Bundles can easily be configured to handle requests to your application. We'll be going over [bundles in more detail](/docs/bundles) in another document. For now, read through this section and just be aware that not only can routes be used to expose functionality in bundles, but they can also be registered from within bundles.
 
 Let's open the **application/bundles.php** file and add something:
 
