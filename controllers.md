@@ -36,6 +36,7 @@ Methods that you want to be web-accessible should be prefixed with "action\_". A
 The Base\_Controller class extends the main Laravel Controller class, and gives you a convenient place to put methods that are common to many controllers.
 
 <a name="controller-routing"></a>
+## Controller Routing
 
 It is important to be aware that all routes in Laravel must be explicitly defined, including routes to controllers. This means that controller methods that have not been exposed through route registration **cannot** be accessed. It's possible to automatically expose all methods within a controller using controller route registration. Controller route registrations are typically defined in **application/routes.php**.
 
