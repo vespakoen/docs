@@ -11,13 +11,13 @@
 <a name="input"></a>
 ## Input
 
-The **Input** class handles input that comes into your application via GET, POST, PUT, or DELETE requests. Retrieving input using the Input class is effortless:
+The **Input** class handles input that comes into your application via GET, POST, PUT, or DELETE requests. Here are some examples of how to access input data using the Input class:
 
 #### Retrieve a value from the input array:
 
 	$email = Input::get('email');
 
-> **Note:** The "get" method is used for all request types, not just GET requests.
+> **Note:** The "get" method is used for all request types (GET, POST, PUT, and DELETE), not just GET requests.
 
 #### Retrieve all input from the input array:
 
@@ -61,7 +61,7 @@ By default, *null* will be returned if the input item does not exist. However, y
 <a name="old-input"></a>
 ## Old Input
 
-Have you ever tried to re-populate an input form after an invalid form submission? It can get pretty clunky. Not in Laravel. You can easily retrieve the input from the previous request. First, you need to flash the input data to the session:
+You'll commonly need to re-populate forms after invalid form submissions. Laravel's Input class was designed with this problem in mind. Here's an example of how you can easily retrieve the input from the previous request. First, you need to flash the input data to the session:
 
 #### Flashing input to the session:
 
@@ -77,7 +77,7 @@ Have you ever tried to re-populate an input form after an invalid form submissio
 
 	$name = Input::old('name');
 
-> **Note:** You must specify a sesion driver before using the "old" method.
+> **Note:** You must specify a session driver before using the "old" method.
 
 *Further Reading:*
 
@@ -86,7 +86,7 @@ Have you ever tried to re-populate an input form after an invalid form submissio
 <a name="redirecting-with-old-input"></a>
 ## Redirecting With Old Input
 
-Since you will typically want to flash input right before a redirect, there is a beautiful shortcut for you to use:
+Now that you know how to flash input to the session. Here's a shortcut that you can use when redirecting that prevents you from having to micro-manage your old input in that way:
 
 #### Flashing input from a Redirect instance:
 
@@ -101,7 +101,7 @@ Since you will typically want to flash input right before a redirect, there is a
 <a name="cookies"></a>
 ## Cookies
 
-Laravel provides a nice wrapper around the $_COOKIE array. However, there are a few things you should be aware of before using it. First, all Laravel cookies contain a "signature hash". This allows the framework to verify that the cookie has not been modified on the client. Secondly, when setting cookies, the cookies are not immediately sent to the browser, but are pooled until the end of the request and then sent together.
+Laravel provides a nice wrapper around the $_COOKIE array. However, there are a few things you should be aware of before using it. First, all Laravel cookies contain a "signature hash". This allows the framework to verify that the cookie has not been modified on the client. Secondly, when setting cookies, the cookies are not immediately sent to the browser, but are pooled until the end of the request and then sent together. This means that you will not be able to both set a cookie and retrieve the value that you set in the same request.
 
 #### Retrieving a cookie value:
 

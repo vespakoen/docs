@@ -27,7 +27,7 @@ The default server configuration should suffice for development. However, you ar
 <a name="usage"></a>
 ## Usage
 
-Laravel's Redis client is amazingly simple, yet beautiful. You may get a Redis instance by calling the **db** method on the **Redis** class:
+You may get a Redis instance by calling the **db** method on the **Redis** class:
 
 	$redis = Redis::db();
 
@@ -43,11 +43,11 @@ Great! Now that we have an instance of the Redis client, we may issue any of the
 
 	$values = $redis->lrange('names', 5, 10);
 
-Notice the arguments to the comment are simply passed into the magic method. Isn't it a breeze? Of course, you are not required to use the magic methods, you may also pass commands to the server using the **run** method:
+Notice the arguments to the comment are simply passed into the magic method. Of course, you are not required to use the magic methods, you may also pass commands to the server using the **run** method:
 
 	$values = $redis->run('lrange', array(5, 10));
 
-Just want to execute commands on the default Redis server? It gets even easier. You can just use static magic methods on the Redis class:
+Just want to execute commands on the default Redis server? You can just use static magic methods on the Redis class:
 
 	Redis::set('name', 'Taylor');
 

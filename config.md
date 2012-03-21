@@ -9,7 +9,7 @@
 <a name="the-basics"></a>
 ## The Basics
 
-Sometimes you may need to get and set configuration options at runtime. It's a breeze using the **Config** class, which utilizes convenient "dot" syntax for accessing configuration files and items.
+Sometimes you may need to get and set configuration options at runtime. For this you'll use the **Config** class, which utilizes Laravel's "dot" syntax for accessing configuration files and items.
 
 <a name="retrieving-options"></a>
 ##  Retrieving Options

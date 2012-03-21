@@ -15,11 +15,9 @@
 
 The web is a stateless environment. This means that each request to your application is considered unrelated to any previous request. However, **sessions** allow you to store arbitrary data for each visitor to your application. The session data for each visitor is stored on your web server, while a cookie containing a **session ID** is stored on the visitor's machine. This cookie allows your application to "remember" the session for that user and retrieve their session data on subsequent requests to your application.
 
-Sound complicated? If so, don't worry about it. Just tell Laravel where to store the sessions and it will take care of the rest.
-
 > **Note:** Before using sessions, make sure an application key has been specified in the **application/config/application.php** file.
 
-Five great session drivers are available out of the box:
+Five session drivers are available out of the box:
 
 - Cookie
 - File System
@@ -54,7 +52,7 @@ That's it. You're ready to go!
 
 To start using database sessions, you will first need to [configure your database connection](/docs/database/config).
 
-Already setup your database? Nice! Next, you will need to create a session table. Below are some SQL statements to help you get started. However, you may also use Laravel's "Artisan" command-line to generate the table for you!
+Next, you will need to create a session table. Below are some SQL statements to help you get started. However, you may also use Laravel's "Artisan" command-line to generate the table for you!
 
 ### Artisan
 
@@ -81,7 +79,7 @@ If you would like to use a different table name, simply change the **table** opt
 
 	'table' => 'sessions'
 
-Great! All you need to do now is set the driver in the **application/config/session.php** file:
+All you need to do now is set the driver in the **application/config/session.php** file:
 
 	'driver' => 'database'
 
@@ -90,7 +88,7 @@ Great! All you need to do now is set the driver in the **application/config/sess
 
 Before using Memcached sessions, you must [configure your Memcached servers](/docs/database/config#memcached).
 
-All done? Great! Just set the driver in the **application/config/session.php** file:
+Just set the driver in the **application/config/session.php** file:
 
 	'driver' => 'memcached'
 
@@ -99,6 +97,6 @@ All done? Great! Just set the driver in the **application/config/session.php** f
 
 Before using Redis sessions, you must [configure your Redis servers](/docs/database/redis#config).
 
-Finished? Awesome! Just set the driver in the **application/config/session.php** file:
+Just set the driver in the **application/config/session.php** file:
 
 	'driver' => 'redis'
