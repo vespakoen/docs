@@ -12,7 +12,7 @@
 <a name="the-basics"></a>
 ## The Basics
 
-Laravel includes a beautiful method of creating and modifying your database tables. Using a fluent syntax, you can work with your tables without using any vendor specific SQL. You'll love using it.
+The Schema Bulder provides methods for creating and modifying your database tables. Using a fluent syntax, you can work with your tables without using any vendor specific SQL.
 
 *Further Reading:*
 
@@ -48,7 +48,7 @@ Sometimes you may need to specify the database connection on which the schema op
 <a name="adding-columns"></a>
 ## Adding Columns
 
-You may add columns to the table using a fluent, expressive syntax. The fluent table builder's methods allow you to add columns without using vendor specific SQL. Let's go over it's methods:
+The fluent table builder's methods allow you to add columns without using vendor specific SQL. Let's go over it's methods:
 
 Command  | Description
 ------------- | -------------
@@ -94,13 +94,13 @@ Command  | Description
 <a name="adding-indexes"></a>
 ## Adding Indexes
 
-The Schema builder supports several types of indexes and they are dead simple to add to your table. There are two ways to add the indexes. Each type of index has its method; however, you can also fluently define an index on the same line as a column addition. Let's take a look:
+The Schema builder supports several types of indexes. There are two ways to add the indexes. Each type of index has its method; however, you can also fluently define an index on the same line as a column addition. Let's take a look:
 
 #### Fluently creating a string column with an index:
 
 	$table->string('email')->unique();
 
-Pretty nice, huh? However, if defining the indexes on a separate line is more your style, here are example of using each of the index methods:
+If defining the indexes on a separate line is more your style, here are example of using each of the index methods:
 
 Command  | Description
 ------------- | -------------
@@ -113,7 +113,7 @@ Command  | Description
 <a name="dropping-indexes"></a>
 ## Dropping Indexes
 
-Dropping indexes is just as easy as adding them. However, you must specify the name of the index when dropping them. Don't worry, Laravel assigns a reasonable name to all indexes. Simple concatenate the names of the columns in the index and append the type of the index. Let's take a look at some examples:
+To drop indexes you must specify the index's name. Laravel assigns a reasonable name to all indexes. Simple concatenate the names of the columns in the index and append the type of the index. Let's take a look at some examples:
 
 Command  | Description
 ------------- | -------------

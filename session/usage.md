@@ -10,20 +10,20 @@
 <a name="put"></a>
 ## Storing Items
 
-Storing items in the session is a breeze. Simply call the put method on the Session class:
+To store items in the session call the put method on the Session class:
 
 	Session::put('name', 'Taylor');
 
 The first parameter is the **key** to the session item. You will use this key to retrieve the item from the session. The second parameter is the **value** of the item.
 
-Need to store an item in the session that should expire after the next request? Check out the **flash** method. It provides an easy way to store temporary data like status or error messages:
+The **flash** method stores an item in the session that will expire after the next request. It's useful for storing temporary data like status or error messages:
 
 	Session::flash('status', 'Welcome Back!');
 
 <a name="get"></a>
 ## Retrieving Items
 
-Retrieving items from the session is no problem. You can use the **get** method on the Session class to retrieve any item in the session, including flash data. Just pass the key of the item you wish to retrieve:
+You can use the **get** method on the Session class to retrieve any item in the session, including flash data. Just pass the key of the item you wish to retrieve:
 
 	$name = Session::get('name');
 
@@ -45,7 +45,7 @@ Laravel even provides a simple way to determine if a session item exists using t
 <a name="forget"></a>
 ## Removing Items
 
-Need to get rid of a session item? No problem. Just mention the name of the item to the **forget** method on the Session class:
+To remove an item from the session use the **forget** method on the Session class:
 
 	Session::forget('name');
 

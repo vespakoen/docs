@@ -11,13 +11,13 @@
 <a name="registering-assets"></a>
 ## Registering Assets
 
-The **Asset** class provides a simple, elegant way to manage the CSS and JavaScript used by your application. Registering an asset is simple. Just call the **add** method on the **Asset** class:
+The **Asset** class provides a simple way to manage the CSS and JavaScript used by your application. To register an asset just call the **add** method on the **Asset** class:
 
 #### Registering an asset:
 
 	Asset::add('jquery', 'js/jquery.js');
 
-Wonderful. The **add** method accepts three parameters. The first is the name of the asset, the second is the path to the asset relative to the **public** directory, and the third is a list of asset dependencies (more on that later). Notice that we did not tell the method if we were registering JavaScript or CSS. The **add** method will use the file extension to determine the type of file we are registering.
+The **add** method accepts three parameters. The first is the name of the asset, the second is the path to the asset relative to the **public** directory, and the third is a list of asset dependencies (more on that later). Notice that we did not tell the method if we were registering JavaScript or CSS. The **add** method will use the file extension to determine the type of file we are registering.
 
 <a name="dumping-assets"></a>
 ## Dumping Assets
@@ -40,7 +40,7 @@ Sometimes you may need to specify that an asset has dependencies. This means tha
 
 	Asset::add('jquery-ui', 'js/jquery-ui.js', 'jquery');
 
-Great! In this example, we are registering the **jquery-ui** asset, as well as specifying that it is dependent on the **jquery** asset. Now, when you place the asset links on your views, the jQuery asset will always be declared before the jQuery UI asset. Need to declare more than one dependency? No problem:
+In this example, we are registering the **jquery-ui** asset, as well as specifying that it is dependent on the **jquery** asset. Now, when you place the asset links on your views, the jQuery asset will always be declared before the jQuery UI asset. Need to declare more than one dependency? No problem:
 
 #### Registering an asset that has multiple dependencies:
 
@@ -70,4 +70,4 @@ When registering assets, the paths are typically relative to the **public** dire
 
 	Asset::container('foo')->bundle('admin');
 
-Now, when you add an asset, you can use paths relative to the bundle's public directory. Laravel will automatically generate the correct full paths. It couldn't be easier!
+Now, when you add an asset, you can use paths relative to the bundle's public directory. Laravel will automatically generate the correct full paths.

@@ -15,7 +15,7 @@
 
 If you are using the Auth class, you are strongly encouraged to hash and salt all passwords. Web development must be done responsibly. Salted, hashed passwords make a rainbow table attack against your user's passwords impractical.
 
-Don't worry, salting and hashing passwords is easy using the **Hash** class. The Hash class provides a simple way to hash passwords using the **bcrypt** hashing algorithm. Check out this example:
+Salting and hashing passwords is done using the **Hash** class. The Hash class is uses the **bcrypt** hashing algorithm. Check out this example:
 
 	$password = Hash::make('secret');
 
@@ -40,7 +40,7 @@ Logging a user into your application is simple using the **attempt** method on t
 
 If the user's credentials are valid, the user ID will be stored in the session and the user will be considered "logged in" on subsequent requests to your application.
 
-You probably noticed this method name corresponds to the **attempt** function you [configured earlier](/docs/auth/config#attempt). Each time you call the **attempt** method on the **Auth** class, the **attempt** function in the configuration file will be called to check the user's credentials. It all makes sense now, right?
+You probably noticed this method name corresponds to the **attempt** function you [configured earlier](/docs/auth/config#attempt). Each time you call the **attempt** method on the **Auth** class, the **attempt** function in the configuration file will be called to check the user's credentials.
 
 > **Note:** To provide more flexiblity when working with third-party authentication providers, you are not required to pass a password into the **attempt** method.
 
@@ -51,7 +51,7 @@ To determine if the user of your application is logged in, call the **check** me
 	     return "You're logged in!";
 	}
 
-Sometimes you may need to login a user without checking their credentials, such as after a user first registers to use your application. It's easy using the **login** method. Just pass your user object or the user's ID:
+Use the **login** method to login a user without checking their credentials, such as after a user first registers to use your application. Just pass your user object or the user's ID:
 
 	Auth::login($user);
 
@@ -60,7 +60,7 @@ Sometimes you may need to login a user without checking their credentials, such 
 <a name="filter"></a>
 ## Protecting Routes
 
-It is common to limit access to certain routes only to logged in users. It's a breeze in Laravel using the built-in [auth filter](/docs/routing#filters). If the user is logged in, the request will proceed as normal; however, if the user is not logged in, they will be redirected to the "login" [named route](/docs/routing#named-routes).
+It is common to limit access to certain routes only to logged in users. In Laravel this is accomplished using the [auth filter](/docs/routing#filters). If the user is logged in, the request will proceed as normal; however, if the user is not logged in, they will be redirected to the "login" [named route](/docs/routing#named-routes).
 
 To protect a route, simply attach the **auth** filter:
 
@@ -71,18 +71,18 @@ To protect a route, simply attach the **auth** filter:
 <a name="user"></a>
 ## Retrieving The Logged In User
 
-Once a user has logged in to your application, you may easily access the user model via the **user** method on the Auth class:
+Once a user has logged in to your application, you can access the user model via the **user** method on the Auth class:
 
 	return Auth::user()->email;
 
-This method simply calls the [**user** function](/docs/auth/config#user) in the configuration file. Also, you don't need to worry about performance when using this method. The user is only retrieved from storage the first time you use the method.
+This method calls the [**user** function](/docs/auth/config#user) in the configuration file. Also, you don't need to worry about performance when using this method. The user is only retrieved from storage the first time you use the method.
 
 > **Note:** If the user is not logged in, the **user** method will return NULL.
 
 <a name="logout"></a>
 ## Logging Out
 
-Ready to log the user out of your application? It's simple:
+Ready to log the user out of your application?
 
 	Auth::logout();
 

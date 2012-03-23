@@ -13,13 +13,16 @@
 <a name="the-basics"></a>
 ## The Basics
 
-Controllers are responsible for handling incoming requests to your application. Typically, they will ask a model for data, and then return a view that presents that data to the user.
+Unlike many other frameworks, Laravel makes it possible to manage application logic in two different ways. The most common method of organizing application logic amongst PHP frameworks is the controller. A controller is responsible for handling incoming requests to your application. Typically, they will ask a model for data, and then return a view that presents that data to the user.
+
+It's also possible to embed your application logic directly into routes. All functionality types can be implemented with either methodology so, it's up to you to determine which solution is best for your team and your project. We'll go over [routes in detail](/docs/routing) in another document.
 
 Controller classes should be stored in **application/controllers** and should extend the Base\_Controller class. A Home\_Controller class is included with Laravel.
 
 #### Creating a simple controller:
 
-	class Admin_Controller extends Base_Controller {
+	class Admin_Controller extends Base_Controller
+	{
 
 		public function action_index()
 		{
@@ -35,40 +38,21 @@ The Base\_Controller class extends the main Laravel Controller class, and gives 
 <a name="controller-routing"></a>
 ## Controller Routing
 
-All routes in Laravel must be explicitly defined, including routes to controllers. However, a helpful short-cut is provided to make routing to controllers a breeze. Controller routes are typically defined in **application/routes.php**.
+It is important to be aware that all routes in Laravel must be explicitly defined, including routes to controllers. This means that controller methods that have not been exposed through route registration **cannot** be accessed. It's possible to automatically expose all methods within a controller using controller route registration. Controller route registrations are typically defined in **application/routes.php**.
 
-#### Registering the "home" controller with the Router:
-
-	Route::controller('home');
-
-#### Registering several controllers with the router:
-
-	Route::controller(array('dashboard.panel', 'admin'));
-
-Once a controller is registered, you may access its methods using a simple URI convention:
-
-	http://localhost/controller/method/arguments
-
-This convention is similar to that employed by CodeIgniter and other popular frameworks, where the first segment is the controller name, the second is the method, and the remaining segments are passed to the method as arguments. If no method segment is present, the "index" method will be used.
-
-This routing convention may not be desirable for every situation, so you may also explicitly route URIs to controller actions using a simple, intuitive syntax.
-
-#### Registering a route that points to a controller action:
-
-	Route::get('welcome', 'home@index');
-
-#### Registering a filtered route that points to a controller action:
-
-	Route::get('welcome', array('after' => 'log', 'uses' => 'home@index'));
+Check [the routing page](/docs/routing#controller-routing) for more information on routing to controllers.
 
 <a name="bundle-controllers"></a>
 ## Bundle Controllers
 
-Creating controllers that belong to bundles is just as simple as creating your application controllers. Just prefix the controller class name with the name of the bundle, so if your bundle is named "admin", your controller classes would look like this:
+Bundles are Laravel's modular package system. Bundles can easily configured to handle requests to your application. We'll be going over [bundles in more detail](/docs/bundles) in another document.
+
+Creating controllers that belong to bundles is almost identical to creating your application controllers. Just prefix the controller class name with the name of the bundle, so if your bundle is named "admin", your controller classes would look like this:
 
 #### Creating a bundle controller class:
 
-	class Admin_Home_Controller extends Base_Controller {
+	class Admin_Home_Controller extends Base_Controller
+	{
 
 		public function action_index()
 		{
@@ -119,7 +103,8 @@ Controllers may be located within any number of sub-directories within the main 
 
 Define the controller class and store it in **controllers/admin/panel.php**.
 
-	class Admin_Panel_Controller extends Base_Controller {
+	class Admin_Panel_Controller extends Base_Controller
+	{
 
 		public function action_index()
 		{
@@ -145,7 +130,8 @@ Instead of prefixing controller actions with "action_", you may prefix them with
 
 #### Adding the RESTful property to the controller:
 
-	class Home_Controller extends Base_Controller {
+	class Home_Controller extends Base_Controller
+	{
 
 		public $restful = true;
 
@@ -153,7 +139,8 @@ Instead of prefixing controller actions with "action_", you may prefix them with
 
 #### Building RESTful controller actions:
 
-	class Home_Controller extends Base_Controller {
+	class Home_Controller extends Base_Controller
+	{
 
 		public $restful = true;
 

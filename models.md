@@ -4,23 +4,31 @@
 
 - [Models](#models)
 - [Libraries](#libraries)
+- [Auto-Loading](#auto-loading)
 - [Best Practices](#best-practices)
 
 <a name="models"></a>
 ## Models
 
-The "models" library typically contains the heart of your application. Think of controllers, and even Laravel itself, as just a medium of accessing your application from the web. The heart of your application lives in the "models" directory.
+Models are the heart of your application. Your application logic (controllers / routes) and views (html) are just the mediums with which users interact with your models. The most typical type of logic contained within a model is [Business Logic](http://en.wikipedia.org/wiki/Business_logic).
 
-For instance, perhaps you are writing a satellite tracking application. You might want to have a "Satellite" object. Perhaps users can enter their GPS coordinates to find satellites over their location. So, you may have a "Location" object, as well as a location validator that accepts an instance of that location. Get the idea?
+*Some examples of functionality that would exist within a model are:*
 
-*Further Reading:*
+- Database Interactions
+- File I/O
+- Interactions with Web Services
 
-- [Auto Loading](/docs/loading)
+For instance, perhaps you are writing a blog. You will likely want to have a "Post" model. Users may want to comment on posts so you'd also have a "Comment" model. If users are going to be commenting then we'll also need a "User" model. Get the idea?
 
 <a name="libraries"></a>
 ## Libraries
 
-Libraries are classes that perform tasks that aren't specific to your application. For instance, consider a PDF generation library that converts HTML. That task, although complicated, is not specific to your application, so it is considered a "library". Laravel makes it a breeze to drop in a library and start using it within your application. To learn how, check out the documentation on [auto loading](/docs/loading).
+Libraries are classes that perform tasks that aren't specific to your application. For instance, consider a PDF generation library that converts HTML. That task, although complicated, is not specific to your application, so it is considered a "library". 
+
+<a name="auto-loading"></a>
+## Auto Loading
+
+Libraries and Models are very easy to use thanks to the Laravel auto-loader. To learn more about the auto-loader check out the documentation on [Auto-Loading](/docs/loading).
 
 <a name="best-practices"></a>
 ## Best Practices
@@ -88,7 +96,7 @@ Repositories are the data access layer of your application. They are responsible
 
 	}
 
-Wonderful. We have a clean separation of concerns between our application's entities, services, and repositories. This means we can inject stub repositories into our services or controllers, and test those pieces of our application in isolation from the database. Also, we can entirely switch data store technologies without affecting our services, entities, or controllers. We've achieved a good *separation of concerns*.
+Now we have a clean separation of concerns between our application's entities, services, and repositories. This means we can inject stub repositories into our services or controllers, and test those pieces of our application in isolation from the database. Also, we can entirely switch data store technologies without affecting our services, entities, or controllers. We've achieved a good *separation of concerns*.
 
 *Further Reading:*
 

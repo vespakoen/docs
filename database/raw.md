@@ -9,7 +9,7 @@
 <a name="the-bascis"></a>
 ## The Basics
 
-The **query** method is used to execute arbitrary, raw SQL against your database connection. It's dead simple:
+The **query** method is used to execute arbitrary, raw SQL against your database connection. 
 
 #### Selecting records from the database:
 
@@ -34,7 +34,7 @@ The **query** method is used to execute arbitrary, raw SQL against your database
 <a name="other-query-methods"></a>
 ## Other Query Methods
 
-Laravel provides a few other methods to make querying your database simple and convenient. Here's an overview:
+Laravel provides a few other methods to make querying your database simple. Here's an overview:
 
 #### Running a SELECT query and returning the first result:
 
@@ -47,7 +47,7 @@ Laravel provides a few other methods to make querying your database simple and c
 <a name="pdo-connections"></a>
 ## PDO Connections
 
-Sometimes you may wish to access the raw PDO connection behind the Laravel Connection object. It's simple:
+Sometimes you may wish to access the raw PDO connection behind the Laravel Connection object.
 
 #### Get the raw PDO connection for a database:
 

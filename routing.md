@@ -11,12 +11,17 @@
 - [Named Routes](#named-routes)
 - [HTTPS Routes](#https-routes)
 - [Bundle Routes](#bundle-routes)
+- [Controller Routing](#controller-routing)
 - [CLI Route Testing](#cli-route-testing)
 
 <a name="the-basics"></a>
 ## The Basics
 
-Laravel uses the latest features of PHP 5.3 to make routing simple and expressive. It's a joy to build everything from simple JSON APIs to complex web applications. Routes are typically defined in **application/routes.php**.
+Laravel uses the latest features of PHP 5.3 to make routing simple and expressive. It's important that building everything from APIs to complex web applications is as easy as possible. Routes are typically defined in **application/routes.php**.
+
+Unlike many other frameworks with Laravel it's possible to embed application logic in two ways. While controllers are the most common way to implement application logic it's also possible to embed your logic directly into routes. This is **especially** nice for small sites that contain only a few pages as you don't have to create a bunch of controllers just to expose half a dozen methods or put a handful of unrelated methods into the same controller and then have to manually designate routes that point to them.
+
+In the following example the first parameter is the route that you're "registering" with the router. The second parameter is the function containing the logic for that route. Routes are defined without a front-slash. The only exception to this is the default route which is represented with **only** a front-slash.
 
 #### Registering a route that responds to "GET /":
 
@@ -25,7 +30,7 @@ Laravel uses the latest features of PHP 5.3 to make routing simple and expressiv
 		return "Hello World!";
 	});
 
-#### Registering a route that is valid for any HTTP verb:
+#### Registering a route that is valid for any HTTP verb (GET, POST, PUT, and DELETE):
 
 	Route::any('/', function()
 	{
@@ -96,7 +101,7 @@ You are free to change this to fit the needs of your application!
 <a name="filters"></a>
 ## Filters
 
-Route filters may be run before or after a route is executed. If a "before" filter returns a value, that value is considered the response to the request and the route is not executed, making it a breeze to implement authentication filters, etc. Filters are typically defined in **application/routes.php**.
+Route filters may be run before or after a route is executed. If a "before" filter returns a value, that value is considered the response to the request and the route is not executed, which is conveniont when implementing authentication filters, etc. Filters are typically defined in **application/routes.php**.
 
 #### Registering a filter:
 
@@ -161,7 +166,7 @@ Route groups allow you to attach a set of attributes to a group of routes, allow
 <a name="named-routes"></a>
 ## Named Routes
 
-Constantly generating URLs or redirects using a route's URI leads to brittle code. Assigning the route a name gives you a convenient way to refer to the route throughout your application.
+Constantly generating URLs or redirects using a route's URI can cause problems when routes are later changed. Assigning the route a name gives you a convenient way to refer to the route throughout your application. When a route change occurs the generated links will point to the new route with no further configuration needed.
 
 #### Registering a named route:
 
@@ -209,7 +214,9 @@ When defining routes, you may use the "https" attribute to indicate that the HTT
 <a name="bundle-routes"></a>
 ## Bundle Routes
 
-You can easily setup bundles to handle requests to your application. Let's go back to the **application/bundles.php** file and add something:
+Bundles are Laravel's modular package system. Bundles can easily be configured to handle requests to your application. We'll be going over [bundles in more detail](/docs/bundles) in another document. For now, read through this section and just be aware that not only can routes be used to expose functionality in bundles, but they can also be registered from within bundles.
+
+Let's open the **application/bundles.php** file and add something:
 
 #### Registering a bundle to handle routes:
 
@@ -219,7 +226,7 @@ You can easily setup bundles to handle requests to your application. Let's go ba
 
 	);
 
-Notice the new **handles** option in our array? This tells Laravel to load the Admin bundle on any requests where the URI begins with "admin".
+Notice the new **handles** option in our bundle configuration array? This tells Laravel to load the Admin bundle on any requests where the URI begins with "admin".
 
 Now you're ready to register some routes for your bundle, so create a **routes.php** file within the root directory of your bundle and add the following:
 
@@ -241,10 +248,41 @@ Of course, you can use the **(:bundle)** place-holder for all of your routes, no
 		return "I handle requests to admin/panel!";
 	});
 
+<a name="controller-routing"></a>
+## Controller Routing
+
+Controllers provide another way to manage your application logic. If you're unfamiliar with controllers you may want to [read about controllers](/docs/controllers) and return to this section.
+
+It is important to be aware that all routes in Laravel must be explicitly defined, including routes to controllers. This means that controller methods that have not been exposed through route registration **cannot** be accessed. It's possible to automatically expose all methods within a controller using controller route registration. Controller route registrations are typically defined in **application/routes.php**.
+
+#### Registering the "home" controller with the Router:
+
+	Route::controller('home');
+
+#### Registering several controllers with the router:
+
+	Route::controller(array('dashboard.panel', 'admin'));
+
+Once a controller is registered, you may access its methods using a simple URI convention:
+
+	http://localhost/controller/method/arguments
+
+This convention is similar to that employed by CodeIgniter and other popular frameworks, where the first segment is the controller name, the second is the method, and the remaining segments are passed to the method as arguments. If no method segment is present, the "index" method will be used.
+
+This routing convention may not be desirable for every situation, so you may also explicitly route URIs to controller actions using a simple, intuitive syntax.
+
+#### Registering a route that points to a controller action:
+
+	Route::get('welcome', 'home@index');
+
+#### Registering a filtered route that points to a controller action:
+
+	Route::get('welcome', array('after' => 'log', 'uses' => 'home@index'));
+
 <a name="cli-route-testing"></a>
 ## CLI Route Testing
 
-You may test your routes using Laravel's wonderful "Artisan" CLI. Simple specify the request method and URI you want to use. The route response will be var_dump'd back to the CLI.
+You may test your routes using Laravel's "Artisan" CLI. Simple specify the request method and URI you want to use. The route response will be var_dump'd back to the CLI.
 
 #### Calling a route via the Artisan CLI:
 

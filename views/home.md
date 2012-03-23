@@ -32,6 +32,13 @@ All views are stored within the **application/views** directory and use the PHP 
 		return View::make('home.index');
 	});
 
+#### Returning the view from a controller:
+
+	public function action_index()
+	{
+		return View::make('home.index');
+	});
+
 Sometimes you will need a little more control over the response sent to the browser. For example, you may need to set a custom header on the response, or change the HTTP status code. Here's how:
 
 #### Returning a custom response:
@@ -50,7 +57,7 @@ Sometimes you will need a little more control over the response sent to the brow
 <a name="binding-data-to-views"></a>
 ## Binding Data To Views
 
-Typically, a route or controller will request data from a model that the view needs to display. So, we need a way to pass the data to the view. It's a breeze. There are several ways to bind data to the view, so just pick the way you like best!
+Typically, a route or controller will request data from a model that the view needs to display. So, we need a way to pass the data to the view. There are several ways to accomplish this, so just pick the way that you like best!
 
 #### Binding data to a view:
 
@@ -103,7 +110,7 @@ Often you will want to nest views within views. Nested views are sometimes calle
 <a name="named-views"></a>
 ## Named Views
 
-Named views make your code more expressive and beautiful. Using them is simple:
+Named views can help to make your code more expressive and organized. Using them is simple:
 
 #### Registering a named view:
 
@@ -120,7 +127,7 @@ Named views make your code more expressive and beautiful. Using them is simple:
 <a name="view-composers"></a>
 ## View Composers
 
-Each time a view is created, its "composer" event will be fired. You can listen for this event and use it to bind assets and common data to the view each time it is created. Composers are typically defined in **application/routes.php**. Here's an example:
+Each time a view is created, its "composer" event will be fired. You can listen for this event and use it to bind assets and common data to the view each time it is created. A common use-case for this functionality is a side-navigation partial that shows a list of random blog posts. You can nest your partial view by loading it in your layout view. Then, define a composer for that partial. The composer can then query the posts table and gather all of the necessary data to render your view. No more random logic strewn about! Composers are typically defined in **application/routes.php**. Here's an example:
 
 #### Register a view composer for the "home" view:
 
@@ -135,6 +142,8 @@ Now each time the "home" view is created, an instance of the View will be passed
 
 <a name="redirects"></a>
 ## Redirects
+
+It's important to note that both routes and controllers require responses to be returned with the 'return' directive. Instead of calling "Redirect::to()"" where you'd like to redirect the user. You'd instead use "return Redirect::to()". This distinction is important as it's different than most other PHP frameworks and it could be easy to accidentally overlook the importance of this practice.
 
 #### Redirecting to another URI:
 
@@ -173,7 +182,7 @@ Sometimes you may need to redirect to a named route, but also need to specify th
 <a name="redirecting-with-flash-data"></a>
 ## Redirecting With Flash Data
 
-After a user creates an account or signs into your application, it is common to display a welcome or status message. But, how can you set the status message so it is available for the next request? It's actually a walk in the park:
+After a user creates an account or signs into your application, it is common to display a welcome or status message. But, how can you set the status message so it is available for the next request? Use the with() method to send flash data along with the redirect response.
 
 	return Redirect::to('profile')->with('status', 'Welcome Back!');
 
@@ -199,7 +208,7 @@ You can access your message from the view with the Session get method:
 <a name="errors"></a>
 ## Errors
 
-Generating the proper responses for error views is simple. Simply specify the code you wish to return. The corresponding view stored in **views/error** will be returned.
+To generating proper error responses simply specify the response code that you wish to return. The corresponding view stored in **views/error** will automatically be returned.
 
 #### Generating a 404 error response:
 
