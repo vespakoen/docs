@@ -38,6 +38,10 @@ You now have a fluent query builder for the "users" table. Using this query buil
 #### Retrieving a single record from the database:
 
 	$user = DB::table('users')->first();
+	
+#### Retrieving a single record by its primary key:
+
+	$user = DB::table('users')->find($id);
 
 > **Note:** If no results are found, the **first** method will return NULL. The **get** method will return an empty array.
 
