@@ -18,7 +18,7 @@
 
 ## The Basics
 
-Laravel provides an awesome, easy-to-use fluent interface for building SQL queries and working with your database. All queries use prepared statements and are protected against SQL injection. Working with your database doesn't have to be a headache.
+The Fluent Query Builder is Laravel's powerful fluent interface for building SQL queries and working with your database. All queries use prepared statements and are protected against SQL injection.
 
 You can begin a fluent query using the **table** method on the DB class. Just mention the table you wish to query:
 
@@ -62,7 +62,7 @@ You now have a fluent query builder for the "users" table. Using this query buil
 
 ### where and or\_where
 
-Building WHERE clauses in Laravel is painless. There are a variety of methods to assist you. The most basic of these methods are the **where** and **or_where** methods. Here is how to use them:
+There are a variety of methods to assist you in building where clauses. The most basic of these methods are the **where** and **or_where** methods. Here is how to use them:
 
 	return DB::table('users')
 		->where('id', '=', 1)
@@ -76,7 +76,7 @@ Of course, you are not limited to simply checking equality. You may also use **g
 		->or_where('name', 'LIKE', '%Taylor%')
 		->first();
 
-You may have assumed that the **where** method will add to the query using an AND condition, while the **or_where** method will use an OR condition. You assumed correctly.
+As you may have assumed, the **where** method will add to the query using an AND condition, while the **or_where** method will use an OR condition.
 
 ### where\_in, where\_not\_in, or\_where\_in, and or\_where\_not\_in
 
@@ -117,7 +117,7 @@ The suite of **where_null** methods makes checking for NULL values a piece of ca
 <a name="nested-where"></a>
 ## Nested Where Clauses
 
-Laravel makes it a breeze to group portions of a WHERE clause within parentheses. Just pass a Closure as parameter to the **where** or **or_where** methods:
+You may discover the need to group portions of a WHERE clause within parentheses. Just pass a Closure as parameter to the **where** or **or_where** methods:
 
 	$users = DB::table('users')
 		->where('id', '=', 1)
@@ -135,7 +135,7 @@ The example above would generate a query that looks like:
 <a name="dynamic"></a>
 ## Dynamic Where Clauses
 
-Ready for some really beautiful syntax? Check out **dynamic where methods**:
+Dynamic where methods are great way to increase the readability of your code. Here are some examples:
 
 	$user = DB::table('users')->where_email('example@gmail.com')->first();
 
@@ -143,7 +143,6 @@ Ready for some really beautiful syntax? Check out **dynamic where methods**:
 
 	$user = DB::table('users')->where_id_or_name(1, 'Fred');
 
-Aren't they a breathe of fresh air?
 
 <a name="joins"></a>
 ## Table Joins
@@ -219,11 +218,11 @@ Of course, you may wish to limit the query using a WHERE clause first:
 <a name="expressions"></a>
 ## Expressions
 
-Sometimes you may need to set the value of a column to a SQL function such as **NOW()**. It's a breeze using the **raw** method on the **DB** class. Here's what it looks like:
+Sometimes you may need to set the value of a column to a SQL function such as **NOW()**. Usually a reference to now() would automatically be quoted and escaped. To prevent this use the **raw** method on the **DB** class. Here's what it looks like:
 
 	DB::table('users')->update(array('updated_at' => DB::raw('NOW()')));
 
-The **raw** method simply tells the query to inject the contents of the expression into the query as a string rather than a bound parameter. For example, you can also use expressions to increment column values:
+The **raw** method tells the query to inject the contents of the expression into the query as a string rather than a bound parameter. For example, you can also use expressions to increment column values:
 
 	DB::table('users')->update(array('votes' => DB::raw('votes + 1')));
 
@@ -236,7 +235,7 @@ Of course, convenient methods are provided for **increment** and **decrement**:
 <a name="insert"></a>
 ## Inserting Records
 
-Inserting records is amazingly easy using the **insert** method. The method only expects an array of values to insert. It couldn't be simpler. The insert method will simply return true or false, indicating whether the query was successful:
+The insert method expects an array of values to insert. The insert method will return true or false, indicating whether the query was successful:
 
 	DB::table('users')->insert(array('email' => 'example@gmail.com'));
 
@@ -249,7 +248,7 @@ Inserting a record that has an auto-incrementing ID? You can use the **insert\_g
 <a name="update"></a>
 ## Updating Records
 
-Updating records is just as simple as inserting them. Simply pass an array of values to the **update** method:
+To update records simply pass an array of values to the **update** method:
 
 	$affected = DB::table('users')->update(array('email' => 'new_email@gmail.com'));
 

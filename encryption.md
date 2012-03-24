@@ -9,7 +9,7 @@
 <a name="the-basics"></a>
 ## The Basics
 
-Need to do secure, two-way encryption? Laravel has you covered with the **Crypter** class. By default, the Crypter class provides strong AES-256 encryption and decryption out of the box via the Mcrypt PHP extension.
+Laravel's **Crypter** class provides a simple interface for handling secure, two-way encryption. By default, the Crypter class provides strong AES-256 encryption and decryption out of the box via the Mcrypt PHP extension.
 
 > **Note:** Don't forget to install the Mcrypt PHP extension on your server.
 
@@ -27,4 +27,4 @@ Need to do secure, two-way encryption? Laravel has you covered with the **Crypte
 
 	$decrypted = Crypter::decrypt($encrypted);
 
-> **Note:** The decrypt method will only decrypt strings that were encrypted using **your** application key.
+> **Note:** It's incredibly important to point out that the decrypt method will only decrypt strings that were encrypted using **your** application key.

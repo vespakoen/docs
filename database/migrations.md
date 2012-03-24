@@ -33,7 +33,7 @@ You can easily create migrations through Laravel's "Artisan" CLI. It looks like 
 
 Now, check your **application/migrations** folder. You should see your brand new migration! Notice that it also contains a timestamp. This allows Laravel to run your migrations in the correct order.
 
-You may also create migrations for a bundle. It's easy.
+You may also create migrations for a bundle. 
 
 **Creating a migration for a bundle:**
 
@@ -61,7 +61,7 @@ You may also create migrations for a bundle. It's easy.
 <a name="rolling-back"></a>
 ## Rolling Back
 
-When you roll back a migration, Laravel rolls back the entire migration "operation". So, if the last migration command ran 122 migrations, all 122 migrations would be rolled back. Nice, huh?
+When you roll back a migration, Laravel rolls back the entire migration "operation". So, if the last migration command ran 122 migrations, all 122 migrations would be rolled back.
 
 **Rolling back the last migration operation:**
 

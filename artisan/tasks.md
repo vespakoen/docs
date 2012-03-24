@@ -10,12 +10,12 @@
 <a name="the-basics"></a>
 ## The Basics
 
-Artisan tasks allow you to easily call "task" classes from the command line. You can even call specific methods on the class, passing any arguments you want. They are great for building command-line tools or jobs. Let's dig deeper.
+Laravel's command-line tool is called Artisan. Artisan can be used to run "tasks" such as migrations, cronjobs, unit-tests, or anything that want. 
 
 <a name="creating-tasks"></a>
 ## Creating & Running Tasks
 
-To create a task, simply create a new class in your **application/tasks** directory. The class name should be suffixed with "_Task", and should at least have a "run" method, like this:
+To create a task create a new class in your **application/tasks** directory. The class name should be suffixed with "_Task", and should at least have a "run" method, like this:
 
 #### Creating a task class:
 
@@ -56,7 +56,7 @@ Remember, you can call specific methods on your task, so, let's add an "urgent" 
 
 	}
 
-Now we can easily call our "urgent" method:
+Now we can call our "urgent" method:
 
 #### Calling a specific method on a task:
 
@@ -65,7 +65,7 @@ Now we can easily call our "urgent" method:
 <a name="bundle-tasks"></a>
 ## Bundle Tasks
 
-Creating a task for your bundle is simple. Just prefix the bundle name to the clas name of your task. So, if your bundle was named "admin", a task might look like this:
+To create a task for your bundle just prefix the bundle name to the class name of your task. So, if your bundle was named "admin", a task might look like this:
 
 #### Creating a task class that belongs to a bundle:
 
@@ -78,7 +78,7 @@ Creating a task for your bundle is simple. Just prefix the bundle name to the cl
 
 	}
 
-Calling your task is just as easy. Just use the usual Laravel double-colon syntax to indicate the bundle:
+To run your task just use the usual Laravel double-colon syntax to indicate the bundle:
 
 #### Running a task belonging to a bundle:
 

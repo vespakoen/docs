@@ -15,7 +15,7 @@ Unit Testing allows you to test your code and verify that it is working correctl
 <a name="creating-test-classes"></a>
 ## Creating Test Classes
 
-All of your application's tests live in the **application/tests** directory. In this directory, you will find a simple **example.test.php** file. Pop it open and look at the class it contains:
+All of your application's tests live in the **application/tests** directory. In this directory, you will find a basic **example.test.php** file. Pop it open and look at the class it contains:
 
 	<?php
 
@@ -42,7 +42,7 @@ For more information regarding creating test cases, check out the [PHPUnit docum
 <a name="running-tests"></a>
 ## Running Tests
 
-To run your tests, you can use Laravel's wonderful Artisan command-line. It's simple:
+To run your tests, you can use Laravel's Artisan command-line utility:
 
 #### Running the application's tests via the Artisan CLI:
 
@@ -55,7 +55,7 @@ To run your tests, you can use Laravel's wonderful Artisan command-line. It's si
 <a name="#calling-controllers-from-tests"></a>
 ## Calling Controllers From Tests
 
-You probably want a convenient way to call your controllers from your tests. It's actually very simple. Here's how:
+Here's an example of how you can call your controllers from your tests:
 
 #### Calling a controller from a test:
 

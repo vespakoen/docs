@@ -12,7 +12,9 @@
 ## Requirements
 
 - Apache, nginx, or another compatible web server.
-- PHP 5.3+
+- Laravel takes advantage of the powerful features that have become available in PHP 5.3. Consequently, PHP 5.3 is a requirement.
+- Laravel uses the [FileInfo library](http://php.net/manual/en/book.fileinfo.php) to detect files' mime-types. This is included by default with PHP 5.3. However, Windows users may need to add a line to their php.ini file before the Fileinfo module is enabled. For more information check out the [installation / configuration details on PHP.net](http://php.net/manual/en/fileinfo.installation.php).
+- Laravel uses the [Mcrypt library](http://php.net/manual/en/book.mcrypt.php) for encryption and hash generation. Mcrypt typically comes pre-installed. If you can't find Mcrypt in the output of phpinfo() then check the vendor site of your LAMP installation or check out the [installation / configuration details on PHP.net](http://php.net/manual/en/book.mcrypt.php).
 
 <a name="installation"></a>
 ## Installation
@@ -41,22 +43,22 @@ If you are having problems installing, try the following:
 <a name="basic-configuration"></a>
 ## Basic Configuration
 
-When starting a new project, you shouldn't be bombarded with loads of confusing configuration decisions. For that reason, Laravel is intelligently configured out of the box. The **application/config/application.php** file contains the basic configuration options for your application.
+All of the configuration provided are located in your applications config/ directory. We recommend that you read through these files just to get a basic understanding of the options available to you. Pay special attention to the **application/config/application.php** file as it contains the basic configuration options for your application.
 
-The only option you **definitely** change out of the box is your **application key**. This key is used throughout the framework for encryption, hashing, etc. It lives in the **config/application.php** file and should be set to a random, 32 character string.
+It's **extremely** important that you change the **application key** option before working on your site. This key is used throughout the framework for encryption, hashing, etc. It lives in the **config/application.php** file and should be set to a random, 32 character string. A standards-compliant application key can be automatically generated using the Artisan command-line utility.  More information can be found in the [Artisan command index](/docs/artisan/commands).
 
 > **Note:** If you are using mod_rewrite, you should set the index option to an empty string.
 
 <a name="environments"></a>
 ## Environments
 
-Most likely, the configuration options you need for local development are not the same as the options you need on your production server. Laravel provides a convenient way to manage these differences using the **LARAVEL_ENV** environment variable. To get started, set the environment variable in your **httpd.conf** file:
+Most likely, the configuration options you need for local development are not the same as the options you need on your production server. Laravel's default environment handling mechanism is the **LARAVEL_ENV** environment variable. To get started, set the environment variable in your **httpd.conf** file:
 
 	SetEnv LARAVEL_ENV local
 
 > **Note:** Using a web server other than Apache? Check your server's documentation to learn how to set environment variables.
 
-Great! Next, create an **application/config/local** directory. Any files and options you place in this directory will override the options in the base **application/config** directory. For example, you may wish to create an **application.php** file within your new **local** configuration directory:
+Next, create an **application/config/local** directory. Any files and options you place in this directory will override the options in the base **application/config** directory. For example, you may wish to create an **application.php** file within your new **local** configuration directory:
 
 	return array(
 
@@ -64,7 +66,7 @@ Great! Next, create an **application/config/local** directory. Any files and opt
 
 	);
 
-In this example, the local **URL** option will override the **URL** option in **application/config/application.php**. Notice that you only need to specify the options you wish to override. Remember, development doesn't have to be a pain.
+In this example, the local **URL** option will override the **URL** option in **application/config/application.php**. Notice that you only need to specify the options you wish to override. 
 
 If you do not have access to your server's configuration files, you may manually set the **LARAVEL_ENV** variable at the top of Laravel's **paths.php** file:
 
