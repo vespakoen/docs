@@ -4,7 +4,6 @@
 - [Who Will Enjoy Laravel?](#who-will-enjoy-laravel)
 - [What Makes Laravel Different?](#laravel-is-different)
 - [Laravel's Community](#laravel-community)
-- [Laravel's Requirements](#laravel-requirements)
 - [Laravel's License](#laravel-license)
 
 <a name="the-basics"></a>
@@ -34,13 +33,6 @@ There are many ways in which Laravel differentiates itself from other frameworks
 - **Automatic Pagination** prevents your application logic from being cluttered up with a bunch of pagination configuration. Instead of pulling in the current page, getting a count of db records, and selected your data using a limit/offset just call 'paginate' and tell Laravel where to output the paging links in your view. Laravel automatically does the rest. Laravel's pagination system was designed to be easy to implement and easy to change. It's also important to note that just because Laravel can handle these things automatically doesn't mean that you can't call and configure these systems manually if you prefer.
 
 These are just a few ways in which Laravel differentiates itself from other PHP frameworks.  All of these features and many more are discussed thoroughly in this documentation.
-
-<a name="laravel-requirements"></a>
-## Laravel's Requirements
-
-Laravel takes advantage of the powerful features that have become available in PHP 5.3. Consequently, PHP 5.3 is a requirement.
-
-Laravel uses the FileInfo PHP module to analyze mime types of open files. This is included by default with PHP 5.3. However, Windows users may need to add a line to their php.ini file before the module is enabled. Check out the [installation / configuration details on PHP.net](http://php.net/manual/en/fileinfo.installation.php).
 
 <a name="laravel-community"></a>
 ## Laravel's Community
