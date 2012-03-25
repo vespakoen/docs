@@ -142,6 +142,18 @@ Route filters may be run before or after a route is executed. If a "before" filt
 		//
 	}));
 
+<a name="pattern-filters"></a>
+## Pattern Filters
+
+Sometimes you may want to attach a filter to all requests that begin with a given URI. For example, you may want to attach the "auth" filter to all requests with URIs that begin with "admin". Here's how to do it:
+
+#### Defining a URI pattern based filter:
+
+	Route::filter('pattern: admin/*', function()
+	{
+		return 'You must be an admin!';
+	})
+
 <a name="global-filters"></a>
 ## Global Filters
 
@@ -258,6 +270,20 @@ Of course, you can use the **(:bundle)** place-holder for all of your routes, no
 Controllers provide another way to manage your application logic. If you're unfamiliar with controllers you may want to [read about controllers](/docs/controllers) and return to this section.
 
 It is important to be aware that all routes in Laravel must be explicitly defined, including routes to controllers. This means that controller methods that have not been exposed through route registration **cannot** be accessed. It's possible to automatically expose all methods within a controller using controller route registration. Controller route registrations are typically defined in **application/routes.php**.
+
+Most likely, you just want to register all of the controllers in your application's "controllers" directory. You can do it in one simple statement. Here's how:
+
+#### Register all controllers for the application:
+
+	Route::controller(Controller::detect());
+
+The **Controller::detect** method simply returns an array of all of the controllers defined for the application.
+
+If you wish to automatically detect the controllers in a bundle, just pass the bundle name to the method. If no bundle is specified, the application folder's controller directory will be searched.
+
+#### Register all controllers for the "admin" bundle:
+
+	Route::controller(Controller::detect('admin'));
 
 #### Registering the "home" controller with the Router:
 

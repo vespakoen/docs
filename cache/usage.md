@@ -15,6 +15,10 @@ Storing items in the cache is simple. Simply call the **put** method on the Cach
 
 The first parameter is the **key** to the cache item. You will use this key to retrieve the item from the cache. The second parameter is the **value** of the item. The third parameter is the number of **minutes** you want the item to be cached.
 
+You may also cache something "forever" if you do not want the cache to expire:
+
+	Cache::forever('name', 'Taylor');
+
 > **Note:** It is not necessary to serialize objects when storing them in the cache.
 
 <a name="get"></a>

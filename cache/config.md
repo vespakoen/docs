@@ -7,6 +7,7 @@
 - [Memcached](#memcached)
 - [Redis](#redis)
 - [Cache Keys](#keys)
+- [In-Memory Cache](#memory)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -20,6 +21,7 @@ Laravel provides five cache drivers out of the box:
 - Memcached
 - APC
 - Redis
+- Memory (Arrays)
 
 By default, Laravel is configured to use the **file** system cache driver. It's ready to go out of the box with no configuration. The file system driver stores cached items as files in the **cache** directory. If you're satisfied with this driver, no other configuration is required. You're ready to start using it.
 
@@ -70,3 +72,8 @@ Before using the Redis cache driver, you must [configure your Redis servers](/do
 To avoid naming collisions with other applications using APC, Redis, or a Memcached server, Laravel prepends a **key** to each item stored in the cache using these drivers. Feel free to change this value:
 
 	'key' => 'laravel'
+
+<a name="memory"></a>
+### In-Memory Cache
+
+The "memory" cache driver does not actually cache anything to disk. It simply maintains an internal array of the cache data for the current request. This makes it perfect for unit testing your application in isolation from any storage mechanism. It should never be used as a "real" cache driver.

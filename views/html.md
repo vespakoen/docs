@@ -6,9 +6,11 @@
 - [Scripts And Style Sheets](#scripts-and-style-sheets)
 - [Links](#links)
 - [Links To Named Routes](#links-to-named-routes)
+- [Links To Controller Actions](#links-to-controller-actions)
 - [Mail-To Links](#mail-to-links)
 - [Images](#images)
 - [Lists](#lists)
+- [Custom Macros](#custom-macros)
 
 <a name="entities"></a>
 ## Entities
@@ -74,6 +76,17 @@ For example, the < symbol should be converted to its entity representation. Conv
 
 - *[Named Routes](/docs/routing#named-routes)*
 
+<a name="links-to-controller-actions"></a>
+## Links To Controller Actions
+
+#### Generating a link to a controller action:
+
+	echo HTML::link_to_action('home@index');
+
+### Generating a link to a controller action with wildcard values:
+
+	echo HTML::link_to_action('user@profile', array($username));
+
 <a name="mail-to-links"></a>
 ## Mail-To Links
 
@@ -106,3 +119,21 @@ The "mailto" method on the HTML class obfuscates the given e-mail address so it 
 	echo HTML::ol(array('Get Peanut Butter', 'Get Chocolate', 'Feast'));
 
 	echo HTML::ul(array('Ubuntu', 'Snow Leopard', 'Windows'));
+
+<a name="custom-macros"></a>
+## Custom Macros
+
+It's easy to define your own custom HTML class helpers called "macros". Here's how it works. First, simply register the macro with a given name and a Closure:
+
+#### Registering a HTML macro:
+
+	HTML::macro('my_element', function()
+	{
+		return '<article type="awesome">';
+	});
+
+Now you can call your macro using its name:
+
+#### Calling a custom HTML macro:
+
+	echo HTML::my_element();

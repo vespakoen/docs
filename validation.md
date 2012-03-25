@@ -49,6 +49,7 @@ Now you are familiar with the basic usage of the Validator class. You're ready t
 - [Confirmation](#rule-confirmation)
 - [Acceptance](#rule-acceptance)
 - [Same & Different](#same-and-different)
+- [Regular Expression Match](#regex-match)
 - [Uniqueness & Existence](#rule-unique)
 - [E-Mail Addresses](#rule-email)
 - [URLs](#rule-url)
@@ -149,6 +150,15 @@ The *accepted* rule validates that an attribute is equal to *yes* or *1*. This r
 #### Validate that two attributes have different values:
 
 	'password' => 'different:old_password',
+
+<a name="regex-match"></a>
+### Regular Expression Match
+
+The *match* rule validates that an attribute matches a given regular expression.
+
+#### Validate that an attribute matches a regular expression:
+
+	'username' => 'match:/[a-z]+/';
 
 <a name="rule-unique"></a>
 ### Uniqueness & Existence

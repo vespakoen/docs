@@ -31,6 +31,12 @@ Sometimes you may want to fire an event, but just get the first response. Here's
 
 > **Note:** The **first** method will still fire all of the handlers listening to the event, but will only return the first response.
 
+The **Event::until** method will execute the event handlers until the first non-null response is returned.
+
+#### Firing an event until the first non-null response:
+
+	$response = Event::until('loaded');
+
 <a name="listening-to-events"></a>
 ## Listening To Events
 
@@ -61,3 +67,7 @@ There are several events that are fired by the Laravel core. Here they are:
 #### Event fired right before response is sent to browser:
 
 	Event::listen('laravel.done', function($response) {});
+
+#### Event fired when a messaged is logged using the Log class:
+
+	Event::listen('laravel.log', function($type, $message) {});

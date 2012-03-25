@@ -9,6 +9,7 @@
 - [Database Sessions](#database)
 - [Memcached Sessions](#memcached)
 - [Redis Sessions](#redis)
+- [In-Memory Sessions](#memory)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -17,13 +18,14 @@ The web is a stateless environment. This means that each request to your applica
 
 > **Note:** Before using sessions, make sure an application key has been specified in the **application/config/application.php** file.
 
-Five session drivers are available out of the box:
+Six session drivers are available out of the box:
 
 - Cookie
 - File System
 - Database
 - Memcached
 - Redis
+- Memory (Arrays)
 
 <a name="cookie"></a>
 ## Cookie Sessions
@@ -100,3 +102,8 @@ Before using Redis sessions, you must [configure your Redis servers](/docs/datab
 Just set the driver in the **application/config/session.php** file:
 
 	'driver' => 'redis'
+
+<a name="memory"></a>
+## In-Memory Sessions
+
+The "memory" session driver just uses a simple array to store your session data for the current request. This driver is perfect for unit testing your application since nothing is written to disk. It shouldn't ever be used as a "real" session driver.

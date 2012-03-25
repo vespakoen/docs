@@ -8,6 +8,7 @@
 - [Dropping Columns](#dropping-columns)
 - [Adding Indexes](#adding-indexes)
 - [Dropping Indexes](#dropping-indexes)
+- [Foreign Keys](#foreign-keys)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -113,11 +114,28 @@ Command  | Description
 <a name="dropping-indexes"></a>
 ## Dropping Indexes
 
-To drop indexes you must specify the index's name. Laravel assigns a reasonable name to all indexes. Simple concatenate the names of the columns in the index and append the type of the index. Let's take a look at some examples:
+To drop indexes you must specify the index's name. Laravel assigns a reasonable name to all indexes. Simply concatenate the table name and the names of the columns in the index, then append the type of the index. Let's take a look at some examples:
 
 Command  | Description
 ------------- | -------------
-`$table->drop_primary('id_primary');`  |  Dropping a primary key from the table
-`$table->drop_unique('email_unique');`  |  Dropping a unique index from the table
-`$table->drop_fulltext('description_fulltext');`  |  Dropping a full-text index from the table
-`$table->drop_index('state_index');`  |  Dropping a basic index from the table
+`$table->drop_primary('users_id_primary');`  |  Dropping a primary key from the "users" table
+`$table->drop_unique('users_email_unique');`  |  Dropping a unique index from the "users" table
+`$table->drop_fulltext('profile_description_fulltext');`  |  Dropping a full-text index from the "profile" table
+`$table->drop_index('geo_state_index');`  |  Dropping a basic index from the "geo" table
+
+<a name="foreign-keys"></a>
+## Foreign Keys
+
+You may easily add foreign key constraints to your table using Schema's fluent interface. For example, let's assume you have a **user_id** on a **posts** table, which references the **id** column of the **users** table. Here's how to add a foreign key constraint for the column:
+
+	$table->foreign('user_id')->references('id')->on('users');
+
+You may also specify options for the "on delete" and "on update" actions of the foreign key:
+
+	$table->foreign('user_id')->references('id')->on('users')->on_delete('restrict');
+
+	$table->foreign('user_id')->references('id')->on('users')->on_update('cascade');
+
+You may also easily drop a foreign key constraint. The default foreign key names follow the [same convention](#dropping-indexes) as the other indexes created by the Schema builder. Here's an example:
+
+	$table->drop_foreign('posts_user_id_foreign');

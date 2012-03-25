@@ -9,6 +9,7 @@
 - [Checkboxes and Radio Buttons](#checkboxes-and-radio-buttons)
 - [Drop-Down Lists](#drop-down-lists)
 - [Buttons](#buttons)
+- [Custom Macros](#custom-macros)
 
 > **Note:** All input data displayed in form elements is filtered through the HTML::entities method.
 
@@ -132,3 +133,21 @@ Laravel provides an easy method of protecting your application from cross-site r
 	echo Form::submit('Click Me!');
 
 > **Note:** Need to create a button element? Try the *button* method. It has the same signature as *submit*.
+
+<a name="custom-macros"></a>
+## Custom Macros
+
+It's easy to define your own custom Form class helpers called "macros". Here's how it works. First, simply register the macro with a given name and a Closure:
+
+#### Registering a Form macro:
+
+	Form::macro('my_field', function()
+	{
+		return '<input type="awesome">';
+	});
+
+Now you can call your macro using its name:
+
+#### Calling a custom Form macro:
+
+	echo Form::my_field();

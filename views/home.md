@@ -107,6 +107,24 @@ Often you will want to nest views within views. Nested views are sometimes calle
 
 	$view->nest('content', 'orders', array('orders' => $orders));
 
+Sometimes you may wish to directly include a view from within another view. You can use the **render** helper function:
+
+#### Using the "render" helper to display a view:
+
+	<div class="content">
+		<?php echo render('user.profile'); ?>
+	</div>
+
+It is also very common to have a partial view that is responsible for display an instance of data in a list. For example, you may create a partial view responsible for displaying the details about a single order. Then, for example, you may loop through an array of orders, rendering the partial view for each order. This is made simpler using the **render_each** helper:
+
+#### Rendering a partial view for each item in an array:
+
+	<div class="orders">
+		<?php echo render_each('partials.order', $orders, 'order');
+	</div>
+
+The first argument is the name of the partial view, the second is the array of data, and the third is the variable name that should be used when each array item is passed to the partial view.
+
 <a name="named-views"></a>
 ## Named Views
 
