@@ -42,7 +42,7 @@ For example, the < symbol should be converted to its entity representation. Conv
 
 *Further Reading:*
 
-- *[Managing Assets](/docs/assets)*
+- *[Managing Assets](/docs/views/assets)*
 
 <a name="links"></a>
 ## Links
