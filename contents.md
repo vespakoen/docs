@@ -94,6 +94,7 @@
 - [Configuration](/docs/database/config)
 - [Raw Queries](/docs/database/raw)
 - [Fluent Query Builder](/docs/database/fluent)
+- [Eloquent ORM](/docs/database/eloquent)
 - [Schema Builder](/docs/database/schema)
 - [Migrations](/docs/database/migrations)
 - [Redis](/docs/database/redis)
