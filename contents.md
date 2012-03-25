@@ -15,6 +15,7 @@
 	- [Nested Controllers](/docs/controllers#nested-controllers)
 	- [RESTful Controllers](/docs/controllers#restful-controllers)
 	- [Dependency Injection](/docs/controllers#dependency-injection)
+	- [Controller Factory](/docs/controllers#controller-factory)
 - [Routing](/docs/routing)
 	- [The Basics](/docs/routing#the-basics)
 	- [Wildcards](/docs/routing#wildcards)

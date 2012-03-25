@@ -25,6 +25,19 @@ For instance, perhaps you are writing a blog. You will likely want to have a "Po
 
 Libraries are classes that perform tasks that aren't specific to your application. For instance, consider a PDF generation library that converts HTML. That task, although complicated, is not specific to your application, so it is considered a "library". 
 
+Creating a library is as easy as creating a class and storing it in the libraries folder. In the following example, we will create a simple library with a method that echos the text that is passed to it. We create the **printer.php** file in the libraries folder with the following code.
+
+	<?php
+
+	class Printer {
+
+		public static function write($text) {
+			echo $text;
+		}
+	}
+
+You can now call Printer::write('this text is being echod from the write method!') from anywhere within your application.  
+
 <a name="auto-loading"></a>
 ## Auto Loading
 
