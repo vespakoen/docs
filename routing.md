@@ -6,6 +6,7 @@
 - [Wildcards](#wildcards)
 - [The 404 Events](#the-404-event)
 - [Filters](#filters)
+- [Pattern Filters](#pattern-filters)
 - [Global Filters](#global-filters)
 - [Route Groups](#route-groups)
 - [Named Routes](#named-routes)
@@ -149,10 +150,7 @@ Sometimes you may want to attach a filter to all requests that begin with a give
 
 #### Defining a URI pattern based filter:
 
-	Route::filter('pattern: admin/*', function()
-	{
-		return 'You must be an admin!';
-	})
+	Route::filter('pattern: admin/*', 'auth');
 
 <a name="global-filters"></a>
 ## Global Filters
