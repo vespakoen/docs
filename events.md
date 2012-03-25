@@ -10,12 +10,12 @@
 <a name="the-basics"></a>
 ## The Basics
 
-Events provide a great away to build de-coupled applications, and allow plug-ins to tap into the core of your application without modifying its code. Let's jump right in.
+Events can provide a great away to build de-coupled applications, and allow plug-ins to tap into the core of your application without modifying its code.
 
 <a name="firing-events"></a>
 ## Firing Events
 
-Firing an event couldn't be any easy, just tell the **Event** class the name of the event you want to fire:
+To fire an event, just tell the **Event** class the name of the event you want to fire:
 
 #### Firing an event:
 
@@ -34,7 +34,7 @@ Sometimes you may want to fire an event, but just get the first response. Here's
 <a name="listening-to-events"></a>
 ## Listening To Events
 
-So, what good are events if nobody is listening? It's simple to register event handlers. Let's take a look:
+So, what good are events if nobody is listening? Register an event handler that will be called when an event fires:
 
 #### Registering an event handler:
 
@@ -43,7 +43,7 @@ So, what good are events if nobody is listening? It's simple to register event h
 		// I'm executed on the "loaded" event!
 	});
 
-The Closure we provided to the method will be executed each time the "loaded" event is fired. Simple, huh?
+The Closure we provided to the method will be executed each time the "loaded" event is fired.
 
 <a name="laravel-events"></a>
 ## Laravel Events

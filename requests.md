@@ -24,7 +24,7 @@
 
 	echo URI::full();
 
-Sometimes you may need to determine if the current URI is a given string, or begins with a given string. It's simple:
+Sometimes you may need to determine if the current URI is a given string, or begins with a given string. Here's an example of how you can use the is() method to accomplish this:
 
 #### Determine if the URI is "home":
 

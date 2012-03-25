@@ -10,9 +10,9 @@
 <a name="the-basics"></a>
 ## The Basics
 
-Most interactive applications have the ability for users to login and logout. Obvious, right? Laravel provides a simple class to help you validate user credentials and retrieve information about the current user of your application.
+Most interactive applications have the ability for users to login and logout. Laravel provides a simple class to help you validate user credentials and retrieve information about the current user of your application.
 
-To get started, let's look over the **application/config/auth.php** file. The authentication configuration contains three functions: **user**, **attempt**, and **logout**. Don't worry, they are all dead simple. Let's go over each one individually.
+To get started, let's look over the **application/config/auth.php** file. The authentication configuration contains three functions: **user**, **attempt**, and **logout**. Let's go over each one individually.
 
 <a name="user"></a>
 ## The "User" Function
@@ -53,4 +53,4 @@ Like the previous example, the fluent query builder is used to retrieve the user
 <a name="logout"></a>
 ## The "Logout" Function
 
-As you may have guessed, the **logout** function is called whenever a user is logged out of your application. This function gives you a convenient location to interact with any third-party authentication providers you may be using.
+The **logout** function is called whenever a user is logged out of your application. This function gives you a convenient location to interact with any third-party authentication providers you may be using.

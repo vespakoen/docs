@@ -2,6 +2,7 @@
 
 ## Contents
 
+- [Application Configuration](#application-configuration)
 - [Sessions](#sessions)
 - [Migrations](#migrations)
 - [Bundles](#bundles)
@@ -10,6 +11,13 @@
 - [Routing](#routing)
 - [Application Keys](#keys)
 - [CLI Options](#cli-options)
+
+<a name="application-configuration"></a>
+## Application Configuration <small>[(More Information)](/docs/install#basic-configuration)</small>
+
+Description  | Command
+------------- | -------------
+Generate a secure application key. An application key will not be generated unless the field in **config/application.php** is empty. | `php artisan key:generate`
 
 <a name="sessions"></a>
 ## Database Sessions <small>[(More Information)](/docs/session/config#database)</small>

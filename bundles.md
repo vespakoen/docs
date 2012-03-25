@@ -16,12 +16,12 @@
 <a name="the-basics"></a>
 ## The Basics
 
-Bundles are the heart of Laravel 3.0. They are a simple way to group code into convenient "bundles". A bundle can have it's own views, configuration, routes, migrations, tasks, and more. A bundle could be everything from a database ORM to a robust authentication system. Let your imagination run wild with what you can do with bundles.
+Bundles are the heart of the improvements that were made in Laravel 3.0. They are a simple way to group code into convenient "bundles". A bundle can have it's own views, configuration, routes, migrations, tasks, and more. A bundle could be everything from a database ORM to a robust authentication system. Modularity of this scope is an important aspect that has driven virtually all design decisions within Laravel. In many ways you can actually think of the application folder as the special default bundle with which Laravel is pre-programmed to load and use.
 
 <a name="creating-and-registering"></a>
 ## Creating Bundles
 
-Creating a bundle is a walk in the park. Just create a folder for the bundle within your **bundles** directory. For this example, let's create an "admin" bundle, which  could house the administrator back-end to our application. Great, so we have our folder. Remember the **start.php** file **application** folder? You can have one of those for your bundle. It is run everytime the bundle is loaded. Let's create one:
+The first step in creating a bundle is to create a folder for the bundle within your **bundles** directory. For this example, let's create an "admin" bundle, which could house the administrator back-end to our application. The **application/start.php** file provides some basic configuration that helps to define how our application will run. Likewise we'll create a **start.php** file within our new bundle folder for the same purpose. It is run everytime the bundle is loaded. Let's create it:
 
 #### Creating a bundle start.php file:
 
@@ -31,20 +31,20 @@ Creating a bundle is a walk in the park. Just create a folder for the bundle wit
 		'Admin' => Bundle::path('admin').'models',
 	));
 
-Great! In this start file, we've told the auto-loader that classes that are namespaced to "Admin" should be loaded out of our bundle's models directory. You can do anything you want in your start file, but typically it is used for registering classes with the auto-loader. **In fact, you aren't required to create a start file for your bundle.**
+In this start file we've told the auto-loader that classes that are namespaced to "Admin" should be loaded out of our bundle's models directory. You can do anything you want in your start file, but typically it is used for registering classes with the auto-loader. **In fact, you aren't required to create a start file for your bundle.**
 
 Next, we'll look at how to register this bundle with our application!
 
 <a name="registering-bundles"></a>
 ## Registering Bundles
 
-OK, so we have our Admin bundle, but we need to register it with Laravel. Pop open your **application/bundles.php** file. This is where you register all bundles used by your application. Let's add ours:
+Now that we have our admin bundle, we need to register it with Laravel. Pull open your **application/bundles.php** file. This is where you register all bundles used by your application. Let's add ours:
 
 #### Registering a simple bundle:
 
 	return array('admin'),
 
-Great! By convention, Laravel will assume that the Admin bundle is located at the root level of the bundle directory, but we can specify another location if we wish:
+By convention, Laravel will assume that the Admin bundle is located at the root level of the bundle directory, but we can specify another location if we wish:
 
 #### Registering a bundle with a custom location:
 
@@ -88,7 +88,7 @@ You may have also noticed the **(:bundle)** place-holder. For convenience, this 
 <a name="starting-bundles"></a>
 ## Starting Bundles
 
-So our bundle is created and registered, but how can we start using it? First, we need to start it. It's simple:
+So our bundle is created and registered, but we can't use it yet. First, we need to start it:
 
 #### Starting a bundle:
 
@@ -110,7 +110,7 @@ If you use a bundle throughout your application, you may want it to start on eve
 
 You do not always need to explicitly start a bundle. In fact, you can usually code as if the bundle was auto-started and Laravel will take care of the rest. For example, if you attempt to use a bundle views, configurations, languages, routes or filters, the bundle will automatically be started!
 
-Each time a bundle is started, it fires an event. You can easily listen for the starting of bundles like so:
+Each time a bundle is started, it fires an event. You can listen for the starting of bundles like so:
 
 #### Listen for a bundle's start event:
 
@@ -204,7 +204,7 @@ When you upgrade a bundle, Laravel will automatically remove the old bundle and 
 
 > **Note:** After upgrading the bundle, you may need to [re-publish its assets](#bundle-assets).
 
-Since the bundle is totally removed on an upgrade, you must be aware of any changes you have made to the bundle code before upgrading. You may need to change some configuration options in a bundle. Instead of modifying the bundle code directly, use the bundle start events to set them. Place something like this in your **application/start.php** file.
+**Important:** Since the bundle is totally removed on an upgrade, you must be aware of any changes you have made to the bundle code before upgrading. You may need to change some configuration options in a bundle. Instead of modifying the bundle code directly, use the bundle start events to set them. Place something like this in your **application/start.php** file.
 
 #### Listening for a bundle's start event:
 

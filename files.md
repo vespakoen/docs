@@ -58,6 +58,7 @@
 The **is** method does not simply check the file extension. The Fileinfo PHP extension will be used to read the content of the file and determine the actual MIME type.
 
 > **Note:** You may pass any of the extensions defined in the **application/config/mimes.php** file to the **is** method.
+> **Note:** The Fileinfo PHP extension is required for this functionality. More information can be found on the [PHP Fileinfo page](http://php.net/manual/en/book.fileinfo.php).
 
 <a name="mime"></a>
 ## Getting MIME Types

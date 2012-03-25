@@ -6,7 +6,7 @@
 - [Configuring Other Databases](#server)
 - [Setting The Default Connection Name](#default)
 
-Database configuration in Laravel is easy. The hardest part is deciding which database to use. Several popular databases are supported out of the box:
+Laravel supports the following databases out of the box:
 
 - MySQL
 - PostgreSQL
@@ -34,7 +34,7 @@ If your application receives less than 100,000 hits per day, SQLite should be su
 <a name="server"></a>
 ## Configuring Other Databases
 
-If you are using MySQL, SQL Server, or PostgreSQL, you will need to edit the configuration options in **application/config/database.php**. Don't worry. In the configuration file, sample configurations exist for both systems. All you need to do is change the options as necessary for your server and set the default connection name.
+If you are using MySQL, SQL Server, or PostgreSQL, you will need to edit the configuration options in **application/config/database.php**. In the configuration file you can find sample configurations for each of these systems. Just change the options as necessary for your server and set the default connection name.
 
 <a name="default"></a>
 ## Setting The Default Connection Name

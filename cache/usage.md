@@ -34,7 +34,7 @@ What if you need a value from your database if a cache item doesn't exist? The s
 
 	$users = Cache::get('count', function() {return DB::table('users')->count();});
 
-Let's take this example a step further. Imagine you want to retrieve the number of registered users for your application; however, if the value is not cached, you want to store the default value in the cache. It's a breeze using the **remember** method:
+Let's take this example a step further. Imagine you want to retrieve the number of registered users for your application; however, if the value is not cached, you want to store the default value in the cache using the **remember** method:
 
 	$users = Cache::remember('count', function() {return DB::table('users')->count();}, 5);
 

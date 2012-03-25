@@ -11,9 +11,9 @@
 <a name="the-basics"></a>
 ## The Basics
 
-Imagine your application displays the ten most popular songs as voted on by your users. Do you really need to look up these ten songs every time someone visits your site? What if you could store them for 10 minutes, or even an hour, allowing you to dramatically speed up your application? Caching makes it simple.
+Imagine your application displays the ten most popular songs as voted on by your users. Do you really need to look up these ten songs every time someone visits your site? What if you could store them for 10 minutes, or even an hour, allowing you to dramatically speed up your application? Laravel's caching makes it simple.
 
-Laravel provides five wonderful cache drivers out of the box:
+Laravel provides five cache drivers out of the box:
 
 - File System
 - Database
@@ -21,7 +21,7 @@ Laravel provides five wonderful cache drivers out of the box:
 - APC
 - Redis
 
-By default, Laravel is configured to use the **file** system cache driver. It's ready to go. The file system driver stores cached items as files in the **cache** directory. If you're satisfied with this driver, no other configuration is required. You're ready to start using it.
+By default, Laravel is configured to use the **file** system cache driver. It's ready to go out of the box with no configuration. The file system driver stores cached items as files in the **cache** directory. If you're satisfied with this driver, no other configuration is required. You're ready to start using it.
 
 > **Note:** Before using the file system cache driver, make sure your **storage/cache** directory is writeable.
 
@@ -45,11 +45,11 @@ That's it. Once your configuration and table is setup, you're ready to start cac
 
 [Memcached](http://memcached.org) is an ultra-fast, open-source distributed memory object caching system used by sites such as Wikipedia and Facebook. Before using Laravel's Memcached driver, you will need to install and configure Memcached and the PHP Memcache extension on your server.
 
-Once Memcached is installed on your server, configuring the Laravel driver is a breeze. First, set the **driver** in the **application/config/cache.php** file:
+Once Memcached is installed on your server you must set the **driver** in the **application/config/cache.php** file:
 
 	'driver' => 'memcached'
 
-Next, add your Memcached servers to the **servers** array:
+Then, add your Memcached servers to the **servers** array:
 
 	'servers' => array(
 	     array('host' => '127.0.0.1', 'port' => 11211, 'weight' => 100),
@@ -60,7 +60,7 @@ Next, add your Memcached servers to the **servers** array:
 
 [Redis](http://redis.io) is an open source, advanced key-value store. It is often referred to as a data structure server since keys can contain [strings](http://redis.io/topics/data-types#strings), [hashes](http://redis.io/topics/data-types#hashes), [lists](http://redis.io/topics/data-types#lists), [sets](http://redis.io/topics/data-types#sets), and [sorted sets](http://redis.io/topics/data-types#sorted-sets).
 
-Before using the Redis cache driver, you must [configure your Redis servers](/docs/database/redis#config). All done? Now you can just set the **driver** in the **application/config/cache.php** file:
+Before using the Redis cache driver, you must [configure your Redis servers](/docs/database/redis#config). Now you can just set the **driver** in the **application/config/cache.php** file:
 
 	'driver' => 'redis'
 
