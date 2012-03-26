@@ -179,6 +179,10 @@ It's important to note that both routes and controllers require responses to be 
 
 	return Redirect::home();
 
+#### Redirecting back to the previous action:
+
+	return Redirect::back();
+
 #### Redirecting to a named route:
 
 	return Redirect::to_route('profile');
