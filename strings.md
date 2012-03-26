@@ -44,17 +44,7 @@ The **Str** class also provides three convenient methods for manipulating string
 <a name="singular-and-plural"></a>
 ## Singular & Plural
 
-The String class is capable of transforming your strings from singular to plural, and vice versa. First, simply specify the strings you need to convert in the **application/config/strings.php** file:
-
-#### Adding a string to the inflection configuration:
-
-	'inflection' => array(
-
-		'user'    => 'users',
-		'person'  => 'people',
-		'comment' => 'comments',
-
-	),
+The String class is capable of transforming your strings from singular to plural, and vice versa.
 
 #### Getting the plural form of a word:
 

@@ -310,11 +310,11 @@ As your probably know, many-to-many relationships require the presence of an int
 
 	$user = User::find(1);
 
-	$pivot = $user->pivot();
+	$pivot = $user->roles()->pivot();
 
 Once we have an instance of the pivot table, we can use it just like any other Eloquent model:
 
-	foreach ($user->pivot()->get() as $row)
+	foreach ($user->roles()->pivot()->get() as $row)
 	{
 		//
 	}
