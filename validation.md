@@ -51,6 +51,7 @@ Now you are familiar with the basic usage of the Validator class. You're ready t
 - [Same & Different](#same-and-different)
 - [Regular Expression Match](#regex-match)
 - [Uniqueness & Existence](#rule-unique)
+- [Dates](#dates)
 - [E-Mail Addresses](#rule-email)
 - [URLs](#rule-url)
 - [Uploads](#rule-uploads)
@@ -186,6 +187,19 @@ Many times, when updating a record, you want to use the unique rule, but exclude
 #### Specify a custom column name for the exists rule:
 
 	'state' => 'exists:states,abbreviation'
+
+<a name="dates"></a>
+### Dates
+
+#### Validate that a date attribute is before a given date:
+
+	'birthdate' => 'before:1986-28-05';
+
+#### Validate that a date attribute is after a given date:
+
+	'birthdate' => 'after:1986-28-05';
+
+> **Note:** The **before** and **after** validation rules use the **strtotime** PHP function to convert your date to something the rule can understand.
 
 <a name="rule-email"></a>
 ### E-Mail Addresses
