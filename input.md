@@ -48,7 +48,7 @@ By default, *null* will be returned if the input item does not exist. However, y
 
 #### Retrieving all items from the $_FILES array:
 
-	$files = Input::files();
+	$files = Input::file();
 
 #### Retrieving an item from the $_FILES array:
 
