@@ -187,7 +187,7 @@ Constantly generating URLs or redirects using a route's URI can cause problems w
 	Route::get('/', array('as' => 'home', function()
 	{
 		return "Hello World";
-	});
+	}));
 
 #### Generating a URL to a named route:
 
