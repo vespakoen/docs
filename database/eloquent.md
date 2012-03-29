@@ -406,7 +406,7 @@ Setters allow you to handle attribute assignment with custom methods.  Define a 
 
 	public function set_password($password)
 	{
-		$this->hashed_password = Hash::make($password);
+		$this->set_attribute('hashed_password', Hash::make($password));
 	}
 
 Call a setter method as a variable (without parenthesis) using the name of the method without the "set_" prefix.
@@ -417,7 +417,7 @@ Getters are very similar. They can be used to modify attributes before they're r
 
 	public function get_published_date()
 	{
-		return date('M j, Y', $this->published_at);
+		return date('M j, Y', $this->get_attribute('published_at'));
 	}
 
 Call the getter method as a variable (without parenthesis) using the name of the method without the "get_" prefix.
