@@ -78,7 +78,7 @@ Running the bundle tests  |  `php artisan test bundle-name`
 
 Description  | Command
 ------------- | -------------
-Calling a route  |  `php artisan route get api/user/1`
+Calling a route  |  `php artisan route:call get api/user/1`
 
 <br>
 > **Note:** You can replace get with post, put, delete, etc.
