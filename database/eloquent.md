@@ -252,7 +252,7 @@ Now you're ready to define the relationship on your models using the **has\_and\
 
 	     public function roles()
 	     {
-	          return $this->has_and_belongs_to_many('Role');
+	          return $this->has_many_and_belongs_to('Role');
 	     }
 
 	}
@@ -271,7 +271,7 @@ As you may have noticed, the default name of the intermediate table is the singu
 
 	     public function roles()
 	     {
-	          return $this->has_and_belongs_to_many('Role', 'user_roles');
+	          return $this->has_many_and_belongs_to('Role', 'user_roles');
 	     }
 
 	}
