@@ -189,4 +189,4 @@ If you want even more control over the instantiation of your controllers, such a
 		return new $controller;
 	});
 
-The event will receive the class name of the controller that needs to be resolved. All you need to do is return an instance of the that controller.
+The event will receive the class name of the controller that needs to be resolved. All you need to do is return an instance of the controller.
