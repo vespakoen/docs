@@ -1,6 +1,5 @@
 ### General
 - [Laravel Overview](/docs/home)
-- [Application Structure](/docs/structure)
 - [Installation & Setup](/docs/install)
 	- [Requirements](/docs/install#requirements)
 	- [Installation](/docs/install#installation)
