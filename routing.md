@@ -314,4 +314,4 @@ You may test your routes using Laravel's "Artisan" CLI. Simple specify the reque
 
 #### Calling a route via the Artisan CLI:
 
-	php artisan route get api/user/1
+	php artisan route:call get api/user/1

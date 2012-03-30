@@ -15,9 +15,9 @@
 <a name="the-basics"></a>
 ## The Basics
 
-Unlike many other frameworks, Laravel makes it possible to manage application logic in two different ways. The most common method of organizing application logic amongst PHP frameworks is the controller. A controller is responsible for handling incoming requests to your application. Typically, they will ask a model for data, and then return a view that presents that data to the user.
+Controllers are classes that are responsible for accepting user input and managing interactions between models, libraries, and views. Typically, they will ask a model for data, and then return a view that presents that data to the user.
 
-It's also possible to embed your application logic directly into routes. All functionality types can be implemented with either methodology so, it's up to you to determine which solution is best for your team and your project. We'll go over [routes in detail](/docs/routing) in another document.
+The usage of controllers is the most common method of implementingapplication logic in modern web-development. However, Laravel also empowers developers to implement their application logic within routing declarations. This is explored in detail in the [routing document](/docs/routing). New users are encourage to start with controllers. There is nothing that route-based application logic can do that controllers can't. 
 
 Controller classes should be stored in **application/controllers** and should extend the Base\_Controller class. A Home\_Controller class is included with Laravel.
 
@@ -33,14 +33,16 @@ Controller classes should be stored in **application/controllers** and should ex
 
 	}
 
-Methods that you want to be web-accessible should be prefixed with "action\_". All other methods, regardless of scope, will not be web-accessible.
+**Actions** are the name of controller methods that are intended to be web-accessible.  Actions should be prefixed with "action\_". All other methods, regardless of scope, will not be web-accessible.
 
-The Base\_Controller class extends the main Laravel Controller class, and gives you a convenient place to put methods that are common to many controllers.
+> **Note:** The Base\_Controller class extends the main Laravel Controller class, and gives you a convenient place to put methods that are common to many controllers.
 
 <a name="controller-routing"></a>
 ## Controller Routing
 
-It is important to be aware that all routes in Laravel must be explicitly defined, including routes to controllers. This means that controller methods that have not been exposed through route registration **cannot** be accessed. It's possible to automatically expose all methods within a controller using controller route registration. Controller route registrations are typically defined in **application/routes.php**.
+It is important to be aware that all routes in Laravel must be explicitly defined, including routes to controllers. 
+
+This means that controller methods that have not been exposed through route registration **cannot** be accessed. It's possible to automatically expose all methods within a controller using controller route registration. Controller route registrations are typically defined in **application/routes.php**.
 
 Check [the routing page](/docs/routing#controller-routing) for more information on routing to controllers.
 
@@ -71,28 +73,38 @@ But, how do you register a bundle controller with the router? It's simple. Here'
 
 Great! Now we can access our "admin" bundle's home controller from the web!
 
+> **Note:** Throughout Laravel the double-colon syntax is used to denote bundles.  More information on bundles can be found in the [bundle documentation](/docs/bundles).
+
 <a name="action-filters"></a>
 ## Action Filters
 
-You may assign "before" and "after" filters to controller actions within the controller's constructor.
+Action filters are methods that can be run before or after a controller action.  With Laravel you don't only have control over which filters are assigned to which actions.  But, you can also choose which http verbs (post, get, put, and delete) will activate a filter.  
+
+You can assign "before" and "after" filters to controller actions within the controller's constructor.
 
 #### Attaching a filter to all actions:
 
 	$this->filter('before', 'auth');
 
+In this example the 'auth' filter will be run before every action within this controller.  The auth action comes out-of-the-box with Laravel and can be found in **application/routes.php**.  The auth filter verifies that a user is logged in and redirects them to 'login' if they are not.
+
 #### Attaching a filter to only some actions:
 
 	$this->filter('before', 'auth')->only(array('index', 'list'));
+
+In this example the auth filter will be run before the action_index() or action_list() methods are run.  Users must be logged in before having access to these pages.  However, no other actions within this controller require an authenticated session.
 
 #### Attaching a filter to all except a few actions:
 
 	$this->filter('before', 'auth')->except(array('add', 'posts'));
 
-You may also limit a filter to run only on certain HTTP request methods:
+Much like the previous example, this declaration ensures that the auth filter is run on only some of this controller's actions.  Instead of declaring to which actions the filter applies we are instead declaring the actions that will not require authenticated sessions.  It can sometimes be safer to use the 'except' method as it's possible to add new actions to this controller and to forget to add them to only().  This could potentially lead your controller's action being unintentionally accessible by users who haven't been authenticated.
 
 #### Attaching a filter to run on POST:
 
 	$this->filter('before', 'csrf')->on('post');
+
+This example shows how a filter can be run only on a specific http verb.  In this case we're running the csrf filter only when a form post is made.  The csrf filter is designed to prevent form posts from other systems (spam bots for example) and comes by default with Laravel.  You can find the csrf filter in **application/routes.php**.
 
 *Further Reading:*
 
@@ -128,7 +140,7 @@ Define the controller class and store it in **controllers/admin/panel.php**.
 <a name="controller-layouts"></a>
 ## Controller Layouts
 
-Full documentation on using Controllers with Layouts [can be found on the Templating page](http://laravel.com/docs/views/templating).
+Full documentation on using layouts with Controllers [can be found on the Templating page](http://laravel.com/docs/views/templating).
 
 <a name="restful-controllers"></a>
 ## RESTful Controllers
@@ -163,6 +175,8 @@ Instead of prefixing controller actions with "action_", you may prefix them with
 
 	}
 
+This is particularly useful when building CRUD methods as you can separate the logic which populates and renders a form from the logic that validates and stores the results.
+
 <a name="dependency-injection"></a>
 ## Dependency Injection
 
@@ -189,4 +203,4 @@ If you want even more control over the instantiation of your controllers, such a
 		return new $controller;
 	});
 
-The event will receive the class name of the controller that needs to be resolved. All you need to do is return an instance of the that controller.
+The event will receive the class name of the controller that needs to be resolved. All you need to do is return an instance of the controller.
