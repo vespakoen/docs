@@ -141,7 +141,7 @@ Unless you're doing it wrong, your database tables are probably related to one a
 - [One-To-Many](#one-to-many)
 - [Many-To-Many](#many-to-many)
 
-To define a relationship on an Eloquent model, you simply create a method that returns the result of either the **has\_one**, **has\_many**, **belongs\_to**, or **has\_and\_belongs\_to\_many** method. Let's examine each one in detail.
+To define a relationship on an Eloquent model, you simply create a method that returns the result of either the **has\_one**, **has\_many**, **belongs\_to**, or **has\_many\_and\_belongs\_to** method. Let's examine each one in detail.
 
 <a name="one-to-one"></a>
 ### One-To-One
@@ -246,7 +246,7 @@ Many-to-many relationships are the most complicated of the three relationships. 
 	user_id - INTEGER
 	role_id - INTEGER
 
-Now you're ready to define the relationship on your models using the **has\_and\_belongs\_to\_many** method:
+Now you're ready to define the relationship on your models using the **has\_many\_and\_belongs\_to** method:
 
 	class User extends Eloquent {
 
