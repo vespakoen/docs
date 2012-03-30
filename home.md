@@ -5,7 +5,7 @@
 - [What Makes Laravel Different?](#laravel-is-different)
 - [Application Structure](#application-structure)
 - [Laravel's Community](#laravel-community)
-- [Laravel's License](#laravel-license)
+- [License Information](#laravel-license)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -38,7 +38,7 @@ There are many ways in which Laravel differentiates itself from other frameworks
 These are just a few ways in which Laravel differentiates itself from other PHP frameworks.  All of these features and many more are discussed thoroughly in this documentation.
 
 <a name="application-structure"></a>
-## Laravel's Application Structure
+## Application Structure
 
 Laravel's directory structure is designed to be familiar to users of other popular PHP frameworks. Web applications of any shape or size can easily be created using this structure similarly to the way that they would be created in other frameworks.
 
@@ -54,6 +54,6 @@ Laravel is lucky to be supported by rapidly growing, friendly and enthusiastic c
 Many of us hang out every day in the #laravel IRC channel on FreeNode. [Here's a forum post explaining how you can join us.](http://forums.laravel.com/viewtopic.php?id=671) Hanging out in the IRC channel is a really great way to learn more about web-development using Laravel. You're welcome to ask questions, answer other people's questions, or just hang out and learn from other people's questions being answered. We love Laravel and would love to talk to you about it, so don't be a stranger!
 
 <a name="laravel-license"></a>
-## Laravel's License
+## License Information
 
 Laravel is open-sourced software licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
