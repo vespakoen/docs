@@ -3,6 +3,7 @@
 - [The Basics](#the-basics)
 - [Who Will Enjoy Laravel?](#who-will-enjoy-laravel)
 - [What Makes Laravel Different?](#laravel-is-different)
+- [Application Structure](#application-structure)
 - [Laravel's Community](#laravel-community)
 - [Laravel's License](#laravel-license)
 
@@ -16,12 +17,14 @@ Welcome to the Laravel documentation. These documents were designed to function 
 
 Laravel is a powerful framework that emphasizes flexibility and expressiveness. Users new to Laravel will enjoy the same ease of development that is found in the most popular and lightweight PHP frameworks. More experienced users will appreciate the opportunity to modularize their code in ways that are not possible with other frameworks. Laravel's flexibility will allow your organization to update and mold the application over time as is needed and its expressiveness will allow you and your team to develop code that is both concise and easily read.
 
+
 <a name="laravel-is-different"></a>
 ## What Makes Laravel Different?
 
 There are many ways in which Laravel differentiates itself from other frameworks. Here are a few examples that we think make good bullet points:
 
 - **Bundles** are Laravel's modular packaging system. [The Laravel Bundle Repository](http://bundles.laravel.com/) is already populated with quite a few features that can be easily added to your application. You can either download a bundle repository to your bundles directory or use the "Artisan" command-line tool to automatically install them.
+- **The Eloquent ORM** is the most advanced PHP ActiveRecord implementation available.  With the capacity to easily apply constraints to both relationships and nested eager-loading you'll have complete control over your data with all of the conveniences of ActiveRecord.  Eloquent natively supports all of the methods from Laravel's Fluent query-builder.
 - **Application Logic** can be implemented within your application either using controllers (which many web-developers are already familiar with) or directly into route declarations using syntax similar to the Sinatra framework. Laravel is designed with the philosophy of giving a developer the flexibility that they need to create everything from very small sites to massive enterprise applications.
 - **Reverse Routing** allows you to create links to named routes. When creating links just use the route's name and Laravel will automatically insert the correct URI.  This allows you to change your routes at a later time and Laravel will update all of the relevant links site-wide.
 - **Restful Controllers** are an optional way to separate your GET and POST request logic. In a login example your controller's get_login() action would serve up the form and your controller's post_login() action would accept the posted form, validate, and either redirect to the login form with an error message or redirect your user to their dashboard.
@@ -33,6 +36,15 @@ There are many ways in which Laravel differentiates itself from other frameworks
 - **Automatic Pagination** prevents your application logic from being cluttered up with a bunch of pagination configuration. Instead of pulling in the current page, getting a count of db records, and selected your data using a limit/offset just call 'paginate' and tell Laravel where to output the paging links in your view. Laravel automatically does the rest. Laravel's pagination system was designed to be easy to implement and easy to change. It's also important to note that just because Laravel can handle these things automatically doesn't mean that you can't call and configure these systems manually if you prefer.
 
 These are just a few ways in which Laravel differentiates itself from other PHP frameworks.  All of these features and many more are discussed thoroughly in this documentation.
+
+<a name="application-structure"></a>
+## Laravel's Application Structure
+
+Laravel's directory structure is designed to be familiar to users of other popular PHP frameworks. Web applications of any shape or size can easily be created using this structure similarly to the way that they would be created in other frameworks.
+
+However due to Laravel's unique architecture, it is possible for developers to create their own infrastructure that is specifically designed for their application. This may be most beneficial to large projects such as content-management-systems. This kind of architectural flexibility is unique to Laravel.
+
+Throughout the documentation we'll specify the default locations for declarations where appropriate.
 
 <a name="laravel-community"></a>
 ## Laravel's Community
