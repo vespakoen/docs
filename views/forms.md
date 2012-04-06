@@ -125,6 +125,20 @@ Laravel provides an easy method of protecting your application from cross-site r
 
 	echo Form::select('size', array('L' => 'Large', 'S' => 'Small'), 'S');
 
+#### Generating drop-down list options from the database
+
+In this example we need to create a drop-down list that allows an administrator to choose a user account. To do so we use the lists() method.
+
+	$user_options = User::where('type', '=', 'standard')->lists('real_name', 'id')
+
+This will create an array called $user_options which will have the user record's 'id' field as the key and the user record's 'real_name' field as the value. This is ideal for drop-down lists.
+
+	echo Form::select('user_id', User::where('type', '=', 'standard')->lists('real_name', 'id'), Input::old('user_id'));
+
+A fun trick to add a default empty list item:
+
+	$user_options = array('') + User::where('type', '=', 'standard')->lists('real_name', 'id');
+
 <a name="buttons"></a>
 ## Buttons
 
