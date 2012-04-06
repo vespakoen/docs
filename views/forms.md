@@ -129,7 +129,7 @@ Laravel provides an easy method of protecting your application from cross-site r
 
 In this example we need to create a drop-down list that allows an administrator to choose a user account. To do so we use the lists() method.
 
-	$user_options = User::where('type', '=', 'standard')->lists('real_name', 'id')
+	$user_options = User::where('type', '=', 'standard')->lists('real_name', 'id');
 
 This will create an array called $user_options which will have the user record's 'id' field as the key and the user record's 'real_name' field as the value. This is ideal for drop-down lists.
 
