@@ -48,7 +48,7 @@ Libraries and Models are very easy to use thanks to the Laravel auto-loader. To 
 
 We've all head the mantra: "controllers should be thin!" But, how do we apply that in real life? It's possible that part of the problem is the word "model". What does it even mean? Is it even a useful term? Many associate "model" with "database", which leads to having very bloated controllers, with light models that access the database. Let's explore some alternatives.
 
-What if we just totally scrapped the "models" directory? Let's name it something more useful. In fact, let's just give it the same as our application. Perhaps are our satellite tracking site is named "Trackler", so let's create a "trackler" directory within the application folder.
+What if we just totally scrapped the "models" directory? Let's name it something more useful. In fact, let's just give it the same as our application. Perhaps our satellite tracking site is named "Trackler", so let's create a "trackler" directory within the application folder.
 
 Great! Next, let's break our classes into "entities", "services", and "repositories". So, we'll create each of those three directories within our  "trackler" folder. Let's explore each one:
 
