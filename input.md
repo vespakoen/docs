@@ -54,6 +54,10 @@ By default, *null* will be returned if the input item does not exist. However, y
 
 	$picture = Input::file('picture');
 
+#### Determining if a file exists in the $_FILES array:
+
+	if (Input::has_file('picture')) ...
+
 #### Retrieving a specific item from a $_FILES array:
 
 	$size = Input::file('picture.size');
